@@ -1,0 +1,83 @@
+html {
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+.breadcrumbs {
+  width: 800px;
+  margin: auto;
+}
+
+ul.breadcrumb {
+  list-style: none;
+}
+
+ul.breadcrumb li {
+  display: inline;
+}
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: ">";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+
+  padding: 2px;
+  width: fit-content;
+
+  border-radius: 5px;
+  background-color: var(--minima-border-color-01);
+}
+
+article:not(:last-child),
+section:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+article:not([class^="post"]) {
+  border: 1px solid;
+  border-color: var(--minima-border-color-01);
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+}
+article:not([class^="post"]) .text {
+  max-width: 80ch;
+}
+section {
+  border: 1px solid;
+  border-color: var(--minima-border-color-02);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+pre {
+  background-color: black;
+  border-radius: 5px;
+}
+code.language-Shell {
+  background-color: black;
+  color: lightgreen;
+  font-family: monospace;
+}
+
+input[type="checkbox"]:checked {
+  /*outline: 2px solid red;*/
+  accent-color: #535152;
+}
+
+.task-list-item-checkbox::before {
+  /*outline: 2px solid black;*/
+  accent-color: #535152;
+}
+.task-list-item-checkbox {
+  accent-color: #535152;
+}
+.task-list-item-checkbox:checked {
+  accent-color: #535152;
+}

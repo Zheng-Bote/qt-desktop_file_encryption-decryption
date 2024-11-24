@@ -1,0 +1,31 @@
+title: repo-template
+author:
+  name: ZHENG Robert
+  #email: no.spam@hotmail.dev
+description: Template for new Github repositories (GH-Pages)
+
+remote_theme: jekyll/minima
+#theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  skin: auto
+  social_links: 
+    - { platform: github,         user_url: "https://github.com/Zheng-Bote" }
+    - { platform: linkedin,       user_url: "https://www.linkedin.com/in/robert-zheng-67899965/" }
+  date_format: "%Y-%m-%d %H:%M"
+
+
+author:
+  name: ZHENG Robert
+  #email: no.spam@hotmail.dev
+
+page_created: 2024-10-04
+page_url: https://zheng-bote.github.io/repo-template/
+page_desc: template for GH-Pages
+
+header_pages:
+  - about.md
+  - links.md
