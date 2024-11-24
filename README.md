@@ -24,23 +24,13 @@
       - [README](#readme)
       - [other Markdown files](#other-markdown-files)
 - [Installation](#installation)
-  - [Dependencies](#dependencies)
+  - [Windows](#windows)
   - [folder structure](#folder-structure)
-  - [Usage/Examples/Tests](#usageexamplestests)
-- [API Reference](#api-reference)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
-  - [Parameters](#parameters)
 - [Documentation](#documentation-1)
   - [Architecture](#architecture)
     - [Github](#github)
       - [Github Repo](#github-repo)
       - [Github Actions / Workflows](#github-actions--workflows)
-  - [Application](#application)
-  - [DevOps](#devops)
-  - [Github Page](#github-page)
-  - [Github Wiki](#github-wiki)
-  - [Comments](#comments)
   - [Screenshots](#screenshots)
 - [Authors and License](#authors-and-license)
   - [License](#license)
@@ -56,7 +46,7 @@
 ![QT](https://img.shields.io/badge/Community-6-41CD52?logo=qt)
 ![CXX](https://img.shields.io/badge/C++-23-blue?logo=cplusplus)
 
-Qt6 C++23 Destop application to encrypt and decrypt the given file.
+Qt6 C++23 Desktop application to encrypt and decrypt the given file.
 
 See folder `docs/img` for screenshoots.
 
@@ -74,7 +64,7 @@ See folder `docs/img` for screenshoots.
 
 - \[x] some more or less usefull Github Actions for GH-repo, GH-pages, GH-wiki, CI/CD-Pipelines
 - \[ ] Packagemanager
-- \[ ] Installation routine
+- \[x] Installation routine (no Adminstrator rights needed)
 - \[ ] portable application 
 
 <br>
@@ -102,7 +92,7 @@ See folder `docs/img` for screenshoots.
 
 ### Documentation
 
-_see also:_ [Application Documentation](#documentation) 
+_still under construction_
 
 #### README
 [![Repo - create Repo-Tree in README.md](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml)
@@ -125,11 +115,9 @@ create ToC in Markdown files in folders
 
 # Installation
 
-bla bla ... everything easy and green with No Code/Low code and without any costs
+## Windows
 
-## Dependencies
-
-bla bla ... with a little help from my friends
+execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 
 ## folder structure
 
@@ -169,49 +157,9 @@ bla bla ... with a little help from my friends
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Usage/Examples/Tests
-
-bla bla ... usage is intuitive and runs mostly automatically with no needs of any knowledge
-
-```HTML
-<mark> under construction </mark>
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-# API Reference
-
-<hr>
-
-![GHA](https://img.shields.io/badge/Github-Action-black?logo=githubactions)
-
-_Inputs/Outputs will be filled automatically by `.github/workflows/repo-actions_docu.yml`_
-
-## Inputs
-
-## Outputs
-
-<hr>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Parameters
-
-**Workflow or program**
-
-| Parameter    | Type     | Description                          |
-| :----------- | :------- | :----------------------------------- |
-| `name`       | `string` | _Optional_ name-of-copyright-holder  |
-| `created`    | `string` | _Optional_ <YYYY>                    |
-| `version`    | `string` | _Optional_ \<v0.0.0>                 |
-| `link_left`  | `string` | _Optional_ link-to-contact-page      |
-| `link_right` | `string` | _Optional_ link-to-legal-notice-page |
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 # Documentation
 
-see also: <https://linktodocumentation>
+_still under construction_
 
 ## Architecture
 
@@ -262,63 +210,13 @@ flowchart TD;
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Application
-
-```mermaid
-architecture-beta
-    group api(cloud)[API]
-
-    service db(database)[Database] in api
-    service server0(server)[Webserver] in api
-    service disk2(disk)[Storage] in api
-    service server(server)[Appserver] in api
-
-    db:L -- R:server
-    server0:T -- B:server
-    disk2:T -- B:server
-```
-
-## DevOps
-
-```mermaid
-pie title me
-         "ideas" : 90
-         "time for realizations" : 7
-         "money for realizations" : 3
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Github Page
-
-[![GH-Page](https://img.shields.io/badge/Github-Pages-black?logo=github)](https://www.github.com/Zheng-Bote)
-
-## Github Wiki
-
-[![GH-Wiki](https://img.shields.io/badge/Github-Wiki-black?logo=github)](https://www.github.com/Zheng-Bote)
-
-## Comments
-
-> \[!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> \[!TIP]
-> Helpful advice for doing things better or more easily.
-
-> \[!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> \[!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> \[!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
