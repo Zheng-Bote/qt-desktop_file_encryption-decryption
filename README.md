@@ -1,12 +1,12 @@
 <div id="top" align="center">
-<h1>GH Repo Template</h1>
+<h1>qt_file_encryption_decryption</h1>
 
-<p>Template for new Github repos</p>
+<p>File encryption and decryption</p>
 
-[Report Issue](https://github.com/Zheng-Bote/repo-template/issues) [Request Feature](https://github.com/Zheng-Bote/repo-template/pulls)
+[Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/repo-template)
+![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
 
 </div>
 
@@ -44,8 +44,6 @@
   - [Screenshots](#screenshots)
 - [Authors and License](#authors-and-license)
   - [License](#license)
-    - [MIT License](#mit-license)
-    - [Apache License](#apache-license)
   - [Authors](#authors)
     - [Code Contributors](#code-contributors)
 
@@ -56,17 +54,11 @@
 # Description
 
 ![QT](https://img.shields.io/badge/Community-6-41CD52?logo=qt)
-![CXX](https://img.shields.io/badge/C++-20-blue?logo=cplusplus)
-![Rust](https://img.shields.io/badge/Rust-Rocket-lightgrey?logo=rust)
-![Expressif](https://img.shields.io/badge/ESP-32-E7352C?logo=espressif)
-![GHA](https://img.shields.io/badge/Github-Action-black?logo=githubactions)
-![Node](https://img.shields.io/badge/Node-20-blue?logo=tsnode)
-![Angular](https://img.shields.io/badge/Angular-18+-red?logo=angular)
-![Vue](https://img.shields.io/badge/Vue-3+-4FC08D?logo=vuedotjs)
-![HTML5](https://img.shields.io/badge/HTML-5+-E34F26?logo=html5)
-![Typescript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript)
+![CXX](https://img.shields.io/badge/C++-23-blue?logo=cplusplus)
 
-Repo template with README-template and some Github workflows and Github actions.
+Qt6 C++23 Destop application to encrypt and decrypt the given file.
+
+See folder `docs/img` for screenshoots.
 
 ### Features
 
@@ -87,9 +79,9 @@ Repo template with README-template and some Github workflows and Github actions.
 
 <br>
 
-- \[ ] runs on DOS/Windows
-- \[ ] runs on MacOS
-- \[ ] runs on Linux
+- \[x] runs on DOS/Windows
+- \[x] runs on MacOS
+- \[x] runs on Linux
 - \[ ] runs on iOS
 - \[ ] runs on Android
 - \[ ] runs on HarmonyOS
@@ -103,24 +95,24 @@ Repo template with README-template and some Github workflows and Github actions.
 
 ![Status](https://img.shields.io/badge/Status-under_construction-red)
 ![Status](https://img.shields.io/badge/Status-works-green)
-![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/repo-template)
+![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
 
-![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/repo-template)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/repo-template)
+![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt_file_encryption_decryption)
 
 ### Documentation
 
 _see also:_ [Application Documentation](#documentation) 
 
 #### README
-[![Repo - create Repo-Tree in README.md](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-create_tree_readme.yml/badge.svg)](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-create_tree_readme.yml)
-[![Repo - add Actions In/Out to README](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-actions_docu.yml/badge.svg)](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-actions_docu.yml)
+[![Repo - create Repo-Tree in README.md](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml)
+[![Repo - add Actions In/Out to README](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml)
 
-[![Repo - update Readme](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-call_Readme.yml/badge.svg)](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-call_Readme.yml)
+[![Repo - update Readme](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-call_Readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-call_Readme.yml)
 
 #### other Markdown files
 
-[![Repo - create TOC of Markdown files](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-create_doctoc_md.yml/badge.svg)](https://github.com/Zheng-Bote/repo-template/actions/workflows/repo-create_doctoc_md.yml)
+[![Repo - create TOC of Markdown files](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_doctoc_md.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_doctoc_md.yml)
 
 create ToC in Markdown files in folders
 
@@ -334,12 +326,6 @@ pie title me
 
 ## License
 
-**This Repo-Template is using the MIT-License**
-
-**_other licenses see files `LICENSE_<name>`\_**
-
-### MIT License
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 Copyright (c) 2024 ZHENG Robert
@@ -362,31 +348,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-        https://choosealicense.com/licenses/mit/
-
-### Apache License
-
-[![Apache License](https://img.shields.io/badge/License-Apache_v2.0-green.svg)](<[https://choosealicense.com/licenses/mit/](http://www.apache.org/licenses/LICENSE-2.0)>)
-
-Copyright (c) 2019 ZHENG Robert
-
-Licensed under the **Apache License, Version 2.0** (the "License"); you may not use this file except in compliance with the License.
-
-You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
-See the License for the specific language governing permissions and limitations under the License.
-
 ## Authors
 
 - [![Zheng Robert](https://img.shields.io/badge/Github-Zheng_Robert-black?logo=github)](https://www.github.com/Zheng-Bote)
 
 ### Code Contributors
 
-![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/repo-template?color=dark-green)
+![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/qt_file_encryption_decryption?color=dark-green)
 
 [![Zheng Robert](https://img.shields.io/badge/Github-Zheng_Robert-black?logo=github)](https://www.github.com/Zheng-Bote)
 
