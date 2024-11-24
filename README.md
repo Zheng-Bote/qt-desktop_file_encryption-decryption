@@ -48,33 +48,33 @@
 
 Qt6 C++23 Desktop application to encrypt and decrypt the given file.
 
-See folder `docs/img` for screenshoots.
+See folder `docs/img` for screenshots.
 
 ### Features
 
-- \[ ] advanced-super-extra-special feature xyz
+- [x] Desktop application supports German and English language
 
   <br>
   
-- \[x] OSS and license
-- \[x] works as designed
-- \[ ] no bugs
+- [x] OSS and license
+- [x] works as designed
+- [ ] no bugs
 
 <br>
 
-- \[x] some more or less usefull Github Actions for GH-repo, GH-pages, GH-wiki, CI/CD-Pipelines
-- \[ ] Packagemanager
-- \[x] Installation routine (no Adminstrator rights needed)
-- \[ ] portable application 
+- [x] some more or less usefull Github Actions for GH-repo, GH-pages, GH-wiki, CI/CD-Pipelines
+- [ ] Packagemanager
+- [x] Installation routine (no Adminstrator rights needed)
+- [ ] portable application 
 
 <br>
 
-- \[x] runs on DOS/Windows
-- \[x] runs on MacOS
-- \[x] runs on Linux
-- \[ ] runs on iOS
-- \[ ] runs on Android
-- \[ ] runs on HarmonyOS
+- [x] runs on DOS/Windows
+- [x] runs on MacOS
+- [x] runs on Linux
+- [ ] runs on iOS
+- [ ] runs on Android
+- [ ] runs on HarmonyOS
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
