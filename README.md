@@ -144,14 +144,15 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
 ├── LICENSE
-├── LICENSE_Apache-2
-├── LICENSE_GPL-2
-├── LICENSE_GPL-3
-├── LICENSE_MIT
 ├── README.md
+├── docs
+│   └── img
+│       ├── 01_de.png
+│       ├── 02_de.png
+│       └── 03_de.png
 └── tree.bak
 
-5 directories, 21 files
+7 directories, 20 files
 ```
 <!-- readme-tree end -->
 
