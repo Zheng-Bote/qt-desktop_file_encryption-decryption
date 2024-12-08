@@ -2,5 +2,5 @@
 
 <!-- DOCTOC SKIP -->
 
-- Github: [repo-template](https://github.com/Zheng-Bote/file encryption and decryption)
+- Github: [qt_file_encryption-decryption](https://github.com/Zheng-Bote/qt_file_encryption-decryption)
 - Author: [Zheng Robert](https://www.robert.hase-zheng.net)
