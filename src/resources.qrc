@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>images/background.jpg</file>
+        <file>images/icon.png</file>
+        <file>i18n/de_DE.qm</file>
+    </qresource>
+</RCC>
