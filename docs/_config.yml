@@ -1,8 +1,8 @@
-title: repo-template
+title: qt_file_encryption-decryption
 author:
   name: ZHENG Robert
   #email: no.spam@hotmail.dev
-description: Template for new Github repositories (GH-Pages)
+description: file encryption and decryption
 
 remote_theme: jekyll/minima
 #theme: minima
@@ -23,8 +23,8 @@ author:
   #email: no.spam@hotmail.dev
 
 page_created: 2024-10-04
-page_url: https://zheng-bote.github.io/repo-template/
-page_desc: template for GH-Pages
+page_url: https://zheng-bote.github.io/qt_file_encryption-decryption/
+page_desc: file encryption and decryption
 
 header_pages:
   - about.md
