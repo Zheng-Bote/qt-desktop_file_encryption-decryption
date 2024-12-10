@@ -49,6 +49,10 @@
 
 Qt6 C++23 Desktop application to encrypt and decrypt the given file.
 
+- Encryption: AES-256 CBC
+- Password: Sha256, between 5 to 32 characters
+- initialization vector: MD5
+
 See folder `docs/img` for screenshots.
 
 ### Features
