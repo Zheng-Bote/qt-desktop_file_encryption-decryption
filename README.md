@@ -14,11 +14,10 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
-  - [Features](#features)
+    - [Features](#features)
   - [Status](#status)
     - [Application / Tool](#application--tool)
     - [Documentation](#documentation)
@@ -124,7 +123,6 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -153,11 +151,39 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 │       ├── 01_de.png
 │       ├── 02_de.png
 │       └── 03_de.png
+├── src
+│   ├── CMakeLists.txt
+│   ├── configure
+│   │   ├── ClangTidy.cmake
+│   │   ├── Doxygen.cmake
+│   │   ├── extra_headers
+│   │   └── rz_config.h.in
+│   ├── decrypt_file_dialog.cpp
+│   ├── decrypt_file_dialog.h
+│   ├── enc_dec_logic.cpp
+│   ├── enc_dec_logic.h
+│   ├── encrypt_file_dialog.cpp
+│   ├── encrypt_file_dialog.h
+│   ├── i18n
+│   │   └── de_DE.ts
+│   ├── images
+│   │   ├── background.jpg
+│   │   └── icon.png
+│   ├── includes
+│   │   ├── qaesencryption.cpp
+│   │   ├── qaesencryption.h
+│   │   ├── rz_config.h
+│   │   └── rz_snipptes.hpp
+│   ├── main.cpp
+│   ├── menu_page.cpp
+│   ├── menu_page.h
+│   ├── resources.qrc
+│   ├── template.cpp
+│   └── template.h
 └── tree.bak
 
-7 directories, 20 files
+12 directories, 44 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
