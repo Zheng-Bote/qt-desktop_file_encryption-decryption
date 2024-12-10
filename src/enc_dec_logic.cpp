@@ -1,6 +1,8 @@
 #include "enc_dec_logic.h"
 #include <QFile>
+
 #include <cstdio>
+#include <filesystem>
 #include <fstream>
 
 #define MAXLINES 1000
@@ -11,6 +13,7 @@ using std::streampos;
 
 #include <QCryptographicHash>
 #include "includes/qaesencryption.h"
+#include "includes/rz_snipptes.hpp"
 
 QAESEncryption encryption(QAESEncryption::AES_256, QAESEncryption::CBC);
 QString iv("0x0c2ad4a4acb9f023");
@@ -34,7 +37,10 @@ int EncryptionDecryption::create_file(const string strFileName, const std::strin
     return 0;
 }
 
-int EncryptionDecryption::write_file(const string strFileName, const string strData, const int iAppend, const int iNewLine)
+int EncryptionDecryption::write_file(const string strFileName,
+                                     const string &strData,
+                                     const int iAppend,
+                                     const int iNewLine)
 {
     if (strFileName == "") {
         return -1;
@@ -76,87 +82,96 @@ int EncryptionDecryption::write_file(const string strFileName, const string strD
     return static_cast<int>(finalpos - currentpos - 1);
 }
 
-int EncryptionDecryption::encrypt_data(const string strFileName, std::string strPassword)
+std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathToFile,
+                                                            const std::string &strPassword,
+                                                            const bool &overwriteSourceFile)
 {
-    int iCnt1 = 0, iCnt2 = 0;
-    string strLine = "";
+    bool oknok{false};
+    QString msg{""};
+    QString qt_pathToFile = pathToFile.c_str();
+    qDebug() << "encrypt_data: " << qt_pathToFile;
+    std::tie(oknok, msg) = rz_snipptes::checkFile(qt_pathToFile, overwriteSourceFile, false);
+    const int passwordMinLength = 5;
 
-    if (strFileName == "") {
-        return -1;
-    }
-
-    if (strPassword == "") {
-        return -2;
-    }
-
-    if (strPassword.length() != 8) {
-        return -3;
-    }
-
-    if (!is_exists(strFileName)) {
-        return -4;
-    }
-
-    if (check_enc_dec(strFileName)) {
-        return -5;
+    if (oknok == false) {
+        return std::make_tuple(3, msg);
     }
 
     QString key = strPassword.c_str();
+    if (key.length() < passwordMinLength) {
+        return std::make_tuple(2, QObject::tr("Password should have more than 5 characters"));
+    }
     QByteArray hashKey = QCryptographicHash::hash(key.toLocal8Bit(), QCryptographicHash::Sha256);
     QByteArray hashIV = QCryptographicHash::hash(iv.toLocal8Bit(), QCryptographicHash::Md5);
-
-    //set_password(strPassword);
-
-    QString strData = read_file(strFileName);
+    /*
+    QString strData = read_file(pathToFile);
 
     QByteArray encodeText = encryption.encode(strData.toLocal8Bit(), hashKey, hashIV);
+*/
+    QByteArray encodeText = encryption.encode(readBinaryFile(pathToFile), hashKey, hashIV);
 
-    //    write_file(strFileName, strLine, 1, 1);
+    if (overwriteSourceFile == true) {
+        std::string newFile = pathToFile + ".aes";
+        writeQArray(newFile, encodeText);
+        std::filesystem::remove(pathToFile);
+        msg = QObject::tr("encrypted file:");
+        msg.append("\n" + newFile);
+    } else {
+        std::tie(oknok, msg) = rz_snipptes::getTempDir();
+        std::string newPath = msg.toStdString();
+        std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
+        std::string newFile = msg.toStdString() + ".aes";
+        std::string newPathToFile = newPath + newFile;
+        writeQArray(newPathToFile, encodeText);
+        msg = QObject::tr("encrypted file:");
+        msg.append("\n" + newPathToFile);
+    }
 
-    std::string newFile = strFileName + ".aes";
-    writeQArray(strFileName, encodeText);
-
-    return 0;
+    return std::make_tuple(1, msg);
 }
 
-int EncryptionDecryption::decrypt_data(const string strFileName, const string strPassword)
+std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathToFile,
+                                                            const string &strPassword,
+                                                            const bool &overwriteSourceFile)
 {
-    /*
-    int iCnt1 = 0, iCnt2 = 0;
-    string strLine = "";
-
-    if (strFileName == "") {
-        return -1;
-    }
-
-    if (strPassword == "") {
-        return -2;
-    }
-
-    if (!is_exists(strFileName)) {
-        return -3;
-    }
-
-    if (!check_enc_dec(strFileName)) {
-        return -4;
-    }
-
-    if (!check_password(strFileName, strPassword)) {
-        return -5;
-    }
-*/
+    bool oknok{false};
+    QString msg{""};
+    QString qt_pathToFile = pathToFile.c_str();
+    qDebug() << "decrypt_data: " << qt_pathToFile;
+    std::tie(oknok, msg) = rz_snipptes::checkFile(qt_pathToFile, overwriteSourceFile, true);
+    const int passwordMinLength = 5;
 
     QString key = strPassword.c_str();
+    if (key.length() < passwordMinLength) {
+        return std::make_tuple(2, QObject::tr("Password should have more than 5 characters"));
+    }
+
     QByteArray hashKey = QCryptographicHash::hash(key.toLocal8Bit(), QCryptographicHash::Sha256);
     QByteArray hashIV = QCryptographicHash::hash(iv.toLocal8Bit(), QCryptographicHash::Md5);
 
-    //QByteArray encodeText = readBinaryFile(strFileName);
-    QByteArray decodeText = encryption.decode(readBinaryFile(strFileName), hashKey, hashIV);
+    QByteArray decodeText = encryption.decode(readBinaryFile(pathToFile), hashKey, hashIV);
 
     QString decodedString = QString(encryption.removePadding(decodeText));
-    std::cout << "decoded:\n\n" << decodedString.toStdString() << std::endl;
+    //std::cout << "decoded:\n\n" << decodedString.toStdString() << std::endl;
 
-    return 0;
+    if (overwriteSourceFile == true) {
+        std::string newPathToFile = pathToFile.substr(0, pathToFile.size() - 4);
+        writeQArray(newPathToFile, decodeText);
+        std::filesystem::remove(pathToFile);
+        msg = QObject::tr("decrypted file:");
+        msg.append("\n" + newPathToFile);
+    } else {
+        std::tie(oknok, msg) = rz_snipptes::getTempDir();
+        std::string newPath = msg.toStdString();
+        std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
+        std::string newFile = newPath + msg.toStdString();
+        std::string newPathToFile = newFile.substr(0, newFile.size() - 4);
+        writeQArray(newPathToFile, decodeText);
+        msg = QObject::tr("decrypted file:");
+        msg.append("\n" + newPathToFile);
+    }
+
+    return std::make_tuple(1, msg);
 }
 
 string EncryptionDecryption::set_password(string &strPassword)
@@ -213,30 +228,31 @@ bool EncryptionDecryption::check_enc_dec(const string strFileName)
     return false;
 }
 
-QString EncryptionDecryption::read_file(const string strFileName)
+QString EncryptionDecryption::read_file(const string &strFileName)
 {
+    qDebug() << "read_file: " << strFileName;
     ifstream infile{strFileName};
     static string file_contents{std::istreambuf_iterator<char>(infile),
                                 std::istreambuf_iterator<char>()};
 
+    infile.close();
     return file_contents.c_str();
 }
 
-QByteArray EncryptionDecryption::readBinaryFile(const string strFileName)
+QByteArray EncryptionDecryption::readBinaryFile(const string &strFileName)
 {
-    std::cout << "readBinary " << strFileName << std::endl;
-
+    qDebug() << "readBinaryFile: " << strFileName;
     QFile file(strFileName.c_str());
     file.open(QIODeviceBase::ReadOnly);
     QByteArray blob = file.readAll();
 
+    file.close();
     return blob;
 }
 
-void EncryptionDecryption::writeQArray(const string strFileName, QByteArray &data)
+void EncryptionDecryption::writeQArray(const string &strFileName, QByteArray &data)
 {
-    std::string newFile = strFileName + ".aes";
-    QFile file(newFile.c_str());
+    QFile file(strFileName.c_str());
     file.open(QIODeviceBase::WriteOnly);
     file.write(data);
     file.close();

@@ -5,6 +5,7 @@
 class QLabel;
 class QLineEdit;
 class QPushButton;
+class QCheckBox;
 
 class DecryptFileDialog : public QDialog, public EncryptionDecryption
 {
@@ -12,6 +13,7 @@ class DecryptFileDialog : public QDialog, public EncryptionDecryption
 
 public:
     DecryptFileDialog(QDialog *parent = 0);
+    enum class InfoLevel { INFORMATION = 1, WARNING, CRITICAL };
 
 private:
     QLabel *enter_file_name_label;
@@ -21,6 +23,7 @@ private:
     QPushButton *chooseFile_btn;
     QPushButton *encrypt_button;
     QPushButton *cancel_button;
+    QCheckBox *overwriteFile_checkbox;
 
     QString getFileName(QString &pathTofile);
 

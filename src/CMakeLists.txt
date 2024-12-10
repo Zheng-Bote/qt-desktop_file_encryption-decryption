@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   File_Encryption-Decryption
-  VERSION 0.2.0
+  VERSION 0.2.1
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
   LANGUAGES CXX)
@@ -62,7 +62,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     decrypt_file_dialog.cpp
     decrypt_file_dialog.h
     includes/qaesencryption.cpp
-    includes/qaesencryption.h)
+    includes/qaesencryption.h
+    includes/rz_snipptes.hpp)
   # Define target properties for Android with Qt 6 as: set_property(TARGET
   # File_Encryption_and_Decryption APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
   # ${CMAKE_CURRENT_SOURCE_DIR}/android) For more information, see

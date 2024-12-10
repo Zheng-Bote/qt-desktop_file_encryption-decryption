@@ -1,4 +1,5 @@
 #include "encrypt_file_dialog.h"
+#include <QCheckBox>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QHBoxLayout>
@@ -18,6 +19,7 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     enter_file_name_label->setVisible(false);
 
     file_name_textbox = new QLineEdit;
+    file_name_textbox->clear();
 
     enter_password_label = new QLabel;
     enter_password_label->setText(tr("Enter the password: "));
@@ -28,8 +30,12 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     QVBoxLayout *vertical_layout = new QVBoxLayout;
     vertical_layout->addWidget(chooseFile_btn);
     vertical_layout->addWidget(enter_file_name_label);
+
     vertical_layout->addWidget(enter_password_label);
     vertical_layout->addWidget(password_textbox);
+
+    overwriteFile_checkbox = new QCheckBox(tr("encrypt &Sourcefile"), this);
+    vertical_layout->addWidget(overwriteFile_checkbox);
 
     encrypt_button = new QPushButton(tr("&Encrypt"));
     connect(encrypt_button, SIGNAL(clicked(bool)), this, SLOT(encrypt_file_slot()));
@@ -45,7 +51,7 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     main_layout->addLayout(vertical_layout);
     main_layout->addLayout(horizontal_layout);
 
-    resize(300, 100);
+    //resize(300, 100);
     setLayout(main_layout);
     setWindowTitle(tr("Encrypt File"));
 }
@@ -59,26 +65,32 @@ QString EncryptFileDialog::getFileName(QString &pathTofile)
 
 void EncryptFileDialog::encrypt_file_slot()
 {
-    int status = encrypt_data(file_name_textbox->text().toStdString(), password_textbox->text().toStdString());
+    QString msg{""};
+    int oknok{0};
 
-    if (status == -1)
-        QMessageBox::warning(this, tr("Warning"), tr("Enter the file name."));
-    else if (status == -2)
-        QMessageBox::warning(this, tr("Warning"), tr("Enter the password."));
-    else if (status == -3) // if password is less than or greater than 8 characters
-        QMessageBox::warning(this, tr("Warning"), tr("Password should contains strictly 8 characters."));
-    else if (status == -4) {
-        QString message = tr("File") + "\"" + file_name_textbox->text() + "\""
-                          + tr("does not exists!");
-        QMessageBox::critical(this, tr("Error"), message);
-    } else if (status == -5) // if file already encrypted
-    {
-        QMessageBox::critical(this, tr("Error"), tr("File allready encrypted!"));
-    } else {
-        QMessageBox::information(this, tr("Success"), tr("Data encrypted successfully."));
-        this->close();
+    std::tie(oknok, msg) = encrypt_data(file_name_textbox->text().toStdString(),
+                                        password_textbox->text().toStdString(),
+                                        overwriteFile_checkbox->isChecked());
+
+    switch (oknok) {
+    case 1: {
+        QMessageBox::information(this, tr("Success"), msg);
+        //this->close();
         file_name_textbox->clear();
         password_textbox->clear();
+        enter_file_name_label->clear();
+        chooseFile_btn->setText(tr("Choose &file "));
+        this->close();
+        break;
+    }
+    case 2: {
+        QMessageBox::warning(this, tr("Warning"), msg);
+        break;
+    }
+    case 3: {
+        QMessageBox::critical(this, tr("Error"), msg);
+        break;
+    }
     }
 }
 
@@ -86,10 +98,9 @@ void EncryptFileDialog::chooseFile()
 {
     QString file;
     chooseFile_btn->setText("choose file");
-    file = QFileDialog::getOpenFileName(this,
-                                        tr("Open File"),
-                                        QDir::currentPath(),
-                                        tr("Textfiles (*.txt *.md *.html *.sql)"));
+    file_name_textbox->clear();
+    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath());
+    // ,tr("files (*.txt *.md *.html *.sql)")
 
     if (file.isEmpty() == false) {
         file_name_textbox->setText(file);

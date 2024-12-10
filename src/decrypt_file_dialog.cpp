@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <qcheckbox.h>
 
 DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
 {
@@ -17,7 +18,8 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     enter_file_name_label->setVisible(false);
 
     file_name_textbox = new QLineEdit;
-    connect(file_name_textbox, SIGNAL(clicked(bool)), this, SLOT(chooseFile()));
+    file_name_textbox->clear();
+    //connect(file_name_textbox, SIGNAL(clicked(bool)), this, SLOT(chooseFile()));
 
     enter_password_label = new QLabel;
     enter_password_label->setText(tr("Enter the password: "));
@@ -31,6 +33,9 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     vertical_layout->addWidget(enter_file_name_label);
     vertical_layout->addWidget(enter_password_label);
     vertical_layout->addWidget(password_textbox);
+
+    overwriteFile_checkbox = new QCheckBox(tr("decrypt &Sourcefile"), this);
+    vertical_layout->addWidget(overwriteFile_checkbox);
 
     encrypt_button = new QPushButton(tr("&Decrypt"));
     connect(encrypt_button, SIGNAL(clicked(bool)), this, SLOT(decrypt_file_slot()));
@@ -47,7 +52,7 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     main_layout->addLayout(vertical_layout);
     main_layout->addLayout(horizontal_layout);
 
-    resize(300, 100);
+    //resize(300, 100);
     setLayout(main_layout);
     setWindowTitle(tr("Decrypt File"));
 }
@@ -61,26 +66,31 @@ QString DecryptFileDialog::getFileName(QString &pathTofile)
 
 void DecryptFileDialog::decrypt_file_slot()
 {
-    int status = decrypt_data(file_name_textbox->text().toStdString(),
-                              password_textbox->text().toStdString());
+    QString msg{""};
+    int oknok{0};
 
-    if (status == -1) {
-        QMessageBox::warning(this, tr("Warning"), tr("Enter the file name."));
-    } else if (status == -2) {
-        QMessageBox::warning(this, tr("Warning"), tr("Enter the password."));
-    } else if (status == -3) {
-        QString message = tr("File") + "\"" + file_name_textbox->text() + "\""
-                          + tr("does not exists!");
-        QMessageBox::critical(this, tr("Error"), message);
-    } else if (status == -4) {
-        QMessageBox::critical(this, tr("Error"), tr("File allready decrypted!"));
-    } else if (status == -5) {
-        QMessageBox::critical(this, tr("Error"), tr("Incorrect password. Please try again."));
-    } else {
-        QMessageBox::information(this, tr("Success"), tr("Data decrypted successfully."));
-        this->close();
+    std::tie(oknok, msg) = decrypt_data(file_name_textbox->text().toStdString(),
+                                        password_textbox->text().toStdString(),
+                                        overwriteFile_checkbox->isChecked());
+
+    switch (oknok) {
+    case 1: {
+        QMessageBox::information(this, tr("Success"), msg);
         file_name_textbox->clear();
         password_textbox->clear();
+        enter_file_name_label->clear();
+        chooseFile_btn->setText(tr("Choose a &file "));
+        this->close();
+        break;
+    }
+    case 2: {
+        QMessageBox::warning(this, tr("Warning"), msg);
+        break;
+    }
+    case 3: {
+        QMessageBox::critical(this, tr("Error"), msg);
+        break;
+    }
     }
 }
 
@@ -88,10 +98,11 @@ void DecryptFileDialog::chooseFile()
 {
     QString file;
     chooseFile_btn->setText("choose file");
+    file_name_textbox->clear();
     file = QFileDialog::getOpenFileName(this,
                                         tr("Open File"),
                                         QDir::currentPath(),
-                                        tr("Textfiles (*.aes)"));
+                                        tr("encoded files (*.aes)"));
 
     if (file.isEmpty() == false)
     {

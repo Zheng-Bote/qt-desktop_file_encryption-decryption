@@ -14,10 +14,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
     - [Application / Tool](#application--tool)
     - [Documentation](#documentation)
@@ -52,22 +53,16 @@ See folder `docs/img` for screenshots.
 
 ### Features
 
-- [x] Desktop application supports German and English language
+- [x] i18n: Desktop application supports German and English language
 
-  <br>
-  
 - [x] OSS and license
 - [x] works as designed
 - [ ] no bugs
 
-<br>
-
 - [x] some more or less usefull Github Actions for GH-repo, GH-pages, GH-wiki, CI/CD-Pipelines
 - [ ] Packagemanager
 - [x] Installation routine (no Adminstrator rights needed)
-- [ ] portable application 
-
-<br>
+- [ ] portable application
 
 - [x] runs on DOS/Windows
 - [x] runs on MacOS
@@ -76,10 +71,12 @@ See folder `docs/img` for screenshots.
 - [ ] runs on Android
 - [ ] runs on HarmonyOS
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Status
+
+> \[!CAUTION]
+> breaking changes! Release v0.1.0 is **NOT** compatible to higher versions.
 
 ### Application / Tool
 
@@ -95,6 +92,7 @@ See folder `docs/img` for screenshots.
 _still under construction_
 
 #### README
+
 [![Repo - create Repo-Tree in README.md](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml)
 [![Repo - add Actions In/Out to README](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml)
 
@@ -122,6 +120,7 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -154,6 +153,7 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 
 7 directories, 20 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
