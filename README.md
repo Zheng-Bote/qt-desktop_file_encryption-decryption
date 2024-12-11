@@ -14,24 +14,23 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
-  - [Features](#features)
+    - [Features](#features)
   - [Status](#status)
     - [Application / Tool](#application--tool)
     - [Documentation](#documentation)
-      - [README](#readme)
-      - [other Markdown files](#other-markdown-files)
 - [Installation](#installation)
+  - [Dependencies](#dependencies)
+    - [CMake](#cmake)
+    - [QT](#qt)
+    - [Qt-AES](#qt-aes)
   - [Windows](#windows)
+  - [Linux](#linux)
+- [MacOS](#macos)
   - [folder structure](#folder-structure)
 - [Documentation](#documentation-1)
-  - [Architecture](#architecture)
-    - [Github](#github)
-      - [Github Repo](#github-repo)
-      - [Github Actions / Workflows](#github-actions--workflows)
   - [Screenshots](#screenshots)
 - [Authors and License](#authors-and-license)
   - [License](#license)
