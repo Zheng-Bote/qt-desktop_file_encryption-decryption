@@ -147,7 +147,6 @@ _still under construction_
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -209,7 +208,6 @@ _still under construction_
 
 12 directories, 44 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
