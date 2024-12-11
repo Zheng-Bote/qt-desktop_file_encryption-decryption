@@ -6,7 +6,7 @@
 [Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
 
 </div>
 
@@ -84,7 +84,8 @@ See folder `docs/img` for screenshots.
 
 ### Application / Tool
 
-![Status](https://img.shields.io/badge/Version-1.0.0-blue)
+![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
 ![Status](https://img.shields.io/badge/Status-stable-green)
 ![Status](https://img.shields.io/badge/Status-works_as_designed-green)
 ![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
