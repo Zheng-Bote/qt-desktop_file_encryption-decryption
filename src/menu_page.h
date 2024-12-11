@@ -5,10 +5,14 @@
 #include "encrypt_file_dialog.h"
 #include "decrypt_file_dialog.h"
 
+#include <QDesktopServices>
+#include <QUrl>
+
 class QPushButton;
 class QLabel;
 class Template;
 class QCloseEvent;
+class QStatusBar;
 
 class MenuPage : public Template
 {
@@ -25,6 +29,10 @@ private:
     QPushButton *decrypt_file_button;
     QPushButton *exit_button;
 
+    QStatusBar *bar;
+    //QLabel *m_statusMiddle;
+    QPushButton *m_statusMiddle;
+
     // dialogs
 
     EncryptFileDialog *encrypt_file_dialog;
@@ -33,6 +41,8 @@ private:
 private slots:
     void encrypt_dialog();
     void decrypt_dialog();
+
+    void openGithub();
 
     void close();
 

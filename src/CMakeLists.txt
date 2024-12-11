@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   File_Encryption-Decryption
-  VERSION 0.2.1
+  VERSION 1.0.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
   LANGUAGES CXX)

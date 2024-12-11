@@ -8,15 +8,13 @@
 #include <QRect>
 #include <QScreen>
 
-#include "includes/rz_config.h"
-
 Template::Template(QMainWindow *parent) : QMainWindow(parent)
 {
     const int WIDTH = 1000;
     const int HEIGHT = 600;
 
     setFixedSize(WIDTH, HEIGHT);
-    setWindowTitle(tr("File Encryption and Decryption") + " v" + PROG_VERSION);
+    setWindowTitle(tr("File Encryption and Decryption"));
     setWindowIcon(QIcon(":/res/images/icon.png"));
 
     QScreen *screen = QGuiApplication::primaryScreen();

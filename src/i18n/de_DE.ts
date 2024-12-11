@@ -5,7 +5,7 @@
     <name>DecryptFileDialog</name>
     <message>
         <location filename="../decrypt_file_dialog.cpp" line="13"/>
-        <location filename="../decrypt_file_dialog.cpp" line="82"/>
+        <location filename="../decrypt_file_dialog.cpp" line="87"/>
         <source>Choose a &amp;file </source>
         <oldsource>Choose a file </oldsource>
         <translation>Datei &amp;auswählen </translation>
@@ -21,52 +21,64 @@
         <translation>Passwort Eingabe: </translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="37"/>
+        <location filename="../decrypt_file_dialog.cpp" line="29"/>
+        <source>fill in the same password which was used for encryption</source>
+        <translation>Eintrag des gleichen Passwortes welches zur Verschlüsselung genutzt wurde</translation>
+    </message>
+    <message>
+        <location filename="../decrypt_file_dialog.cpp" line="38"/>
         <source>decrypt &amp;Sourcefile</source>
         <translation>&amp;Quelldatei entschlüsseln</translation>
     </message>
     <message>
         <location filename="../decrypt_file_dialog.cpp" line="40"/>
+        <source>checked: decrypt the original file.
+unchecked: decrypt to a new file.</source>
+        <translation>aktiv: entschlüsseln der Original-Datei.
+nicht aktiv: entschlüsseln in eine neue Datei.</translation>
+    </message>
+    <message>
+        <location filename="../decrypt_file_dialog.cpp" line="43"/>
         <source>&amp;Decrypt</source>
         <translation>&amp;entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="43"/>
+        <location filename="../decrypt_file_dialog.cpp" line="46"/>
         <source>&amp;Cancel</source>
         <translation>a&amp;bbrechen</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="57"/>
+        <location filename="../decrypt_file_dialog.cpp" line="62"/>
         <source>Decrypt File</source>
         <translation>Datei entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="87"/>
+        <location filename="../decrypt_file_dialog.cpp" line="92"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="91"/>
+        <location filename="../decrypt_file_dialog.cpp" line="96"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="78"/>
+        <location filename="../decrypt_file_dialog.cpp" line="83"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="103"/>
+        <location filename="../decrypt_file_dialog.cpp" line="108"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="105"/>
+        <location filename="../decrypt_file_dialog.cpp" line="110"/>
         <source>encoded files (*.aes)</source>
         <translation>verschlüsselte Dateien (*.aes)</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="110"/>
+        <location filename="../decrypt_file_dialog.cpp" line="115"/>
         <source>choosed &amp;file:</source>
         <oldsource>choosed file:</oldsource>
         <translation>&amp;ausgewählte Datei:</translation>
@@ -76,7 +88,7 @@
     <name>EncryptFileDialog</name>
     <message>
         <location filename="../encrypt_file_dialog.cpp" line="14"/>
-        <location filename="../encrypt_file_dialog.cpp" line="82"/>
+        <location filename="../encrypt_file_dialog.cpp" line="87"/>
         <source>Choose &amp;file </source>
         <oldsource>Choose file </oldsource>
         <translation>Datei &amp;auswählen </translation>
@@ -93,49 +105,61 @@
         <translation>Passwort Eingabe: </translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="37"/>
+        <location filename="../encrypt_file_dialog.cpp" line="29"/>
+        <source>don&apos;t lose your password, recovery is impossible!</source>
+        <translation>nicht das Passwort verlieren, eine Wiederherstellung ist nicht möglich!</translation>
+    </message>
+    <message>
+        <location filename="../encrypt_file_dialog.cpp" line="38"/>
         <source>encrypt &amp;Sourcefile</source>
         <translation>&amp;Quelldatei verschlüsseln</translation>
     </message>
     <message>
         <location filename="../encrypt_file_dialog.cpp" line="40"/>
+        <source>checked: encrypt the original file.
+unchecked: encrypt a file copy.</source>
+        <translation>aktiv: verschlüsseln der Original-Datei.
+nicht aktiv: verschlüsseln in eine neue Datei.</translation>
+    </message>
+    <message>
+        <location filename="../encrypt_file_dialog.cpp" line="43"/>
         <source>&amp;Encrypt</source>
         <oldsource>Encrypt</oldsource>
         <translation>&amp;verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="43"/>
+        <location filename="../encrypt_file_dialog.cpp" line="46"/>
         <source>&amp;Cancel</source>
         <oldsource>Cancel</oldsource>
         <translation>a&amp;bbrechen</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="56"/>
+        <location filename="../encrypt_file_dialog.cpp" line="61"/>
         <source>Encrypt File</source>
         <translation>Datei verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="87"/>
+        <location filename="../encrypt_file_dialog.cpp" line="92"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="91"/>
+        <location filename="../encrypt_file_dialog.cpp" line="96"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="77"/>
+        <location filename="../encrypt_file_dialog.cpp" line="82"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="102"/>
+        <location filename="../encrypt_file_dialog.cpp" line="107"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="107"/>
+        <location filename="../encrypt_file_dialog.cpp" line="112"/>
         <source>choosed &amp;file:</source>
         <oldsource>choosed file:</oldsource>
         <translation>&amp;ausgewählte Datei:</translation>
@@ -144,36 +168,55 @@
 <context>
     <name>MenuPage</name>
     <message>
-        <location filename="../menu_page.cpp" line="21"/>
         <source>Hello and welcome!
 To proceed, please select one of the following options:</source>
-        <translation>Hallo und Willkommen!
+        <translation type="vanished">Hallo und Willkommen!
 Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="32"/>
+        <source>Hello and welcome!
+With this little tool you can encrypt and decrypt files.
+To proceed, please select one of the following options:</source>
+        <translation type="vanished">Hallo und Willkommen!
+Mit diesem kleinen Werkzeug können Dateien verschlüsselt und wieder entschlüsselt werden.
+Um fortzufahren, wählen Sie eine der folgenden Optionen:</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="21"/>
+        <source>With this little tool you can encrypt and decrypt files.
+To proceed, please select one of the following options:</source>
+        <translation>Mit diesem kleinen Werkzeug können Dateien verschlüsselt und wieder entschlüsselt werden.
+Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="34"/>
         <source>&amp;Encrypt File</source>
         <oldsource>Encrypt File</oldsource>
         <translation>Datei &amp;verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="36"/>
+        <location filename="../menu_page.cpp" line="38"/>
         <source>&amp;Decrypt File</source>
         <oldsource>Decrypt File</oldsource>
         <translation>Datei &amp;entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="40"/>
+        <location filename="../menu_page.cpp" line="42"/>
         <source>E&amp;xit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="76"/>
+        <location filename="../menu_page.cpp" line="54"/>
+        <source>click to open your default Browser and go to the Github repository</source>
+        <translation>Anklicken um mit Ihrem Internet-Browser zum Github Repository zu surfen</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="95"/>
         <source>Confirmation</source>
         <translation>Bestätigung</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="77"/>
+        <location filename="../menu_page.cpp" line="96"/>
         <source>Are you sure you want to exit?</source>
         <translation>Sind Sie sicher das Sie das Programm verlassen wollen?</translation>
     </message>
@@ -181,20 +224,20 @@ Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../enc_dec_logic.cpp" line="101"/>
-        <location filename="../enc_dec_logic.cpp" line="143"/>
+        <location filename="../enc_dec_logic.cpp" line="39"/>
+        <location filename="../enc_dec_logic.cpp" line="83"/>
         <source>Password should have more than 5 characters</source>
         <translation>Passwort sollte länger als 5 Zeichen sein</translation>
     </message>
     <message>
-        <location filename="../enc_dec_logic.cpp" line="115"/>
-        <location filename="../enc_dec_logic.cpp" line="124"/>
+        <location filename="../enc_dec_logic.cpp" line="54"/>
+        <location filename="../enc_dec_logic.cpp" line="63"/>
         <source>encrypted file:</source>
         <translation>verschlüsselte Datei:</translation>
     </message>
     <message>
-        <location filename="../enc_dec_logic.cpp" line="158"/>
-        <location filename="../enc_dec_logic.cpp" line="167"/>
+        <location filename="../enc_dec_logic.cpp" line="97"/>
+        <location filename="../enc_dec_logic.cpp" line="106"/>
         <source>decrypted file:</source>
         <translation>entschlüsselte Datei:</translation>
     </message>
@@ -228,7 +271,7 @@ Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
 <context>
     <name>Template</name>
     <message>
-        <location filename="../template.cpp" line="19"/>
+        <location filename="../template.cpp" line="17"/>
         <source>File Encryption and Decryption</source>
         <translation>Datei Verschlüsselung und Entschlüsselung</translation>
     </message>

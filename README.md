@@ -14,10 +14,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
     - [Application / Tool](#application--tool)
     - [Documentation](#documentation)
@@ -64,6 +65,7 @@ See folder `docs/img` for screenshots.
 
 - [x] some more or less usefull Github Actions for GH-repo, GH-pages, GH-wiki, CI/CD-Pipelines
 - [ ] Packagemanager
+- [x] Buildsystem: CMake
 - [x] Installation routine (no Adminstrator rights needed)
 - [ ] portable application
 
@@ -83,8 +85,9 @@ See folder `docs/img` for screenshots.
 
 ### Application / Tool
 
-![Status](https://img.shields.io/badge/Status-under_construction-red)
-![Status](https://img.shields.io/badge/Status-works-green)
+![Status](https://img.shields.io/badge/Version-1.0.0-blue)
+![Status](https://img.shields.io/badge/Status-stable-green)
+![Status](https://img.shields.io/badge/Status-works_as_designed-green)
 ![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
 
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
@@ -94,35 +97,56 @@ See folder `docs/img` for screenshots.
 
 _still under construction_
 
-#### README
-
-[![Repo - create Repo-Tree in README.md](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_tree_readme.yml)
-[![Repo - add Actions In/Out to README](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-actions_docu.yml)
-
-[![Repo - update Readme](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-call_Readme.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-call_Readme.yml)
-
-#### other Markdown files
-
-[![Repo - create TOC of Markdown files](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_doctoc_md.yml/badge.svg)](https://github.com/Zheng-Bote/qt_file_encryption_decryption/actions/workflows/repo-create_doctoc_md.yml)
-
-create ToC in Markdown files in folders
-
-- .github/actions/\*\*
-- .github/workflows/\*\*
-- dist/\*\*
-- docs/\*\*
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Installation
 
+## Dependencies
+
+All licenses are therefore Open Source / GPL-compatible.
+
+### CMake
+
+CMake: A Powerful Software Build System
+
+[![CMake](https://img.shields.io/badge/CMake-v3.23+-064F8C?logo=cmake)](https://github.com/conan-io/conan)
+[![BSD-3 License](https://img.shields.io/badge/License-BSD_3-green.svg)](https://choosealicense.com/licenses/bsd-3-clause/)
+
+### QT
+
+_QT6 - Community Edition_
+
+The Qt framework contains a comprehensive set of highly intuitive and modularized C++ library classes and is loaded with APIs to simplify your application development. Qt produces highly readable, easily maintainable and reusable code with high runtime performance and small footprint – and it's cross-platform.
+
+[![QT](https://img.shields.io/badge/Community-for_Open_Source_Development-black?logo=qt)](https://www.qt.io/download-open-source)
+[![LGPL](https://img.shields.io/badge/License-LGPL_v3-green.svg)](https://choosealicense.com/licenses/lgpl-3.0/) _see also:_[Obligations of the GPL and LGPL](https://www.qt.io/licensing/open-source-lgpl-obligations)
+
+### Qt-AES
+
+Small and portable AES encryption class for Qt. Native support for all key sizes - 128/192/256 bits - ECB, CBC, CFB and OFB modes for all key sizes partial AES-NI support
+
+[![Matt Bricke](https://img.shields.io/badge/Github-bricke-black?logo=github)](https://github.com/bricke/Qt-AES)
+[![UNLICENSE](https://img.shields.io/badge/License-Unlicense-green.svg)](https://github.com/bricke/Qt-AES?tab=Unlicense-1-ov-file)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Windows
 
-execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
+- execute / doubleclick `setup_File_Encryption_and_Decryption<VERSION>.exe`
+- unzip `File_Encryption_and_Decryption<VERSION>.zip` to any folder
+
+## Linux
+
+_still under construction_
+
+# MacOS
+
+_still under construction_
 
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -184,6 +208,7 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 
 12 directories, 44 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -191,53 +216,6 @@ execute / doubleclick `setup_File_Encryption_and_Decryption.exe`
 # Documentation
 
 _still under construction_
-
-## Architecture
-
-### Github
-
-#### Github Repo
-
-```mermaid
-block-beta
-  columns 4
-  Repo:4
-  block:group1:1
-    columns 1
-    id0[".github"]
-    block:group2:1
-      columns 1
-      id1[["workflows"]]
-      id2[["actions"]]
-    end
-  end
-  docs dist src
-  block:group3:4
-    %% columns auto (default)
-    A["gh-pages"] B["gh-wiki"]
-  end
-```
-
-#### Github Actions / Workflows
-
-```mermaid
-flowchart TD;
-    A[Workflow]-. parameter .->B[[callable Workflow]]
-    B-- parameter -->C[Action]
-    C-->D(README)
-
-    A[Workflow]-. parameter .->E[[callable Workflow]]
-    E-- parameter -->F[Action]
-    F-->J(Markdown files)
-
-    A[Workflow]-->K[[Workflow]]
-    K-->L[Action]
-    L-->M("GH-Pages")
-
-    A[Workflow]-->N[[Workflow]]
-    N-->O[Action]
-    O-->P("GH-Wiki")
-```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

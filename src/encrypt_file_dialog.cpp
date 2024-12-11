@@ -26,6 +26,7 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
 
     password_textbox = new QLineEdit;
     password_textbox->setEchoMode(QLineEdit::Password);
+    password_textbox->setToolTip(tr("don't lose your password, recovery is impossible!"));
 
     QVBoxLayout *vertical_layout = new QVBoxLayout;
     vertical_layout->addWidget(chooseFile_btn);
@@ -35,6 +36,8 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     vertical_layout->addWidget(password_textbox);
 
     overwriteFile_checkbox = new QCheckBox(tr("encrypt &Sourcefile"), this);
+    overwriteFile_checkbox->setToolTip(
+        tr("checked: encrypt the original file.\nunchecked: encrypt a file copy."));
     vertical_layout->addWidget(overwriteFile_checkbox);
 
     encrypt_button = new QPushButton(tr("&Encrypt"));
@@ -51,7 +54,9 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     main_layout->addLayout(vertical_layout);
     main_layout->addLayout(horizontal_layout);
 
-    //resize(300, 100);
+    resize(300, 200);
+    setFixedHeight(200);
+    setMaximumWidth(600);
     setLayout(main_layout);
     setWindowTitle(tr("Encrypt File"));
 }

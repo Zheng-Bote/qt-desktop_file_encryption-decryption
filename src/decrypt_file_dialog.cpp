@@ -26,6 +26,7 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
 
     password_textbox = new QLineEdit;
     password_textbox->setEchoMode(QLineEdit::Password);
+    password_textbox->setToolTip(tr("fill in the same password which was used for encryption"));
 
     QVBoxLayout *vertical_layout = new QVBoxLayout;
     // adding widgets to the vertical layout
@@ -35,6 +36,8 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     vertical_layout->addWidget(password_textbox);
 
     overwriteFile_checkbox = new QCheckBox(tr("decrypt &Sourcefile"), this);
+    overwriteFile_checkbox->setToolTip(
+        tr("checked: decrypt the original file.\nunchecked: decrypt to a new file."));
     vertical_layout->addWidget(overwriteFile_checkbox);
 
     encrypt_button = new QPushButton(tr("&Decrypt"));
@@ -52,7 +55,9 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     main_layout->addLayout(vertical_layout);
     main_layout->addLayout(horizontal_layout);
 
-    //resize(300, 100);
+    resize(300, 200);
+    setFixedHeight(200);
+    setMaximumWidth(600);
     setLayout(main_layout);
     setWindowTitle(tr("Decrypt File"));
 }
