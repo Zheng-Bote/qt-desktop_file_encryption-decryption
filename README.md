@@ -119,6 +119,11 @@ See folder `docs/img` for screenshots.
 - make AppImage executable (eg. chmod 755 )
 - execute / doubleclick AppImage
 
+## MacOS
+
+> \[!NOTE]
+> _under construction_
+
 ## Windows
 
 ### Set-Up
@@ -136,7 +141,7 @@ See folder `docs/img` for screenshots.
 
 ## Dependencies
 
-> \[!INFO]
+> \[!NOTE]
 > All licenses are therefore Open Source.
 
 ### CMake
