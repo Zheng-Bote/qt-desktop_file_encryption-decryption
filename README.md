@@ -105,13 +105,25 @@ See folder `docs/img` for screenshots.
 - activate the checkbox to encrypt the source file (original file will be replaced with the encrypted one)
 - keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder <filename>.aes)
 
+> \[!WARNING]
+> don't loose your password. Decryption/Recovery without valid password is impossible!
+
 ## Decryption
 
 - choose a file to decrypt (only files with extension ".aes")
 - activate the checkbox to decrypt the source file (original file will be replaced with the decrypted one)
 - keep checkbox unchecked to decrypt the given file into a new (decrypted) file (decrypted file will be stored in your temp-folder <originalfilename>)
 
+## Screenshots
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 # Installation
 
@@ -132,6 +144,16 @@ See folder `docs/img` for screenshots.
 - doubleclick "Setup__File_Encryption-Decryption_x86_amd64_v<VERSION>.exe" (eg.: Setup__File_Encryption-Decryption_x86_amd64_v1.0.0.exe)
 - choose "install for all users" (Administrator rights needed)
 - choose "install for current user only" (no Administrator rights needed)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_setup_en.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_setup_en.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_setup_en.png)
+
+For de-installation, go to Settings -> Apps -> installed Apps
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_setup_en.png)
 
 ### without set-up
 
@@ -243,16 +265,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 12 directories, 51 files
 ```
 <!-- readme-tree end -->
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Screenshots
-
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
-
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_de.png)
-
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
