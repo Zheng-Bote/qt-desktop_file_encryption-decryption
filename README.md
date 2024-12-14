@@ -24,6 +24,7 @@
   - [Decryption](#decryption)
 - [Installation](#installation)
   - [Linux](#linux)
+  - [MacOS](#macos)
   - [Windows](#windows)
     - [Set-Up](#set-up)
     - [without set-up](#without-set-up)
