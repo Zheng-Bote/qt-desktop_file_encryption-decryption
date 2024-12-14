@@ -82,8 +82,6 @@ See folder `docs/img` for screenshots.
 > \[!CAUTION]
 > breaking changes! Release v0.1.0 is **NOT** compatible to higher versions.
 
-### Application / Tool
-
 ![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
 ![Status](https://img.shields.io/badge/Status-stable-green)
@@ -93,17 +91,51 @@ See folder `docs/img` for screenshots.
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt_file_encryption_decryption)
 
-### Documentation
+# Documentation
 
-_still under construction_
+> \[!TIP]
+> _see also_ [Screenshots](#screenshots)
+
+## Encryption
+
+- choose a file to encrypt
+- activate the checkbox to encrypt the source file (original file will be replaced with the encrypted one)
+- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder <filename>.aes)
+
+## Decryption
+
+- choose a file to decrypt (only files with extension ".aes")
+- activate the checkbox to decrypt the source file (original file will be replaced with the decrypted one)
+- keep checkbox unchecked to decrypt the given file into a new (decrypted) file (decrypted file will be stored in your temp-folder <originalfilename>)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Installation
 
+## Linux
+
+- make AppImage executable (eg. chmod 755 )
+- execute / doubleclick AppImage
+
+## Windows
+
+### Set-Up
+
+- doubleclick "Setup__File_Encryption-Decryption_x86_amd64_v<VERSION>.exe" (eg.: Setup__File_Encryption-Decryption_x86_amd64_v1.0.0.exe)
+- choose "install for all users" (Administrator rights needed)
+- choose "install for current user only" (no Administrator rights needed)
+
+### without set-up
+
+- unzip "File_encryption-decryption_x86_amd64_v<VERSION>.zip" (eg.: File_encryption-decryption_x86_amd64_v1.0.0.zip) to a folder
+- execute/doubleclick the executable "File_Encryption-Decryption_x86_amd64.exe"
+
+# Development
+
 ## Dependencies
 
-All licenses are therefore Open Source / GPL-compatible.
+> \[!INFO]
+> All licenses are therefore Open Source.
 
 ### CMake
 
@@ -114,7 +146,8 @@ CMake: A Powerful Software Build System
 
 ### QT
 
-_QT6 - Community Edition_
+> \[!NOTE]
+> _QT6 - Community Edition_
 
 The Qt framework contains a comprehensive set of highly intuitive and modularized C++ library classes and is loaded with APIs to simplify your application development. Qt produces highly readable, easily maintainable and reusable code with high runtime performance and small footprint – and it's cross-platform.
 
@@ -129,19 +162,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 [![UNLICENSE](https://img.shields.io/badge/License-Unlicense-green.svg)](https://github.com/bricke/Qt-AES?tab=Unlicense-1-ov-file)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-## Windows
-
-- execute / doubleclick `setup_File_Encryption_and_Decryption<VERSION>.exe`
-- unzip `File_Encryption_and_Decryption<VERSION>.zip` to any folder
-
-## Linux
-
-_still under construction_
-
-## MacOS
-
-_still under construction_
 
 ## folder structure
 
@@ -208,12 +228,6 @@ _still under construction_
 12 directories, 44 files
 ```
 <!-- readme-tree end -->
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-# Documentation
-
-_still under construction_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
