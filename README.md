@@ -200,8 +200,12 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ├── docs
 │   └── img
 │       ├── 01_de.png
+│       ├── 01_setup_en.png
 │       ├── 02_de.png
-│       └── 03_de.png
+│       ├── 02_setup_en.png
+│       ├── 03_de.png
+│       ├── 03_setup_en.png
+│       └── 04_setup_en.png
 ├── src
 │   ├── CMakeLists.txt
 │   ├── configure
@@ -219,6 +223,9 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   │   └── de_DE.ts
 │   ├── images
 │   │   ├── background.jpg
+│   │   ├── icon-16x16.ico
+│   │   ├── icon-256x256.ico
+│   │   ├── icon-32x32.ico
 │   │   └── icon.png
 │   ├── includes
 │   │   ├── qaesencryption.cpp
@@ -233,7 +240,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   └── template.h
 └── tree.bak
 
-12 directories, 44 files
+12 directories, 51 files
 ```
 <!-- readme-tree end -->
 
