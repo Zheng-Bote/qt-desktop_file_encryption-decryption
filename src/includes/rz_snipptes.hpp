@@ -1,3 +1,13 @@
+/**
+ * @file rz_snipptes.hpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief some c++23 snippets
+ * @version 0.1.0
+ * @date 2024-12-16
+ * 
+ * @copyright Copyright (c) 2024 ZHENG Robert
+ * 
+ */
 #pragma once
 
 #include <QDebug>
