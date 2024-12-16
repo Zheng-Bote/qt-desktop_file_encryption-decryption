@@ -35,8 +35,10 @@ std::tuple<bool, QString> getFileName(QString &pathTofile)
 
 std::tuple<bool, QString> getFileExtension(QString &pathTofile)
 {
-    return std::make_tuple(true,
-                           std::filesystem::path(pathTofile.toStdString()).extension().c_str());
+    QFileInfo fi(pathTofile);
+    QString ext = fi.suffix();
+
+    return std::make_tuple(true,  ext);
 }
 
 std::uintmax_t getFileSize(const std::filesystem::path &file)
@@ -58,21 +60,24 @@ std::tuple<bool, QString> copyFile(const std::filesystem::path &pathToFileSrc,
         qDebug() << "copy file error: " << e.what() << "\n";
         return std::make_tuple(false, e.what());
     }
+
 }
 
 std::tuple<bool, QString> getFilePath(QString &pathTofile)
 {
     QFileInfo fileInfo(pathTofile);
-    QString path = fileInfo.absolutePath();
-    path.append(QDir::separator());
+    QString path = fileInfo.absolutePath() + "/";
+    //path.append(QDir::separator());
     qDebug() << "getFilePath: " << path << "\n";
     return std::make_tuple(true, path);
 }
 
 std::tuple<bool, QString> getTempDir()
 {
-    QString separator = QDir::separator();
-    return std::make_tuple(true, std::filesystem::temp_directory_path().c_str() + separator);
+    QString dir = QDir::tempPath() + "/";
+    //dir.append(QDir::separator());
+
+    return std::make_tuple(true, dir);
 }
 
 std::tuple<bool, QString> checkFile(QString &pathTofile, bool overwrite, bool isEncrypted)

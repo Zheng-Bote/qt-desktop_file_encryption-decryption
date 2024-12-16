@@ -2,6 +2,13 @@
     <qresource prefix="/res">
         <file>images/background.jpg</file>
         <file>images/icon.png</file>
-        <file>i18n/de_DE.qm</file>
+        <file>i18n/qt_file_encryption-decryption_de.qm</file>
+        <file>i18n/de.png</file>
+        <file>i18n/en.png</file>
+        <file>i18n/qt_file_encryption-decryption_en.qm</file>
+        <file>i18n/qtbase_de.qm</file>
+        <file>i18n/qtbase_en.qm</file>
+        <file>i18n/translate.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

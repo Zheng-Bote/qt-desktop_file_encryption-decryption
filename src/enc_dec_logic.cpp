@@ -49,7 +49,7 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
 
     if (overwriteSourceFile == true) {
         std::string newFile = pathToFile + ".aes";
-        writeQArray(newFile, encodeText);
+        writeBinary(newFile, encodeText);
         std::filesystem::remove(pathToFile);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newFile);
@@ -59,7 +59,7 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
         std::string newFile = msg.toStdString() + ".aes";
         std::string newPathToFile = newPath + newFile;
-        writeQArray(newPathToFile, encodeText);
+        writeBinary(newPathToFile, encodeText);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newPathToFile);
     }
@@ -112,19 +112,30 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
 
 QByteArray EncryptionDecryption::readBinaryFile(const string &strFileName)
 {
-    qDebug() << "readBinaryFile: " << strFileName;
     QFile file(strFileName.c_str());
     file.open(QIODeviceBase::ReadOnly);
     QByteArray blob = file.readAll();
-
     file.close();
     return blob;
+}
+
+void EncryptionDecryption::writeBinary(const string &strFileName, QByteArray &data)
+{
+
+    QFile file(strFileName.c_str());
+    file.open(QIODeviceBase::WriteOnly);
+    file.write(data);
+    file.close();
 }
 
 void EncryptionDecryption::writeQArray(const string &strFileName, QByteArray &data)
 {
     QFile file(strFileName.c_str());
     file.open(QIODeviceBase::WriteOnly);
+    data.replace('\0',"");
+    data.chop(1);
     file.write(data);
     file.close();
 }
+
+

@@ -59,6 +59,7 @@ EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
     setMaximumWidth(600);
     setLayout(main_layout);
     setWindowTitle(tr("Encrypt File"));
+    setWindowIcon(QIcon(":/res/images/icon.png"));
 }
 
 QString EncryptFileDialog::getFileName(QString &pathTofile)
@@ -104,8 +105,7 @@ void EncryptFileDialog::chooseFile()
     QString file;
     chooseFile_btn->setText("choose file");
     file_name_textbox->clear();
-    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath());
-    // ,tr("files (*.txt *.md *.html *.sql)")
+    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath(),tr("files (*.txt *.md *.html *.sql)"));
 
     if (file.isEmpty() == false) {
         file_name_textbox->setText(file);

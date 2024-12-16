@@ -24,5 +24,6 @@ public:
 
 private:
     QByteArray readBinaryFile(const string &strFileName);
+    void writeBinary(const string &strFileName, QByteArray &data);
     void writeQArray(const string &strFileName, QByteArray &data);
 };

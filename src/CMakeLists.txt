@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   File_Encryption-Decryption
-  VERSION 1.0.0
+  VERSION 1.1.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
   LANGUAGES CXX)
@@ -15,14 +15,14 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_COMPILER clang++)
+#set(CMAKE_CXX_COMPILER clang++)
 
-set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;
-                         -checks=cppcoreguidelines-*)
+#set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;
+#                         -checks=cppcoreguidelines-*)
 
-set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
-set(CXX_FLAGS_DEBUG "-g3 -O0")
-set(CXX_FLAGS_RELEASE "-O3")
+# Linux OK: set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
+# set(CXX_FLAGS_DEBUG "-g3 -O0")
+# set(CXX_FLAGS_RELEASE "-O3")
 
 set(PROG_NAME "${PROJECT_NAME}")
 set(PROG_VERSION "${PROJECT_VERSION}")
@@ -32,8 +32,8 @@ set(PROG_DESCRIPTION "${PROJECT_DESCRIPTION}")
 configure_file("${CMAKE_SOURCE_DIR}/configure/rz_config.h.in"
                "${CMAKE_SOURCE_DIR}/includes/rz_config.h")
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 
 set(PROJECT_SOURCES main.cpp)
 
@@ -78,7 +78,7 @@ else()
   endif()
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt6::Core)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 

@@ -8,6 +8,11 @@
 #include <QDesktopServices>
 #include <QUrl>
 
+#include <QTranslator>
+#include <QActionGroup>
+#include <QApplication>
+#include <QLibraryInfo>
+
 class QPushButton;
 class QLabel;
 class Template;
@@ -22,15 +27,35 @@ public:
     MenuPage(Template *parent = 0);
     ~MenuPage();
 
+protected:
+    void changeEvent(QEvent *event);
+protected slots:
+    // this slot is called by the language menu actions
+    void slotLanguageChanged(QAction* action);
+
 private:
+    QMenu *languageMenu;
+    void loadLanguage(const QString& rLanguage);
+    void switchTranslator(QTranslator& translator, const QString& filename);
+    // creates the language menu dynamically from the content of m_langPath
+    void createLanguageMenu(void);
+
+    QTranslator m_translator; // contains the translations for this application
+    QTranslator m_translatorQt; // contains the translations for qt
+    QString m_currLang; // contains the currently loaded language
+    QString m_langPath = ":/res/i18n";
+
     // menu page contents
     QLabel *label;
     QPushButton *encrypt_file_button;
     QPushButton *decrypt_file_button;
     QPushButton *exit_button;
 
+    QMenu *infoMenu;
+    QAction *helpAct;
+    QAction *aboutAct;
+
     QStatusBar *bar;
-    //QLabel *m_statusMiddle;
     QPushButton *m_statusMiddle;
 
     // dialogs
@@ -42,6 +67,8 @@ private slots:
     void encrypt_dialog();
     void decrypt_dialog();
 
+    void help();
+    void about();
     void openGithub();
 
     void close();

@@ -5,7 +5,7 @@
     <name>DecryptFileDialog</name>
     <message>
         <location filename="../decrypt_file_dialog.cpp" line="13"/>
-        <location filename="../decrypt_file_dialog.cpp" line="87"/>
+        <location filename="../decrypt_file_dialog.cpp" line="88"/>
         <source>Choose a &amp;file </source>
         <oldsource>Choose a file </oldsource>
         <translation>Datei &amp;auswählen </translation>
@@ -53,32 +53,32 @@ nicht aktiv: entschlüsseln in eine neue Datei.</translation>
         <translation>Datei entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="92"/>
+        <location filename="../decrypt_file_dialog.cpp" line="93"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="96"/>
+        <location filename="../decrypt_file_dialog.cpp" line="97"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="83"/>
+        <location filename="../decrypt_file_dialog.cpp" line="84"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="108"/>
+        <location filename="../decrypt_file_dialog.cpp" line="109"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="110"/>
+        <location filename="../decrypt_file_dialog.cpp" line="111"/>
         <source>encoded files (*.aes)</source>
         <translation>verschlüsselte Dateien (*.aes)</translation>
     </message>
     <message>
-        <location filename="../decrypt_file_dialog.cpp" line="115"/>
+        <location filename="../decrypt_file_dialog.cpp" line="116"/>
         <source>choosed &amp;file:</source>
         <oldsource>choosed file:</oldsource>
         <translation>&amp;ausgewählte Datei:</translation>
@@ -88,7 +88,7 @@ nicht aktiv: entschlüsseln in eine neue Datei.</translation>
     <name>EncryptFileDialog</name>
     <message>
         <location filename="../encrypt_file_dialog.cpp" line="14"/>
-        <location filename="../encrypt_file_dialog.cpp" line="87"/>
+        <location filename="../encrypt_file_dialog.cpp" line="88"/>
         <source>Choose &amp;file </source>
         <oldsource>Choose file </oldsource>
         <translation>Datei &amp;auswählen </translation>
@@ -139,24 +139,29 @@ nicht aktiv: verschlüsseln in eine neue Datei.</translation>
         <translation>Datei verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="92"/>
+        <location filename="../encrypt_file_dialog.cpp" line="93"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="96"/>
+        <location filename="../encrypt_file_dialog.cpp" line="97"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="82"/>
+        <location filename="../encrypt_file_dialog.cpp" line="83"/>
         <source>Success</source>
         <translation>Erfolgreich</translation>
     </message>
     <message>
-        <location filename="../encrypt_file_dialog.cpp" line="107"/>
+        <location filename="../encrypt_file_dialog.cpp" line="108"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
+    </message>
+    <message>
+        <location filename="../encrypt_file_dialog.cpp" line="108"/>
+        <source>files (*.txt *.md *.html *.sql)</source>
+        <translation>Dateien (*.txt *.md *.html *.sql)</translation>
     </message>
     <message>
         <location filename="../encrypt_file_dialog.cpp" line="112"/>
@@ -182,43 +187,71 @@ Mit diesem kleinen Werkzeug können Dateien verschlüsselt und wieder entschlüs
 Um fortzufahren, wählen Sie eine der folgenden Optionen:</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="21"/>
+        <location filename="../menu_page.cpp" line="24"/>
+        <location filename="../menu_page.cpp" line="134"/>
         <source>With this little tool you can encrypt and decrypt files.
 To proceed, please select one of the following options:</source>
         <translation>Mit diesem kleinen Werkzeug können Dateien verschlüsselt und wieder entschlüsselt werden.
 Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="34"/>
+        <location filename="../menu_page.cpp" line="37"/>
+        <location filename="../menu_page.cpp" line="129"/>
         <source>&amp;Encrypt File</source>
         <oldsource>Encrypt File</oldsource>
         <translation>Datei &amp;verschlüsseln</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="38"/>
+        <location filename="../menu_page.cpp" line="41"/>
+        <location filename="../menu_page.cpp" line="130"/>
         <source>&amp;Decrypt File</source>
         <oldsource>Decrypt File</oldsource>
         <translation>Datei &amp;entschlüsseln</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="42"/>
+        <location filename="../menu_page.cpp" line="45"/>
+        <location filename="../menu_page.cpp" line="131"/>
         <source>E&amp;xit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="54"/>
+        <location filename="../menu_page.cpp" line="57"/>
         <source>click to open your default Browser and go to the Github repository</source>
         <translation>Anklicken um mit Ihrem Internet-Browser zum Github Repository zu surfen</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="95"/>
+        <location filename="../menu_page.cpp" line="99"/>
         <source>Confirmation</source>
         <translation>Bestätigung</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="96"/>
+        <location filename="../menu_page.cpp" line="100"/>
         <source>Are you sure you want to exit?</source>
         <translation>Sind Sie sicher das Sie das Programm verlassen wollen?</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="128"/>
+        <source>File Encryption and Decryption</source>
+        <translation>Datei Verschlüsselung und Entschlüsselung</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="185"/>
+        <source>Current Language changed to %1</source>
+        <translation>Aktuelle Sprache geändert zu %1</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="224"/>
+        <source>German</source>
+        <translation>Deutsch</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="226"/>
+        <source>English</source>
+        <translation>Englisch</translation>
+    </message>
+    <message>
+        <source>&amp;Language</source>
+        <translation type="vanished">&amp;Sprache</translation>
     </message>
 </context>
 <context>
@@ -248,7 +281,7 @@ Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
     </message>
     <message>
         <location filename="../includes/rz_snipptes.hpp" line="20"/>
-        <location filename="../includes/rz_snipptes.hpp" line="56"/>
+        <location filename="../includes/rz_snipptes.hpp" line="58"/>
         <source>not a regular file</source>
         <translation>ist keine reguläre Datei</translation>
     </message>
@@ -258,12 +291,12 @@ Um fortzufahren, wählen Sie bitte eine der folgenden Optionen:</translation>
         <translation>Datei ist nicht schreibbar</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="98"/>
+        <location filename="../includes/rz_snipptes.hpp" line="103"/>
         <source>is too big.</source>
         <translation>ist zu groß.</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="99"/>
+        <location filename="../includes/rz_snipptes.hpp" line="104"/>
         <source>Filesize limit is</source>
         <translation>Dateigrößenlimit ist</translation>
     </message>

@@ -60,6 +60,7 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
     setMaximumWidth(600);
     setLayout(main_layout);
     setWindowTitle(tr("Decrypt File"));
+    setWindowIcon(QIcon(":/res/images/icon.png"));
 }
 
 QString DecryptFileDialog::getFileName(QString &pathTofile)
@@ -106,7 +107,7 @@ void DecryptFileDialog::chooseFile()
     file_name_textbox->clear();
     file = QFileDialog::getOpenFileName(this,
                                         tr("Open File"),
-                                        QDir::currentPath(),
+                                        QDir::homePath(),
                                         tr("encoded files (*.aes)"));
 
     if (file.isEmpty() == false)
