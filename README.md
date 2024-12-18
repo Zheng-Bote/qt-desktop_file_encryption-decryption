@@ -34,6 +34,7 @@
   - [MacOS](#macos)
   - [Windows](#windows)
     - [Set-Up](#set-up)
+    - [Set-Up - De-Installation](#set-up---de-installation)
     - [without set-up](#without-set-up)
 - [Development](#development)
   - [Dependencies](#dependencies)
@@ -197,7 +198,9 @@ See folder `docs/img` for screenshots.
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_de.png)
 
-For de-installation, go to Settings -> Apps -> installed Apps
+### Set-Up - De-Installation
+
+For de-installation, go to Settings -> Apps -> installed Apps and choose within the hamburger menu "deinstallation"
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/deinstall_en.png)
 
