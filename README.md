@@ -233,20 +233,31 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── repo-create_doctoc.yml_
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
+├── .gitignore
 ├── LICENSE
 ├── README.md
 ├── docs
 │   └── img
+│       ├── 00_setup_de.png
+│       ├── 00_setup_en.png
 │       ├── 01_de.png
 │       ├── 01_en.png
+│       ├── 01_setup_de.png
 │       ├── 01_setup_en.png
 │       ├── 02_de.png
 │       ├── 02_en.png
+│       ├── 02_setup_de.png
 │       ├── 02_setup_en.png
 │       ├── 03_de.png
 │       ├── 03_en.png
+│       ├── 03_setup_de.png
 │       ├── 03_setup_en.png
-│       └── 04_setup_en.png
+│       ├── 04_setup_de.png
+│       ├── 04_setup_en.png
+│       ├── 05_setup_de.png
+│       ├── 05_setup_en.png
+│       ├── 06_setup_de.png
+│       └── 06_setup_en.png
 ├── src
 │   ├── CMakeLists.txt
 │   ├── configure
@@ -261,8 +272,16 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   ├── encrypt_file_dialog.cpp
 │   ├── encrypt_file_dialog.h
 │   ├── i18n
+│   │   ├── de.png
 │   │   ├── de_DE.qm
-│   │   └── de_DE.ts
+│   │   ├── en.png
+│   │   ├── qt_file_encryption-decryption_de.qm
+│   │   ├── qt_file_encryption-decryption_de.ts
+│   │   ├── qt_file_encryption-decryption_en.qm
+│   │   ├── qt_file_encryption-decryption_en.ts
+│   │   ├── qtbase_de.qm
+│   │   ├── qtbase_en.qm
+│   │   └── translate.png
 │   ├── images
 │   │   ├── background.jpg
 │   │   ├── icon-16x16.ico
@@ -282,7 +301,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   └── template.h
 └── tree.bak
 
-12 directories, 55 files
+12 directories, 74 files
 ```
 <!-- readme-tree end -->
 
