@@ -23,6 +23,12 @@
   - [Encryption](#encryption)
   - [Decryption](#decryption)
   - [Screenshots](#screenshots)
+    - [start page](#start-page)
+    - [encryption dialog](#encryption-dialog)
+    - [decryption dialog](#decryption-dialog)
+    - [switch language](#switch-language)
+    - [help page](#help-page)
+    - [about page](#about-page)
 - [Installation](#installation)
   - [Linux](#linux)
   - [MacOS](#macos)
@@ -116,20 +122,33 @@ See folder `docs/img` for screenshots.
 
 ## Screenshots
 
+### start page
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
+
+### encryption dialog
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_de.png)
 
+### decryption dialog
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
+
+
+### switch language
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_de.png)
 
+### help page
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_de.png)
+
+### about page
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_de.png)
@@ -156,6 +175,7 @@ See folder `docs/img` for screenshots.
 - doubleclick `setup__file_encryption-decryption__x86_amd64_v<VERSION>.exe` (eg.: `setup__file_encryption-decryption__x86_amd64_v1.1.0.exe`)
 - choose "install for all users" (Administrator rights needed)
 - choose "install for current user only" (no Administrator rights needed)
+- choose "select language (DE|EN) to use during installation"
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_de.png)
