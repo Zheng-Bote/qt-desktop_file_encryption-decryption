@@ -261,10 +261,16 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── 03_de.png
 │       ├── 03_en.png
 │       ├── 03_setup_de.png
+│       ├── 04_de.png
+│       ├── 04_en.png
 │       ├── 04_setup_de.png
 │       ├── 04_setup_en.png
+│       ├── 05_de.png
+│       ├── 05_en.png
 │       ├── 05_setup_de.png
 │       ├── 05_setup_en.png
+│       ├── 06_de.png
+│       ├── 06_en.png
 │       ├── 06_setup_de.png
 │       ├── 06_setup_en.png
 │       └── deinstall_en.png
@@ -311,7 +317,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   └── template.h
 └── tree.bak
 
-12 directories, 74 files
+12 directories, 80 files
 ```
 <!-- readme-tree end -->
 
