@@ -252,13 +252,13 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── 03_de.png
 │       ├── 03_en.png
 │       ├── 03_setup_de.png
-│       ├── 03_setup_en.png
 │       ├── 04_setup_de.png
 │       ├── 04_setup_en.png
 │       ├── 05_setup_de.png
 │       ├── 05_setup_en.png
 │       ├── 06_setup_de.png
-│       └── 06_setup_en.png
+│       ├── 06_setup_en.png
+│       └── deinstall_en.png
 ├── src
 │   ├── CMakeLists.txt
 │   ├── configure
