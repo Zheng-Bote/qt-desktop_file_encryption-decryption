@@ -49,10 +49,10 @@
 ![QT](https://img.shields.io/badge/Community-6-41CD52?logo=qt)
 ![CXX](https://img.shields.io/badge/C++-23-blue?logo=cplusplus)
 
-Qt6 C++23 Desktop application to encrypt and decrypt the given file.
+Qt6 C++23 Desktop application to encrypt / decrypt the given text file.
 
 - Encryption: AES-256 CBC
-- Password: Sha256, between 5 to 32 characters
+- Password: SHA256, between 5 to 32 characters
 - initialization vector: MD5
 
 See folder `docs/img` for screenshots.
@@ -144,24 +144,37 @@ See folder `docs/img` for screenshots.
 
 ### Set-Up
 
-- doubleclick "Setup__File_Encryption-Decryption_x86_amd64_v<VERSION>.exe" (eg.: Setup__File_Encryption-Decryption_x86_amd64_v1.0.0.exe)
+- doubleclick `setup__file_encryption-decryption__x86_amd64_v<VERSION>.exe` (eg.: `setup__file_encryption-decryption__x86_amd64_v1.1.0.exe`)
 - choose "install for all users" (Administrator rights needed)
 - choose "install for current user only" (no Administrator rights needed)
 
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_de.png)
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_setup_de.png)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_setup_de.png)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_setup_en.png)
-
-For de-installation, go to Settings -> Apps -> installed Apps
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_setup_de.png)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_setup_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_setup_de.png)
+
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_de.png)
+For de-installation, go to Settings -> Apps -> installed Apps
+
 
 ### without set-up
 
-- unzip "File_encryption-decryption_x86_amd64_v<VERSION>.zip" (eg.: File_encryption-decryption_x86_amd64_v1.0.0.zip) to a folder
-- execute/doubleclick the executable "File_Encryption-Decryption_x86_amd64.exe"
+- unzip `file_encryption-decryption__x86_amd64_v<VERSION>.zip` (eg.: `file_encryption-decryption__x86_amd64_v1.1.0.zip`) to a folder
+- execute/doubleclick the executable `file_encryption-decryption_x86_amd64.exe`
 
 # Development
 

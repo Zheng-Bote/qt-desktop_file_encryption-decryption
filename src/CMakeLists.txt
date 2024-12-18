@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.23)
 # -DCMAKE_BUILD_TYPE=Release -DCMAKE_BUILD_TYPE=Debug
 
 project(
-  File_Encryption-Decryption
+  file_encryption-decryption
   VERSION 1.1.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
@@ -24,7 +24,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CXX_FLAGS_DEBUG "-g3 -O0")
 # set(CXX_FLAGS_RELEASE "-O3")
 
-set(PROG_NAME "${PROJECT_NAME}")
+set(PROG_EXEC_NAME "${PROJECT_NAME}")
+set(PROG_NAME "File encryption/decryption")
 set(PROG_VERSION "${PROJECT_VERSION}")
 set(PROG_HOMEPAGE "${PROJECT_HOMEPAGE_URL}")
 set(PROG_DESCRIPTION "${PROJECT_DESCRIPTION}")

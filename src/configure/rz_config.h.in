@@ -1,5 +1,6 @@
 #pragma once
 
+#cmakedefine PROG_EXEC_NAME "${PROG_EXEC_NAME}"
 #cmakedefine PROG_NAME "${PROG_NAME}"
 #cmakedefine PROG_VERSION "${PROG_VERSION}"
 #cmakedefine PROG_HOMEPAGE "${PROG_HOMEPAGE}"

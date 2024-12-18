@@ -27,6 +27,10 @@ public:
     MenuPage(Template *parent = 0);
     ~MenuPage();
 
+    QTranslator m_translator; // contains the translations for this application
+    QTranslator m_translatorQt; // contains the translations for qt
+    void loadLanguage(const QString& rLanguage);
+
 protected:
     void changeEvent(QEvent *event);
 protected slots:
@@ -35,13 +39,10 @@ protected slots:
 
 private:
     QMenu *languageMenu;
-    void loadLanguage(const QString& rLanguage);
     void switchTranslator(QTranslator& translator, const QString& filename);
     // creates the language menu dynamically from the content of m_langPath
     void createLanguageMenu(void);
 
-    QTranslator m_translator; // contains the translations for this application
-    QTranslator m_translatorQt; // contains the translations for qt
     QString m_currLang; // contains the currently loaded language
     QString m_langPath = ":/res/i18n";
 

@@ -1,3 +1,14 @@
+/**
+ * @file template.cpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief stupid template 4 main window object
+ * @version 1.1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024 ZHENG Robert
+ * 
+ */
+
 #include "template.h"
 #include <QWidget>
 #include <QResizeEvent>
@@ -7,6 +18,7 @@
 #include <QGuiApplication>
 #include <QRect>
 #include <QScreen>
+#include "includes/rz_config.h"
 
 Template::Template(QMainWindow *parent) : QMainWindow(parent)
 {
@@ -14,7 +26,7 @@ Template::Template(QMainWindow *parent) : QMainWindow(parent)
     const int HEIGHT = 600;
 
     setFixedSize(WIDTH, HEIGHT);
-    setWindowTitle(tr("File Encryption and Decryption"));
+    setWindowTitle(tr(PROG_NAME));
     setWindowIcon(QIcon(":/res/images/icon.png"));
 
     QScreen *screen = QGuiApplication::primaryScreen();

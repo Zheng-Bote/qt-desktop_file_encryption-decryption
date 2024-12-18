@@ -1,3 +1,14 @@
+/**
+ * @file encrypt_file_dialog.cpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief ui for encryption dialog
+ * @version 1.1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024 ZHENMG Robert
+ * 
+ */
+
 #include "encrypt_file_dialog.h"
 #include <QCheckBox>
 #include <QFileDialog>

@@ -187,67 +187,209 @@ Mit diesem kleinen Werkzeug können Dateien verschlüsselt und wieder entschlüs
 Um fortzufahren, wählen Sie eine der folgenden Optionen:</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="24"/>
-        <location filename="../menu_page.cpp" line="134"/>
+        <location filename="../menu_page.cpp" line="30"/>
+        <location filename="../menu_page.cpp" line="177"/>
         <source>With this little tool you can encrypt and decrypt files.
 To proceed, please select one of the following options:</source>
         <translation>With this little tool you can encrypt and decrypt files.
 To proceed, please select one of the following options:</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="37"/>
-        <location filename="../menu_page.cpp" line="129"/>
+        <location filename="../menu_page.cpp" line="43"/>
+        <location filename="../menu_page.cpp" line="172"/>
         <source>&amp;Encrypt File</source>
         <oldsource>Encrypt File</oldsource>
         <translation>&amp;Encrypt File</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="41"/>
-        <location filename="../menu_page.cpp" line="130"/>
+        <location filename="../menu_page.cpp" line="47"/>
+        <location filename="../menu_page.cpp" line="173"/>
         <source>&amp;Decrypt File</source>
         <oldsource>Decrypt File</oldsource>
         <translation>&amp;Decrypt File</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="45"/>
-        <location filename="../menu_page.cpp" line="131"/>
+        <location filename="../menu_page.cpp" line="51"/>
+        <location filename="../menu_page.cpp" line="174"/>
         <source>E&amp;xit</source>
         <translation>E&amp;xit</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="57"/>
+        <location filename="../menu_page.cpp" line="63"/>
         <source>click to open your default Browser and go to the Github repository</source>
         <translation>click to open your default Browser and go to the Github repository</translation>
     </message>
     <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>How to encrypt</source>
+        <translation>How to encrypt</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>choose a text file to encrypt.</source>
+        <translation>choose a text file to encrypt.</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
         <location filename="../menu_page.cpp" line="99"/>
+        <source>activate the checkbox to</source>
+        <translation>activate the checkbox to</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>encrypt the source file</source>
+        <translation>encrypt the source file</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>original file will be replaced with the encrypted one</source>
+        <translation>original file will be replaced with the encrypted one</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>keep checkbox unchecked to</source>
+        <translation>keep checkbox unchecked to</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>encrypt the given file into a new (encrypted) file</source>
+        <translation>encrypt the given file into a new (encrypted) file</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>encrypted file will be stored in your temp-folder with extension &apos;.aes&apos;</source>
+        <translation>encrypted file will be stored in your temp-folder with extension &apos;.aes&apos;</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>Warning</source>
+        <translation>Warning</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>Don&apos;t loose your password.</source>
+        <translation>Don&apos;t loose your password.</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="98"/>
+        <source>Decryption/Recovery without a valid password is impossible!</source>
+        <translation>Decryption/Recovery without a valid password is impossible!</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>How to decrypt</source>
+        <translation>How to decrypt</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>choose a file to decrypt (only files with extension &apos;.aes&apos;).</source>
+        <translation>choose a file to decrypt (only files with extension &apos;.aes&apos;).</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>decrypt the source file</source>
+        <translation>decrypt the source file</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>original file will be replaced with the decrypted one.</source>
+        <translation>original file will be replaced with the decrypted one.</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>decrypt the given file into a new (decrypted) file</source>
+        <translation>decrypt the given file into a new (decrypted) file</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="99"/>
+        <source>decrypted file will be stored in your temp-folder</source>
+        <translation>decrypted file will be stored in your temp-folder</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="101"/>
+        <location filename="../menu_page.cpp" line="117"/>
+        <source>Encryption</source>
+        <translation>Encryption</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="101"/>
+        <location filename="../menu_page.cpp" line="117"/>
+        <source>Password</source>
+        <translation>Password</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="101"/>
+        <location filename="../menu_page.cpp" line="117"/>
+        <source>5 to 32 characters</source>
+        <translation>5 to 32 characters</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="104"/>
+        <source>Help</source>
+        <translation>Help</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="118"/>
+        <source>Desktop application for Linux, MacOS and Windows</source>
+        <translation>Desktop application for Linux, MacOS and Windows</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="118"/>
+        <source>license</source>
+        <translation>license</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="120"/>
+        <source>at</source>
+        <translation>at</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="123"/>
+        <source>About</source>
+        <translation>About</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="142"/>
         <source>Confirmation</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="100"/>
+        <location filename="../menu_page.cpp" line="143"/>
         <source>Are you sure you want to exit?</source>
         <translation>Are you sure you want to exit?</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="128"/>
+        <location filename="../menu_page.cpp" line="171"/>
         <source>File Encryption and Decryption</source>
         <translation>File Encryption and Decryption</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="185"/>
+        <location filename="../menu_page.cpp" line="291"/>
+        <source>&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="294"/>
+        <source>&amp;About</source>
+        <translation>&amp;About</translation>
+    </message>
+    <message>
+        <location filename="../menu_page.cpp" line="297"/>
+        <source>&amp;Info</source>
+        <translation>&amp;Info</translation>
+    </message>
+    <message>
         <source>Current Language changed to %1</source>
-        <translation>Current Language changed to %1</translation>
+        <translation type="vanished">Current Language changed to %1</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="224"/>
         <source>German</source>
-        <translation>German</translation>
+        <translation type="vanished">German</translation>
     </message>
     <message>
-        <location filename="../menu_page.cpp" line="226"/>
         <source>English</source>
-        <translation>English</translation>
+        <translation type="vanished">English</translation>
     </message>
     <message>
         <source>&amp;Language</source>
@@ -275,28 +417,28 @@ To proceed, please select one of the following options:</translation>
         <translation>decrypted file:</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="18"/>
+        <location filename="../includes/rz_snipptes.hpp" line="28"/>
         <source>is a regular file</source>
         <translation>is a regular file</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="20"/>
-        <location filename="../includes/rz_snipptes.hpp" line="58"/>
+        <location filename="../includes/rz_snipptes.hpp" line="30"/>
+        <location filename="../includes/rz_snipptes.hpp" line="68"/>
         <source>not a regular file</source>
         <translation>not a regular file</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="26"/>
+        <location filename="../includes/rz_snipptes.hpp" line="36"/>
         <source>File isn&apos;t writeable</source>
         <translation>File isn&apos;t writeable</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="103"/>
+        <location filename="../includes/rz_snipptes.hpp" line="113"/>
         <source>is too big.</source>
         <translation>is too big.</translation>
     </message>
     <message>
-        <location filename="../includes/rz_snipptes.hpp" line="104"/>
+        <location filename="../includes/rz_snipptes.hpp" line="114"/>
         <source>Filesize limit is</source>
         <translation>Filesize limit is</translation>
     </message>
@@ -304,9 +446,8 @@ To proceed, please select one of the following options:</translation>
 <context>
     <name>Template</name>
     <message>
-        <location filename="../template.cpp" line="17"/>
         <source>File Encryption and Decryption</source>
-        <translation>File Encryption and Decryption</translation>
+        <translation type="vanished">File Encryption and Decryption</translation>
     </message>
 </context>
 </TS>

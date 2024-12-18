@@ -1,3 +1,13 @@
+/**
+ * @file enc_dec_logic.cpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief model for encryption / decryption
+ * @version 1.1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024 ZHENG Robert
+ * 
+ */
 #include "enc_dec_logic.h"
 #include <QFile>
 
@@ -45,11 +55,11 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
 
     QByteArray encodeText = encryption.encode(strData.toLocal8Bit(), hashKey, hashIV);
 */
-    QByteArray encodeText = encryption.encode(readBinaryFile(pathToFile), hashKey, hashIV);
+    QByteArray encodeText = encryption.encode(readTextFile(pathToFile), hashKey, hashIV);
 
     if (overwriteSourceFile == true) {
         std::string newFile = pathToFile + ".aes";
-        writeBinary(newFile, encodeText);
+        writeText(newFile, encodeText);
         std::filesystem::remove(pathToFile);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newFile);
@@ -59,7 +69,7 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
         std::string newFile = msg.toStdString() + ".aes";
         std::string newPathToFile = newPath + newFile;
-        writeBinary(newPathToFile, encodeText);
+        writeText(newPathToFile, encodeText);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newPathToFile);
     }
@@ -86,7 +96,7 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
     QByteArray hashKey = QCryptographicHash::hash(key.toLocal8Bit(), QCryptographicHash::Sha256);
     QByteArray hashIV = QCryptographicHash::hash(iv.toLocal8Bit(), QCryptographicHash::Md5);
 
-    QByteArray decodeText = encryption.decode(readBinaryFile(pathToFile), hashKey, hashIV);
+    QByteArray decodeText = encryption.decode(readTextFile(pathToFile), hashKey, hashIV);
 
     QString decodedString = QString(encryption.removePadding(decodeText));
 
@@ -110,7 +120,7 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
     return std::make_tuple(1, msg);
 }
 
-QByteArray EncryptionDecryption::readBinaryFile(const string &strFileName)
+QByteArray EncryptionDecryption::readTextFile(const string &strFileName)
 {
     QFile file(strFileName.c_str());
     file.open(QIODeviceBase::ReadOnly);
@@ -119,7 +129,7 @@ QByteArray EncryptionDecryption::readBinaryFile(const string &strFileName)
     return blob;
 }
 
-void EncryptionDecryption::writeBinary(const string &strFileName, QByteArray &data)
+void EncryptionDecryption::writeText(const string &strFileName, QByteArray &data)
 {
 
     QFile file(strFileName.c_str());

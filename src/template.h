@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+
 class QWidget;
 class QResizeEvent;
 class QCloseEvent;

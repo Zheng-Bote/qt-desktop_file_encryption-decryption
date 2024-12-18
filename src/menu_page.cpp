@@ -1,3 +1,14 @@
+/**
+ * @file menu_page.cpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief ui start page
+ * @version 1.1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024 ZHENG Robert
+ * 
+ */
+
 #include "menu_page.h"
 #include "template.h"
 #include <QWidget>
@@ -20,6 +31,12 @@ using std::string;
 
 MenuPage::MenuPage(Template *parent) : Template(parent)
 {
+    /*
+    QString locale = QLocale::system().name();
+    locale.truncate(locale.lastIndexOf('_'));
+    loadLanguage(locale);
+*/
+
     QString str_label = "Hello World 你好世界 Hola Mundo Привет мир Hallo Welt!\n\n"
                         + tr("With this little tool you can encrypt and decrypt "
                              "files.\nTo proceed, please select one of the following options:");
@@ -88,30 +105,44 @@ void MenuPage::decrypt_dialog()
 
 void MenuPage::help()
 {
-    QMessageBox::question(this,
-                          tr("Help"),
-                          tr("with some help from my friends?"),
-                          QMessageBox::Ok);
+    QString intro = tr(PROG_DESCRIPTION) + "\n\n";
+    QString encrypt = "<b>" + tr("How to encrypt") + ":</b><br>1) " + tr("choose a text file to encrypt.") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("encrypt the source file") + "<br>-> " + tr("original file will be replaced with the encrypted one") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("encrypt the given file into a new (encrypted) file") + "<br>-> " + tr("encrypted file will be stored in your temp-folder with extension '.aes'") + "<br><br><b>" + tr("Warning") + ":</b><br>" + tr("Don't loose your password.") + "<br>" + tr("Decryption/Recovery without a valid password is impossible!");
+    QString decrypt = "<b>" + tr("How to decrypt") + ":</b><br>1) " + tr("choose a file to decrypt (only files with extension '.aes').") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("decrypt the source file") + "<br>-> " + tr("original file will be replaced with the decrypted one.") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("decrypt the given file into a new (decrypted) file") + "<br>-> " + tr("decrypted file will be stored in your temp-folder");
+    QString text = encrypt + "<br><br>" + decrypt;
+    QString detailedText = tr(PROG_DESCRIPTION) + "\n- " + tr("Encryption") + ": AES-256 CBC\n- " + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "\n- initialization vector: MD5";
+
+    QMessageBox msgBox(this);
+    msgBox.setWindowTitle(tr("Help"));
+    msgBox.setIcon(QMessageBox::Question);
+    msgBox.setTextFormat(Qt::RichText);
+    msgBox.setText(intro);
+    msgBox.setInformativeText(text);
+    msgBox.setDetailedText(detailedText);
+    msgBox.setFixedWidth(700);
+    msgBox.exec();
 }
 
 void MenuPage::about()
 {
-    /*
-    QMessageBox::information(this,
-                             tr("About"),
-                             tr("this is about.") + "\n\n <a href='http://www.trolltech.com'>Trolltech</a>",
-                             QMessageBox::Ok);
-*/
+    QString text = tr(PROG_DESCRIPTION) + "\n\n";
+    QString setInformativeText = "<p><ul><li>" + tr("Encryption") + ": AES-256 CBC</li><li>" + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "</li><li>initialization vector: MD5</li></ul></p>";
+    setInformativeText.append("<p><ul><li>" + tr("Desktop application for Linux, MacOS and Windows") + "</li><li>OSS MIT " + tr("license") + "</li></ul></p>");
+    setInformativeText.append("<br><a href=\"https://github.com/Zheng-Bote/qt_file_encryption-decryption\" alt=\"Github repository\">");
+    setInformativeText.append(QString(PROG_EXEC_NAME) + " v" + QString(PROG_VERSION) + " " + tr("at") + " Github</a>");
+
     QMessageBox msgBox(this);
-    msgBox.setWindowTitle("Help / About");
-    msgBox.setTextFormat(Qt::RichText);   //this is what makes the links clickable
-    msgBox.setText("Mail: <a href='mailto:someone@somewhere.com?Subject=My%20Subject>Email me</a>");
+    msgBox.setWindowTitle(tr("About") + " " + tr(PROG_NAME));
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setTextFormat(Qt::RichText);
+    msgBox.setText(text);
+    msgBox.setInformativeText(setInformativeText);
+    msgBox.setFixedWidth(800);
     msgBox.exec();
 }
 
 void MenuPage::openGithub()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/Zheng-Bote/qt_file_encryption-decryption"));
+    QDesktopServices::openUrl(QUrl(PROG_HOMEPAGE));
 }
 
 void MenuPage::closeEvent(QCloseEvent *event)

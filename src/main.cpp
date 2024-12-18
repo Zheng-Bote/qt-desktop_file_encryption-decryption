@@ -1,3 +1,14 @@
+/**
+ * @file main.cpp
+ * @author ZHENG Bote (www.robert.hase-zheng.net)
+ * @brief file encryption / decryption
+ * @version 1.1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024 ZHENG Robert
+ * 
+ */
+
 #include <QApplication>
 #include <QLibraryInfo>
 #include <QMainWindow>
@@ -8,28 +19,12 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    /*
-    QTranslator qtBaseTranslator;
-    if (qtBaseTranslator.load("qtbase_" + QLocale::system().name(),
-                              QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
-        qDebug() << "qtBaseTranslator ok: " << QLocale::system().name() << " " << QLibraryInfo::path(QLibraryInfo::TranslationsPath);
-        app.installTranslator(&qtBaseTranslator);
-    }
-
-    QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "qt_file_encryption-decryption_" + QLocale(locale).name();
-        if (translator.load(":/res/i18n/" + baseName)) {
-            qDebug() << "qtAppTranslator ok: " << baseName;
-            app.installTranslator(&translator);
-            break;
-        } else {
-            qDebug() << "qtAppTranslator NOK: " << baseName;
-        }
-    }
-*/
     MenuPage menu_page;
+
+    QString locale = QLocale::system().name();
+    locale.truncate(locale.lastIndexOf('_'));
+    menu_page.loadLanguage(locale);
+
     menu_page.show();
 
     return app.exec();
