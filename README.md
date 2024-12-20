@@ -1,7 +1,8 @@
 <div id="top" align="center">
 <h1>qt_file_encryption_decryption</h1>
 
-<p>File encryption and decryption<br><small>Linux, MacOS, Windows</small></p>
+<h4>File encryption and decryption</h4>
+<h6>for Linux, MacOS, Windows</h6>
 
 [Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
 
