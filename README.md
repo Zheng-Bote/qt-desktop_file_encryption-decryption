@@ -15,10 +15,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
@@ -141,15 +142,21 @@ See folder `docs/img` for screenshots.
 
 ### switch language
 
+(Menu: `A/六)` -> `DE|EN`)
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_de.png)
 
 ### help page
 
+(Menu: `Info -> Help` or keyboard shortcut `F1`)
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_de.png)
 
 ### about page
+
+(Menu: `Info -> About` or keyboard shortcut `A`)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_de.png)
@@ -199,7 +206,7 @@ See folder `docs/img` for screenshots.
 
 ### Set-Up - De-Installation
 
-For de-installation, go to Settings -> Apps -> installed Apps and choose within the hamburger menu "deinstallation"
+For de-installation, go to Windows `Settings -> Apps -> installed Apps` and choose within the hamburger menu "deinstallation"
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/deinstall_en.png)
 
@@ -244,6 +251,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -341,6 +349,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 12 directories, 80 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
