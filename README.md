@@ -1,7 +1,7 @@
 <div id="top" align="center">
 <h1>qt_file_encryption_decryption</h1>
 
-<p>File encryption and decryption</p>
+<p>File encryption and decryption<br><small>Linux, MacOS, Windows</small></p>
 
 [Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
 
@@ -14,10 +14,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
@@ -138,7 +139,6 @@ See folder `docs/img` for screenshots.
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
 
-
 ### switch language
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_en.png)
@@ -156,18 +156,17 @@ See folder `docs/img` for screenshots.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 # Installation
 
 ## Linux
 
-- make AppImage executable (eg. chmod 755 )
+- make AppImage executable (eg. `chmod 755 file_encryption-decryption-x86_64.AppImage` )
 - execute / doubleclick AppImage
 
 ## MacOS
 
-> \[!NOTE]
-> _under construction_
+- make DiskImage executable (eg. `chmod 755 file_encryption-decryption.dmg`)
+- execute / click DiskImage
 
 ## Windows
 
@@ -226,7 +225,7 @@ CMake: A Powerful Software Build System
 ### QT
 
 > \[!NOTE]
-> _QT6 - Community Edition_
+> _QT6 - Community Edition_ >= 6.7
 
 The Qt framework contains a comprehensive set of highly intuitive and modularized C++ library classes and is loaded with APIs to simplify your application development. Qt produces highly readable, easily maintainable and reusable code with high runtime performance and small footprint – and it's cross-platform.
 
@@ -245,6 +244,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -342,6 +342,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 12 directories, 80 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>

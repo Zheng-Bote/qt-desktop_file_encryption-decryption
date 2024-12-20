@@ -17,12 +17,12 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(CMAKE_CXX_COMPILER clang++)
 
-#set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;
-#                         -checks=cppcoreguidelines-*)
+#set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;-checks=cppcoreguidelines-*)
 
-# Linux OK: set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
-# set(CXX_FLAGS_DEBUG "-g3 -O0")
-# set(CXX_FLAGS_RELEASE "-O3")
+# Linux OK:
+#set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
+#set(CXX_FLAGS_DEBUG "-g3 -O0")
+#set(CXX_FLAGS_RELEASE "-O3")
 
 set(PROG_EXEC_NAME "${PROJECT_NAME}")
 set(PROG_NAME "File encryption/decryption")

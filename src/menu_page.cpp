@@ -42,9 +42,14 @@ MenuPage::MenuPage(Template *parent) : Template(parent)
                              "files.\nTo proceed, please select one of the following options:");
     label = new QLabel(this);
     label->setText(str_label);
+#ifdef Q_OS_MACOS
+    QFont font("Helvetica", 13);
+#else
     QFont font("Noto Serif", 13);
+#endif
     QFontMetrics metrics(font);
     label->setFont(font);
+
     label->setAlignment(Qt::AlignCenter);
     //label->setGeometry(190, 130, metrics.horizontalAdvance(str_label), metrics.height() * 2);
     label->setGeometry(20, 50, 900, 100);
@@ -67,7 +72,9 @@ MenuPage::MenuPage(Template *parent) : Template(parent)
     QString version = "v";
     version.append(PROG_VERSION);
     m_statusMiddle = new QPushButton(version, this);
+
     m_statusMiddle->setFont(font);
+
     m_statusMiddle->setStyleSheet("font-size: 10px;"
                                   "border: none;");
     m_statusMiddle->setToolTip(
@@ -77,7 +84,9 @@ MenuPage::MenuPage(Template *parent) : Template(parent)
 
     encrypt_file_dialog = nullptr;
     decrypt_file_dialog = nullptr;
+
     createLanguageMenu();
+
 }
 
 void MenuPage::close()
@@ -299,6 +308,9 @@ void MenuPage::createLanguageMenu()
         }
     }
 
+//#ifdef Q_OS_MACOS
+//QIcon::setThemeName("breeze");
+//#endif
     helpAct=new QAction(QIcon::fromTheme(QIcon::ThemeIcon::HelpFaq), tr("&Help"), this);
     helpAct->setShortcuts(QKeySequence::HelpContents);
     connect(helpAct, &QAction::triggered, this, &MenuPage::help);
