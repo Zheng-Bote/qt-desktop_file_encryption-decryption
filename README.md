@@ -283,9 +283,10 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── 00_setup_de.png
 │       ├── 00_setup_en.png
 │       ├── 01_de.png
-│       ├── 01_en.png
 │       ├── 01_setup_de.png
 │       ├── 01_setup_en.png
+│       ├── 01a_en.png
+│       ├── 01b_en.png
 │       ├── 02_de.png
 │       ├── 02_en.png
 │       ├── 02_setup_de.png
@@ -308,6 +309,8 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       └── deinstall_en.png
 ├── src
 │   ├── CMakeLists.txt
+│   ├── CMakeLists.txt_Linux
+│   ├── CMakeLists.txt_Windows
 │   ├── configure
 │   │   ├── ClangTidy.cmake
 │   │   ├── Doxygen.cmake
@@ -344,12 +347,26 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   ├── main.cpp
 │   ├── menu_page.cpp
 │   ├── menu_page.h
+│   ├── resources
+│   │   ├── file_encryption-decryption.icns
+│   │   ├── file_encryption-decryption.iconset
+│   │   │   ├── icon_128x128.png
+│   │   │   ├── icon_128x128@2.png
+│   │   │   ├── icon_16x16.png
+│   │   │   ├── icon_16x16@2.png
+│   │   │   ├── icon_256x256.png
+│   │   │   ├── icon_256x256@2.png
+│   │   │   ├── icon_32x32.png
+│   │   │   ├── icon_32x32@2.png
+│   │   │   ├── icon_512x512.png
+│   │   │   └── icon_512x512@2.png
+│   │   └── file_encryption-decryption.png
 │   ├── resources.qrc
 │   ├── template.cpp
 │   └── template.h
 └── tree.bak
 
-12 directories, 80 files
+14 directories, 95 files
 ```
 <!-- readme-tree end -->
 
