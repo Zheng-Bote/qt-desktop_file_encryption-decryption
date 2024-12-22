@@ -31,23 +31,18 @@ using std::string;
 
 MenuPage::MenuPage(Template *parent) : Template(parent)
 {
-    /*
-    QString locale = QLocale::system().name();
-    locale.truncate(locale.lastIndexOf('_'));
-    loadLanguage(locale);
-*/
+    #ifdef Q_OS_MACOS
+        QFont font("Times New Roman", 13); // Trebuchet MS Times New Roman
+    #else
+        QFont font("Noto Serif", 13);
+    #endif
+    QFontMetrics metrics(font);
 
     QString str_label = "Hello World 你好世界 Hola Mundo Привет мир Hallo Welt!\n\n"
                         + tr("With this little tool you can encrypt and decrypt "
                              "files.\nTo proceed, please select one of the following options:");
     label = new QLabel(this);
     label->setText(str_label);
-#ifdef Q_OS_MACOS
-    QFont font("Helvetica", 13);
-#else
-    QFont font("Noto Serif", 13);
-#endif
-    QFontMetrics metrics(font);
     label->setFont(font);
 
     label->setAlignment(Qt::AlignCenter);
@@ -68,7 +63,7 @@ MenuPage::MenuPage(Template *parent) : Template(parent)
     exit_button->setGeometry(570, 330, 150, 30);
     connect(exit_button, SIGNAL(clicked(bool)), this, SLOT(close()));
 
-    bar = new QStatusBar(this);
+    //bar = new QStatusBar(this);
     QString version = "v";
     version.append(PROG_VERSION);
     m_statusMiddle = new QPushButton(version, this);
@@ -79,7 +74,9 @@ MenuPage::MenuPage(Template *parent) : Template(parent)
                                   "border: none;");
     m_statusMiddle->setToolTip(
         tr("click to open your default Browser and go to the Github repository"));
+    //m_statusMiddle->setStyleSheet("background-color: transparent;");
     statusBar()->addWidget(m_statusMiddle, 1);
+    //statusBar()->setStyleSheet("background-color: transparent;");
     connect(m_statusMiddle, SIGNAL(clicked(bool)), this, SLOT(openGithub()));
 
     encrypt_file_dialog = nullptr;
@@ -114,11 +111,12 @@ void MenuPage::decrypt_dialog()
 
 void MenuPage::help()
 {
-    QString intro = tr(PROG_DESCRIPTION) + "\n\n";
+    QString intro = tr("File Encryption and Decryption") + "<br>";
+    intro.append(tr("Desktop application for Linux, MacOS and Windows") + "\n\n");
     QString encrypt = "<b>" + tr("How to encrypt") + ":</b><br>1) " + tr("choose a text file to encrypt.") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("encrypt the source file") + "<br>-> " + tr("original file will be replaced with the encrypted one") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("encrypt the given file into a new (encrypted) file") + "<br>-> " + tr("encrypted file will be stored in your temp-folder with extension '.aes'") + "<br><br><b>" + tr("Warning") + ":</b><br>" + tr("Don't loose your password.") + "<br>" + tr("Decryption/Recovery without a valid password is impossible!");
     QString decrypt = "<b>" + tr("How to decrypt") + ":</b><br>1) " + tr("choose a file to decrypt (only files with extension '.aes').") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("decrypt the source file") + "<br>-> " + tr("original file will be replaced with the decrypted one.") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("decrypt the given file into a new (decrypted) file") + "<br>-> " + tr("decrypted file will be stored in your temp-folder");
     QString text = encrypt + "<br><br>" + decrypt;
-    QString detailedText = tr(PROG_DESCRIPTION) + "\n- " + tr("Encryption") + ": AES-256 CBC\n- " + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "\n- initialization vector: MD5";
+    QString detailedText = tr("File Encryption and Decryption") + "\n- " + tr("Encryption") + ": AES-256 CBC\n- " + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "\n- initialization vector: MD5";
 
     QMessageBox msgBox(this);
     msgBox.setWindowTitle(tr("Help"));
@@ -133,9 +131,9 @@ void MenuPage::help()
 
 void MenuPage::about()
 {
-    QString text = tr(PROG_DESCRIPTION) + "\n\n";
+    QString text = tr("File Encryption and Decryption") + "\n\n";
     QString setInformativeText = "<p><ul><li>" + tr("Encryption") + ": AES-256 CBC</li><li>" + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "</li><li>initialization vector: MD5</li></ul></p>";
-    setInformativeText.append("<p><ul><li>" + tr("Desktop application for Linux, MacOS and Windows") + "</li><li>OSS MIT " + tr("license") + "</li></ul></p>");
+    setInformativeText.append("<p><ul><li>" + QString(PROG_EXEC_NAME) + " v " + QString(PROG_VERSION) + "</li><li>" + tr("Desktop application for Linux, MacOS and Windows") + "</li><li>Copyright (c) 2024 ZHENG Robert</li><li>OSS MIT " + tr("license") + "</li></ul></p>");
     setInformativeText.append("<br><a href=\"https://github.com/Zheng-Bote/qt_file_encryption-decryption\" alt=\"Github repository\">");
     setInformativeText.append(QString(PROG_EXEC_NAME) + " v" + QString(PROG_VERSION) + " " + tr("at") + " Github</a>");
 
@@ -145,7 +143,7 @@ void MenuPage::about()
     msgBox.setTextFormat(Qt::RichText);
     msgBox.setText(text);
     msgBox.setInformativeText(setInformativeText);
-    msgBox.setFixedWidth(800);
+    msgBox.setFixedWidth(900);
     msgBox.exec();
 }
 
@@ -165,12 +163,15 @@ void MenuPage::closeEvent(QCloseEvent *event)
 
     if (response == QMessageBox::Yes)
     {
+        if(encrypt_file_dialog != nullptr){
+            encrypt_file_dialog->close();
+            delete encrypt_file_dialog;
+        }
 
-        encrypt_file_dialog->close();
-        delete encrypt_file_dialog;
-
-        decrypt_file_dialog->close();
-        delete decrypt_file_dialog;
+        if(decrypt_file_dialog != nullptr){
+            decrypt_file_dialog->close();
+            delete decrypt_file_dialog;
+        }
 
         event->accept();
     } else {
@@ -251,6 +252,11 @@ void MenuPage::loadLanguage(const QString& rLanguage) {
 
 void MenuPage::createLanguageMenu()
 {
+    menuBar()->setNativeMenuBar(false);
+    menuBar()->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+    //menuBar()->setStyleSheet("background-color: transparent;");
+
+
     QActionGroup* langGroup = new QActionGroup(this);
     langGroup->setExclusive(true);
 
@@ -295,7 +301,11 @@ void MenuPage::createLanguageMenu()
         qDebug() << "flag: " << QString("%1/%2.png").arg(m_langPath).arg(locale);
         QIcon ico(QString("%1/%2.png").arg(m_langPath).arg(locale));
 
+//#ifdef Q_OS_MACOS
+//        QAction *action = new QAction(language, this);
+//#else
         QAction *action = new QAction(ico, language, this);
+//#endif
         action->setCheckable(true);
         action->setData(locale);
 
@@ -315,7 +325,7 @@ void MenuPage::createLanguageMenu()
     helpAct->setShortcuts(QKeySequence::HelpContents);
     connect(helpAct, &QAction::triggered, this, &MenuPage::help);
     aboutAct=new QAction(QIcon::fromTheme(QIcon::ThemeIcon::HelpAbout), tr("&About"), this);
-    aboutAct->setShortcuts(QKeySequence::New);
+    aboutAct->setShortcuts(QKeySequence::WhatsThis);
     connect(aboutAct, &QAction::triggered, this, &MenuPage::about);
     infoMenu = menuBar()->addMenu(tr("&Info"));
     infoMenu->addAction(helpAct);

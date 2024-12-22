@@ -173,7 +173,8 @@ See folder `docs/img` for screenshots.
 ## MacOS
 
 - make DiskImage executable (eg. `chmod 755 file_encryption-decryption.dmg`)
-- execute / click DiskImage
+- execute / double-click on the `.dmg` file. A window should appear showing the program you are installing and the Applications Folder.
+- drag the program into the Applications Folder; macOS will automatically install the software for you.
 
 ## Windows
 
@@ -216,6 +217,9 @@ For de-installation, go to Windows `Settings -> Apps -> installed Apps` and choo
 - execute/doubleclick the executable `file_encryption-decryption_x86_amd64.exe`
 
 # Development
+
+> \[!NOTE]
+> rename `CMakeLists.txt<OS-PLATFORM>` to `CMakeLists.txt`
 
 ## Dependencies
 

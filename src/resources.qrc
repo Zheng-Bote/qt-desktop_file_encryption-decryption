@@ -10,5 +10,8 @@
         <file>i18n/qtbase_en.qm</file>
         <file>i18n/translate.png</file>
     </qresource>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>resources/file_encryption-decryption.png</file>
+        <file>resources/file_encryption-decryption.icns</file>
+    </qresource>
 </RCC>
