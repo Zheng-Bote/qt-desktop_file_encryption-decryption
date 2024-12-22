@@ -15,10 +15,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
@@ -111,7 +112,7 @@ See folder `docs/img` for screenshots.
 
 - choose a file to encrypt
 - activate the checkbox to encrypt the source file (original file will be replaced with the encrypted one)
-- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder <filename>.aes)
+- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder `<filename>.aes`)
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
@@ -126,7 +127,8 @@ See folder `docs/img` for screenshots.
 
 ### start page
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01a_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01b_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
 
 ### encryption dialog
@@ -254,6 +256,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -351,6 +354,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 12 directories, 80 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
