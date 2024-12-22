@@ -18,6 +18,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    QApplication::setWindowIcon(QIcon(":/resources/file_encryption-decryption.png"));
 
     MenuPage menu_page;
 

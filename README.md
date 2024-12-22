@@ -1,7 +1,8 @@
 <div id="top" align="center">
 <h1>qt_file_encryption_decryption</h1>
 
-<p>File encryption and decryption</p>
+<h4>File encryption and decryption</h4>
+<h6>for Linux, MacOS, Windows</h6>
 
 [Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
 
@@ -110,7 +111,7 @@ See folder `docs/img` for screenshots.
 
 - choose a file to encrypt
 - activate the checkbox to encrypt the source file (original file will be replaced with the encrypted one)
-- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder <filename>.aes)
+- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder `<filename>.aes`)
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
@@ -125,7 +126,8 @@ See folder `docs/img` for screenshots.
 
 ### start page
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01a_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01b_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
 
 ### encryption dialog
@@ -138,36 +140,41 @@ See folder `docs/img` for screenshots.
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
 
-
 ### switch language
+
+(Menu: `A/六)` -> `DE|EN`)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_de.png)
 
 ### help page
 
+(Menu: `Info -> Help` or keyboard shortcut `F1`)
+
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_de.png)
 
 ### about page
+
+(Menu: `Info -> About` or keyboard shortcut `A`)
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_en.png)
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_de.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 # Installation
 
 ## Linux
 
-- make AppImage executable (eg. chmod 755 )
+- make AppImage executable (eg. `chmod 755 file_encryption-decryption-x86_64.AppImage` )
 - execute / doubleclick AppImage
 
 ## MacOS
 
-> \[!NOTE]
-> _under construction_
+- make DiskImage executable (eg. `chmod 755 file_encryption-decryption.dmg`)
+- execute / double-click on the `.dmg` file. A window should appear showing the program you are installing and the Applications Folder.
+- drag the program into the Applications Folder; macOS will automatically install the software for you.
 
 ## Windows
 
@@ -200,7 +207,7 @@ See folder `docs/img` for screenshots.
 
 ### Set-Up - De-Installation
 
-For de-installation, go to Settings -> Apps -> installed Apps and choose within the hamburger menu "deinstallation"
+For de-installation, go to Windows `Settings -> Apps -> installed Apps` and choose within the hamburger menu "deinstallation"
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/deinstall_en.png)
 
@@ -210,6 +217,9 @@ For de-installation, go to Settings -> Apps -> installed Apps and choose within 
 - execute/doubleclick the executable `file_encryption-decryption_x86_amd64.exe`
 
 # Development
+
+> \[!NOTE]
+> rename `CMakeLists.txt<OS-PLATFORM>` to `CMakeLists.txt`
 
 ## Dependencies
 
@@ -226,7 +236,7 @@ CMake: A Powerful Software Build System
 ### QT
 
 > \[!NOTE]
-> _QT6 - Community Edition_
+> _QT6 - Community Edition_ >= 6.7
 
 The Qt framework contains a comprehensive set of highly intuitive and modularized C++ library classes and is loaded with APIs to simplify your application development. Qt produces highly readable, easily maintainable and reusable code with high runtime performance and small footprint – and it's cross-platform.
 
@@ -274,9 +284,10 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── 00_setup_de.png
 │       ├── 00_setup_en.png
 │       ├── 01_de.png
-│       ├── 01_en.png
 │       ├── 01_setup_de.png
 │       ├── 01_setup_en.png
+│       ├── 01a_en.png
+│       ├── 01b_en.png
 │       ├── 02_de.png
 │       ├── 02_en.png
 │       ├── 02_setup_de.png
@@ -299,6 +310,8 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       └── deinstall_en.png
 ├── src
 │   ├── CMakeLists.txt
+│   ├── CMakeLists.txt_Linux
+│   ├── CMakeLists.txt_Windows
 │   ├── configure
 │   │   ├── ClangTidy.cmake
 │   │   ├── Doxygen.cmake
@@ -335,12 +348,26 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   ├── main.cpp
 │   ├── menu_page.cpp
 │   ├── menu_page.h
+│   ├── resources
+│   │   ├── file_encryption-decryption.icns
+│   │   ├── file_encryption-decryption.iconset
+│   │   │   ├── icon_128x128.png
+│   │   │   ├── icon_128x128@2.png
+│   │   │   ├── icon_16x16.png
+│   │   │   ├── icon_16x16@2.png
+│   │   │   ├── icon_256x256.png
+│   │   │   ├── icon_256x256@2.png
+│   │   │   ├── icon_32x32.png
+│   │   │   ├── icon_32x32@2.png
+│   │   │   ├── icon_512x512.png
+│   │   │   └── icon_512x512@2.png
+│   │   └── file_encryption-decryption.png
 │   ├── resources.qrc
 │   ├── template.cpp
 │   └── template.h
 └── tree.bak
 
-12 directories, 80 files
+14 directories, 95 files
 ```
 <!-- readme-tree end -->
 
