@@ -1,8 +1,10 @@
 #pragma once
 
+#include <QFileDialog>
 #include <QString>
 
 #include <iostream>
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -26,4 +28,6 @@ private:
     QByteArray readTextFile(const string &strFileName);
     void writeText(const string &strFileName, QByteArray &data);
     void writeQArray(const string &strFileName, QByteArray &data);
+
+    std::tuple<bool, QString> chooseFilePathToSave(QString &pathToFile);
 };

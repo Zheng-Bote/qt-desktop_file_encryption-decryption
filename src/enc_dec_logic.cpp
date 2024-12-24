@@ -11,6 +11,7 @@
 #include "enc_dec_logic.h"
 #include <QFile>
 
+#include <QtWidgets/qmessagebox.h>
 #include <cstdio>
 #include <filesystem>
 #include <fstream>
@@ -36,7 +37,8 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
     bool oknok{false};
     QString msg{""};
     QString qt_pathToFile = pathToFile.c_str();
-    qDebug() << "encrypt_data: " << qt_pathToFile;
+    std::string newFile{""};
+
     std::tie(oknok, msg) = rz_snipptes::checkFile(qt_pathToFile, overwriteSourceFile, false);
     const int passwordMinLength = 5;
 
@@ -58,17 +60,18 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
     QByteArray encodeText = encryption.encode(readTextFile(pathToFile), hashKey, hashIV);
 
     if (overwriteSourceFile == true) {
-        std::string newFile = pathToFile + ".aes";
+        newFile = pathToFile + ".aes";
         writeText(newFile, encodeText);
         std::filesystem::remove(pathToFile);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newFile);
     } else {
-        std::tie(oknok, msg) = rz_snipptes::getTempDir();
-        std::string newPath = msg.toStdString();
+        std::tie(oknok, msg) = chooseFilePathToSave(qt_pathToFile);
+        std::string newPathToFile = msg.toStdString();
+
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
-        std::string newFile = msg.toStdString() + ".aes";
-        std::string newPathToFile = newPath + newFile;
+        newPathToFile.append(msg.toStdString() + ".aes");
+
         writeText(newPathToFile, encodeText);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newPathToFile);
@@ -84,6 +87,7 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
     bool oknok{false};
     QString msg{""};
     QString qt_pathToFile = pathToFile.c_str();
+    std::string newFile{""};
     qDebug() << "decrypt_data: " << qt_pathToFile;
     std::tie(oknok, msg) = rz_snipptes::checkFile(qt_pathToFile, overwriteSourceFile, true);
     const int passwordMinLength = 5;
@@ -107,11 +111,12 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
         msg = QObject::tr("decrypted file:");
         msg.append("\n" + newPathToFile);
     } else {
-        std::tie(oknok, msg) = rz_snipptes::getTempDir();
-        std::string newPath = msg.toStdString();
+        std::tie(oknok, msg) = chooseFilePathToSave(qt_pathToFile);
+        std::string newPathToFile = msg.toStdString();
+
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
-        std::string newFile = newPath + msg.toStdString();
-        std::string newPathToFile = newFile.substr(0, newFile.size() - 4);
+        newFile = msg.toStdString();
+        newPathToFile.append(newFile.substr(0, newFile.size() - 4));
         writeQArray(newPathToFile, decodeText);
         msg = QObject::tr("decrypted file:");
         msg.append("\n" + newPathToFile);
@@ -148,4 +153,36 @@ void EncryptionDecryption::writeQArray(const string &strFileName, QByteArray &da
     file.close();
 }
 
+std::tuple<bool, QString> EncryptionDecryption::chooseFilePathToSave(QString &pathToFile)
+{
+    bool oknok{false};
+    QString msg{""};
+    std::tie(oknok, msg) = rz_snipptes::getFilePath(pathToFile);
+    QString homeDir = msg; // QDir::homePath();
+    QString origFileName;
+    std::tie(oknok, origFileName) = rz_snipptes::getFileName(pathToFile);
+    QString newPathToFile;
 
+    newPathToFile = QFileDialog::getExistingDirectory(NULL,
+                                                      QObject::tr("choose Directory"),
+                                                      homeDir,
+                                                      QFileDialog::ShowDirsOnly
+                                                          | QFileDialog::DontResolveSymlinks);
+
+    if (newPathToFile.isEmpty() == true) {
+        QString msgTxt = QObject::tr("Missing location to store the file");
+        QString msgInfoText = QObject::tr("Please choose a location to store the file");
+
+        QMessageBox msgBox;
+        msgBox.setWindowTitle(QObject::tr("Warning"));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setTextFormat(Qt::RichText);
+        msgBox.setText(msgTxt);
+        msgBox.setInformativeText(msgInfoText);
+        msgBox.setFixedWidth(700);
+        msgBox.exec();
+
+        return std::make_tuple(false, msgTxt);
+    }
+    return std::make_tuple(true, newPathToFile + "/");
+}
