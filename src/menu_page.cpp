@@ -113,8 +113,25 @@ void MenuPage::help()
 {
     QString intro = tr("File Encryption and Decryption") + "<br>";
     intro.append(tr("Desktop application for Linux, MacOS and Windows") + "\n\n");
-    QString encrypt = "<b>" + tr("How to encrypt") + ":</b><br>1) " + tr("choose a text file to encrypt.") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("encrypt the source file") + "<br>-> " + tr("original file will be replaced with the encrypted one") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("encrypt the given file into a new (encrypted) file") + "<br>-> " + tr("encrypted file will be stored in your temp-folder with extension '.aes'") + "<br><br><b>" + tr("Warning") + ":</b><br>" + tr("Don't loose your password.") + "<br>" + tr("Decryption/Recovery without a valid password is impossible!");
-    QString decrypt = "<b>" + tr("How to decrypt") + ":</b><br>1) " + tr("choose a file to decrypt (only files with extension '.aes').") + "<br>1a) " + tr("activate the checkbox to") + ":<br>- " + tr("decrypt the source file") + "<br>-> " + tr("original file will be replaced with the decrypted one.") + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- " + tr("decrypt the given file into a new (decrypted) file") + "<br>-> " + tr("decrypted file will be stored in your temp-folder");
+    QString encrypt = "<b>" + tr("Encryption") + ":</b><br>1) "
+                      + tr("choose a text file to encrypt.") + "<br>1a) "
+                      + tr("activate the checkbox to") + ":<br>- " + tr("encrypt the source file")
+                      + "<br>-> " + tr("original file will be replaced with the encrypted one")
+                      + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- "
+                      + tr("encrypt the given file into a new (encrypted) file") + "<br>-> "
+                      + tr(
+                          "encrypted file will be stored in your temp-folder with extension '.aes'")
+                      + "<br><br><b>" + tr("Warning") + ":</b><br>"
+                      + tr("Don't loose your password.") + "<br>"
+                      + tr("Decryption/Recovery without a valid password is impossible!");
+    QString decrypt = "<b>" + tr("Decryption") + ":</b><br>1) "
+                      + tr("choose a file to decrypt (only files with extension '.aes').")
+                      + "<br>1a) " + tr("activate the checkbox to") + ":<br>- "
+                      + tr("decrypt the source file") + "<br>-> "
+                      + tr("original file will be replaced with the decrypted one.") + "<br>1b) "
+                      + tr("keep checkbox unchecked to") + ":<br>- "
+                      + tr("decrypt the given file into a new (decrypted) file") + "<br>-> "
+                      + tr("decrypted file will be stored in your temp-folder");
     QString text = encrypt + "<br><br>" + decrypt;
     QString detailedText = tr("File Encryption and Decryption") + "\n- " + tr("Encryption") + ": AES-256 CBC\n- " + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "\n- initialization vector: MD5";
 
@@ -253,9 +270,11 @@ void MenuPage::loadLanguage(const QString& rLanguage) {
 void MenuPage::createLanguageMenu()
 {
     menuBar()->setNativeMenuBar(false);
+#ifdef Q_OS_MACOS
     menuBar()->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-    //menuBar()->setStyleSheet("background-color: transparent;");
+#endif
 
+    //menuBar()->setStyleSheet("background-color: transparent;");
 
     QActionGroup* langGroup = new QActionGroup(this);
     langGroup->setExclusive(true);
@@ -301,11 +320,7 @@ void MenuPage::createLanguageMenu()
         qDebug() << "flag: " << QString("%1/%2.png").arg(m_langPath).arg(locale);
         QIcon ico(QString("%1/%2.png").arg(m_langPath).arg(locale));
 
-//#ifdef Q_OS_MACOS
-//        QAction *action = new QAction(language, this);
-//#else
         QAction *action = new QAction(ico, language, this);
-//#endif
         action->setCheckable(true);
         action->setData(locale);
 
@@ -318,9 +333,6 @@ void MenuPage::createLanguageMenu()
         }
     }
 
-//#ifdef Q_OS_MACOS
-//QIcon::setThemeName("breeze");
-//#endif
     helpAct=new QAction(QIcon::fromTheme(QIcon::ThemeIcon::HelpFaq), tr("&Help"), this);
     helpAct->setShortcuts(QKeySequence::HelpContents);
     connect(helpAct, &QAction::triggered, this, &MenuPage::help);

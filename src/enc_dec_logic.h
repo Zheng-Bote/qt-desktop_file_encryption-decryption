@@ -25,9 +25,9 @@ public:
                                           const bool &overwriteSourceFile);
 
 private:
-    QByteArray readTextFile(const string &strFileName);
-    void writeText(const string &strFileName, QByteArray &data);
-    void writeQArray(const string &strFileName, QByteArray &data);
+    std::tuple<bool, QByteArray> readTextFile(const string &strFileName);
+    std::tuple<bool, QString> writeText(const string &strFileName, QByteArray &data);
+    std::tuple<bool, QString> writeQArray(const string &strFileName, QByteArray &data);
 
     std::tuple<bool, QString> chooseFilePathToSave(QString &pathToFile);
 };

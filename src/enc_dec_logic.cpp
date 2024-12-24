@@ -57,11 +57,20 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
 
     QByteArray encodeText = encryption.encode(strData.toLocal8Bit(), hashKey, hashIV);
 */
-    QByteArray encodeText = encryption.encode(readTextFile(pathToFile), hashKey, hashIV);
+    QByteArray data;
+    std::tie(oknok, data) = readTextFile(pathToFile);
+    if (oknok == false) {
+        return std::make_tuple(3, QString(data));
+    }
+
+    QByteArray encodeText = encryption.encode(data, hashKey, hashIV);
 
     if (overwriteSourceFile == true) {
         newFile = pathToFile + ".aes";
-        writeText(newFile, encodeText);
+        std::tie(oknok, msg) = writeText(newFile, encodeText);
+        if (oknok == false) {
+            return std::make_tuple(3, msg);
+        }
         std::filesystem::remove(pathToFile);
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newFile);
@@ -72,7 +81,10 @@ std::tuple<int, QString> EncryptionDecryption::encrypt_data(const string &pathTo
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
         newPathToFile.append(msg.toStdString() + ".aes");
 
-        writeText(newPathToFile, encodeText);
+        std::tie(oknok, msg) = writeText(newPathToFile, encodeText);
+        if (oknok == false) {
+            return std::make_tuple(3, msg);
+        }
         msg = QObject::tr("encrypted file:");
         msg.append("\n" + newPathToFile);
     }
@@ -100,13 +112,22 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
     QByteArray hashKey = QCryptographicHash::hash(key.toLocal8Bit(), QCryptographicHash::Sha256);
     QByteArray hashIV = QCryptographicHash::hash(iv.toLocal8Bit(), QCryptographicHash::Md5);
 
-    QByteArray decodeText = encryption.decode(readTextFile(pathToFile), hashKey, hashIV);
+    QByteArray data;
+    std::tie(oknok, data) = readTextFile(pathToFile);
+    if (oknok == false) {
+        return std::make_tuple(3, QString(data));
+    }
+
+    QByteArray decodeText = encryption.decode(data, hashKey, hashIV);
 
     QString decodedString = QString(encryption.removePadding(decodeText));
 
     if (overwriteSourceFile == true) {
         std::string newPathToFile = pathToFile.substr(0, pathToFile.size() - 4);
-        writeQArray(newPathToFile, decodeText);
+        std::tie(oknok, msg) = writeQArray(newPathToFile, decodeText);
+        if (oknok == false) {
+            return std::make_tuple(3, msg);
+        }
         std::filesystem::remove(pathToFile);
         msg = QObject::tr("decrypted file:");
         msg.append("\n" + newPathToFile);
@@ -117,7 +138,10 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
         std::tie(oknok, msg) = rz_snipptes::getFileName(qt_pathToFile);
         newFile = msg.toStdString();
         newPathToFile.append(newFile.substr(0, newFile.size() - 4));
-        writeQArray(newPathToFile, decodeText);
+        std::tie(oknok, msg) = writeQArray(newPathToFile, decodeText);
+        if (oknok == false) {
+            return std::make_tuple(3, msg);
+        }
         msg = QObject::tr("decrypted file:");
         msg.append("\n" + newPathToFile);
     }
@@ -125,32 +149,45 @@ std::tuple<int, QString> EncryptionDecryption::decrypt_data(const string &pathTo
     return std::make_tuple(1, msg);
 }
 
-QByteArray EncryptionDecryption::readTextFile(const string &strFileName)
+std::tuple<bool, QByteArray> EncryptionDecryption::readTextFile(const string &strFileName)
 {
     QFile file(strFileName.c_str());
-    file.open(QIODeviceBase::ReadOnly);
+    if (!file.open(QIODeviceBase::ReadOnly)) {
+        QString msg = QObject::tr("Can not read file") + "\n" + strFileName.c_str();
+        return std::make_tuple(false, msg.toUtf8());
+    }
     QByteArray blob = file.readAll();
     file.close();
-    return blob;
+    return std::make_tuple(true, blob);
 }
 
-void EncryptionDecryption::writeText(const string &strFileName, QByteArray &data)
+std::tuple<bool, QString> EncryptionDecryption::writeText(const string &strFileName,
+                                                          QByteArray &data)
 {
 
     QFile file(strFileName.c_str());
-    file.open(QIODeviceBase::WriteOnly);
+    if (!file.open(QIODeviceBase::WriteOnly)) {
+        QString msg = QObject::tr("Can not write file") + "\n" + strFileName.c_str();
+        return std::make_tuple(false, msg);
+    }
     file.write(data);
     file.close();
+    return std::make_tuple(true, QObject::tr("successful"));
 }
 
-void EncryptionDecryption::writeQArray(const string &strFileName, QByteArray &data)
+std::tuple<bool, QString> EncryptionDecryption::writeQArray(const string &strFileName,
+                                                            QByteArray &data)
 {
     QFile file(strFileName.c_str());
-    file.open(QIODeviceBase::WriteOnly);
+    if (!file.open(QIODeviceBase::WriteOnly)) {
+        QString msg = QObject::tr("Can not write file") + "\n" + strFileName.c_str();
+        return std::make_tuple(false, msg);
+    }
     data.replace('\0',"");
     data.chop(1);
     file.write(data);
     file.close();
+    return std::make_tuple(true, QObject::tr("successful"));
 }
 
 std::tuple<bool, QString> EncryptionDecryption::chooseFilePathToSave(QString &pathToFile)
