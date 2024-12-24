@@ -1,0 +1,115 @@
+cmake_minimum_required(VERSION 3.23)
+
+# -DCMAKE_BUILD_TYPE=Release -DCMAKE_BUILD_TYPE=Debug
+
+project(
+  file_encryption-decryption
+  VERSION 1.2.0
+  DESCRIPTION "Desktop app to encrypt and decrypt a given file"
+  HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
+  LANGUAGES CXX)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_CXX_COMPILER clang++)
+
+#set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;-checks=cppcoreguidelines-*)
+
+# Linux OK:
+#set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
+#set(CXX_FLAGS_DEBUG "-g3 -O0")
+#set(CXX_FLAGS_RELEASE "-O3")
+
+set(PROG_EXEC_NAME "${PROJECT_NAME}")
+set(PROG_NAME "File encryption/decryption")
+set(PROG_VERSION "${PROJECT_VERSION}")
+set(PROG_HOMEPAGE "${PROJECT_HOMEPAGE_URL}")
+set(PROG_DESCRIPTION "${PROJECT_DESCRIPTION}")
+
+set(MACOSX_BUNDLE_ICON_FILE file_encryption-decryption.icns)
+set(app_icon_macos "${CMAKE_CURRENT_SOURCE_DIR}/resources/file_encryption-decryption.icns")
+set_source_files_properties(${app_icon_macos} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+
+configure_file("${CMAKE_SOURCE_DIR}/configure/rz_config.h.in"
+               "${CMAKE_SOURCE_DIR}/includes/rz_config.h")
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
+
+set(PROJECT_SOURCES main.cpp)
+
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  set(CMAKE_CXX_FLAGS "${CXX_FLAGS_DEBUG} ${CXX_FLAGS_ALL}")
+endif()
+
+if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
+  set(CMAKE_CXX_FLAGS "${CXX_FLAGS_RELEASE} ${CXX_FLAGS_ALL}")
+endif()
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+  qt_add_executable(
+    ${PROJECT_NAME}
+    MACOSX_BUNDLE
+    ${PROJECT_SOURCES}
+    menu_page.cpp
+    template.cpp
+    enc_dec_logic.cpp
+    enc_dec_logic.h
+    menu_page.h
+    template.h
+    resources.qrc
+    encrypt_file_dialog.cpp
+    encrypt_file_dialog.h
+    decrypt_file_dialog.cpp
+    decrypt_file_dialog.h
+    includes/qaesencryption.cpp
+    includes/qaesencryption.h
+    includes/rz_snipptes.hpp
+    ${app_icon_macos})
+  # Define target properties for Android with Qt 6 as: set_property(TARGET
+  # File_Encryption_and_Decryption APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+  # ${CMAKE_CURRENT_SOURCE_DIR}/android) For more information, see
+  # https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+else()
+  if(ANDROID)
+    add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
+    # Define properties for Android with Qt 5 after find_package() calls as:
+    # set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+  else()
+    add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+  endif()
+endif()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt6::Core)
+
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
+
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1. If
+# you are developing for iOS or macOS you should consider setting an explicit,
+# fixed bundle identifier manually though.
+if(${QT_VERSION} VERSION_LESS 6.1.0)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER
+                       com.example.File_Encryption_and_Decryption)
+endif()
+set_target_properties(
+  ${PROJECT_NAME}
+  PROPERTIES ${BUNDLE_ID_OPTION} MACOSX_BUNDLE_BUNDLE_VERSION
+             ${PROJECT_VERSION} MACOSX_BUNDLE_SHORT_VERSION_STRING
+             ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR} MACOSX_BUNDLE
+             TRUE WIN32_EXECUTABLE
+             TRUE)
+
+include(GNUInstallDirs)
+install(
+  TARGETS ${PROJECT_NAME}
+  BUNDLE DESTINATION .
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+if(QT_VERSION_MAJOR EQUAL 6)
+  qt_finalize_executable(${PROJECT_NAME})
+endif()
