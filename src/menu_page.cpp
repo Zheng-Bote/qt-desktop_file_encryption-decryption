@@ -113,16 +113,13 @@ void MenuPage::help()
 {
     QString intro = tr("File Encryption and Decryption") + "<br>";
     intro.append(tr("Desktop application for Linux, MacOS and Windows") + "\n\n");
-    QString encrypt = "<b>" + tr("Encryption") + ":</b><br>1) "
-                      + tr("choose a text file to encrypt.") + "<br>1a) "
-                      + tr("activate the checkbox to") + ":<br>- " + tr("encrypt the source file")
-                      + "<br>-> " + tr("original file will be replaced with the encrypted one")
-                      + "<br>1b) " + tr("keep checkbox unchecked to") + ":<br>- "
-                      + tr("encrypt the given file into a new (encrypted) file") + "<br>-> "
-                      + tr(
-                          "encrypted file will be stored in your temp-folder with extension '.aes'")
-                      + "<br><br><b>" + tr("Warning") + ":</b><br>"
-                      + tr("Don't loose your password.") + "<br>"
+    QString encrypt = "<b>" + tr("Encryption") + ":</b><br>1) " + tr("choose a file to encrypt.")
+                      + "<br>1a) " + tr("activate the checkbox to") + ":<br>- "
+                      + tr("encrypt the source file") + "<br>-> "
+                      + tr("original file will be replaced with the encrypted one") + "<br>1b) "
+                      + tr("keep checkbox unchecked to") + ":<br>- "
+                      + tr("encrypt the given file into a new (encrypted) file") + "<br><br><b>"
+                      + tr("Warning") + ":</b><br>" + tr("Don't loose your password.") + "<br>"
                       + tr("Decryption/Recovery without a valid password is impossible!");
     QString decrypt = "<b>" + tr("Decryption") + ":</b><br>1) "
                       + tr("choose a file to decrypt (only files with extension '.aes').")
@@ -130,8 +127,7 @@ void MenuPage::help()
                       + tr("decrypt the source file") + "<br>-> "
                       + tr("original file will be replaced with the decrypted one.") + "<br>1b) "
                       + tr("keep checkbox unchecked to") + ":<br>- "
-                      + tr("decrypt the given file into a new (decrypted) file") + "<br>-> "
-                      + tr("decrypted file will be stored in your temp-folder");
+                      + tr("decrypt the given file into a new (decrypted) file");
     QString text = encrypt + "<br><br>" + decrypt;
     QString detailedText = tr("File Encryption and Decryption") + "\n- " + tr("Encryption") + ": AES-256 CBC\n- " + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "\n- initialization vector: MD5";
 

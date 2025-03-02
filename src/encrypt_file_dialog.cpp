@@ -116,8 +116,12 @@ void EncryptFileDialog::chooseFile()
     QString file;
     chooseFile_btn->setText("choose file");
     file_name_textbox->clear();
-    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath(),tr("files (*.txt *.md *.html *.sql)"));
+    //file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath(),tr("files (*.txt *.md *.html *.sql)"));
+    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath());
 
+    if (file.endsWith(".aes")) {
+        chooseFile();
+    }
     if (file.isEmpty() == false) {
         file_name_textbox->setText(file);
         chooseFile_btn->setText(tr("choosed &file:"));

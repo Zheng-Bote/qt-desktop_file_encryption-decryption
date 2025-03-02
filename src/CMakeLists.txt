@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   file_encryption-decryption
-  VERSION 1.2.0
+  VERSION 1.3.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
   LANGUAGES CXX)
@@ -15,14 +15,15 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-#set(CMAKE_CXX_COMPILER clang++)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  set(CMAKE_CXX_COMPILER clang++)
+endif()
 
-#set(CMAKE_CXX_CLANG_TIDY clang-tidy; -header-filter=.;-checks=cppcoreguidelines-*)
+# set(CMAKE_CXX_CLANG_TIDY clang-tidy;
+# -header-filter=.;-checks=cppcoreguidelines-*)
 
-# Linux OK:
-#set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion")
-#set(CXX_FLAGS_DEBUG "-g3 -O0")
-#set(CXX_FLAGS_RELEASE "-O3")
+# Linux OK: set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow
+# -Wconversion") set(CXX_FLAGS_DEBUG "-g3 -O0") set(CXX_FLAGS_RELEASE "-O3")
 
 set(PROG_EXEC_NAME "${PROJECT_NAME}")
 set(PROG_NAME "File encryption/decryption")
@@ -31,8 +32,10 @@ set(PROG_HOMEPAGE "${PROJECT_HOMEPAGE_URL}")
 set(PROG_DESCRIPTION "${PROJECT_DESCRIPTION}")
 
 set(MACOSX_BUNDLE_ICON_FILE file_encryption-decryption.icns)
-set(app_icon_macos "${CMAKE_CURRENT_SOURCE_DIR}/resources/file_encryption-decryption.icns")
-set_source_files_properties(${app_icon_macos} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+set(app_icon_macos
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/file_encryption-decryption.icns")
+set_source_files_properties(${app_icon_macos} PROPERTIES MACOSX_PACKAGE_LOCATION
+                                                         "Resources")
 
 configure_file("${CMAKE_SOURCE_DIR}/configure/rz_config.h.in"
                "${CMAKE_SOURCE_DIR}/includes/rz_config.h")
@@ -84,7 +87,8 @@ else()
   endif()
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt6::Core)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+                                              Qt6::Core)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
