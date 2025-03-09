@@ -104,7 +104,7 @@ See folder `docs/img` for screenshots.
 ### breaking Changes
 
 > \[!CAUTION]
-> breaking changes! Release v0.1.0 is **NOT** compatible to higher versions.
+> Please be aware of breaking changes
 
 | Version | status                                  | Comment                                                            |
 | ------- | --------------------------------------- | ------------------------------------------------------------------ |
@@ -121,7 +121,8 @@ See folder `docs/img` for screenshots.
 
 - choose a file to encrypt
 - activate the checkbox to encrypt the source file (original file will be replaced with the encrypted one)
-- keep checkbox unchecked to encrypt the given file into a new (encrypted) file (encrypted file will be stored in your temp-folder `<filename>.aes`)
+- keep checkbox unchecked to encrypt the given file into a new (encrypted) file.
+- encrypted file will be stored as `<filename>.aes`
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
@@ -130,7 +131,8 @@ See folder `docs/img` for screenshots.
 
 - choose a file to decrypt (only files with extension ".aes")
 - activate the checkbox to decrypt the source file (original file will be replaced with the decrypted one)
-- keep checkbox unchecked to decrypt the given file into a new (decrypted) file (decrypted file will be stored in your temp-folder <originalfilename>)
+- keep checkbox unchecked to decrypt the given file into a new (decrypted) file.
+- decrypted file will be stored as `<originalfilename>`)
 
 ## Test / Performance
 
