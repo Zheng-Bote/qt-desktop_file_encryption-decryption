@@ -103,7 +103,7 @@ _see also_ [Screenshots](#screenshots)
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt_file_encryption_decryption)
 
-### breaking Changes
+## breaking Changes
 
 > \[!CAUTION]
 > Please be aware of breaking changes
