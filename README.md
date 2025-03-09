@@ -4,10 +4,10 @@
 <h4>File encryption and decryption (Desktop version)</h4>
 <h6>for Linux, MacOS, Windows</h6>
 
-[Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
+[Report Issue](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/pulls)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-desktop_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
 
 </div>
 
@@ -15,10 +15,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
     - [breaking Changes](#breaking-changes)
 - [Documentation](#documentation)
@@ -93,14 +94,14 @@ _see also_ [Screenshots](#screenshots)
 
 ## Status
 
-![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
-![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
+![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt-desktop_file_encryption-decryption)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-desktop_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt-desktop_file_encryption-decryption)
 ![Status](https://img.shields.io/badge/Status-stable-green)
 ![Status](https://img.shields.io/badge/Status-works_as_designed-green)
 
-![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt_file_encryption_decryption)
+![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt-desktop_file_encryption-decryption)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt-desktop_file_encryption-decryption)
 
 ## breaking Changes
 
@@ -165,40 +166,40 @@ _see also_ [Screenshots](#screenshots)
 
 ### start page
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01a_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01b_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/01a_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/01b_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/01_de.png)
 
 ### encryption dialog
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/02_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/02_de.png)
 
 ### decryption dialog
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/03_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/03_de.png)
 
 ### switch language
 
 (Menu: `A/六)` -> `DE|EN`)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/04_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/04_de.png)
 
 ### help page
 
 (Menu: `Info -> Help` or keyboard shortcut `F1`)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/05_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/05_de.png)
 
 ### about page
 
 (Menu: `Info -> About` or keyboard shortcut `A`)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/06_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/06_de.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -224,31 +225,31 @@ _see also_ [Screenshots](#screenshots)
 - choose "install for current user only" (no Administrator rights needed)
 - choose "select language (DE|EN) to use during installation"
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/00_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/00_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/00_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/01_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/01_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/01_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/02_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/02_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/02_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/03_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/03_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/04_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/04_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/04_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/05_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/05_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/05_setup_de.png)
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_en.png)
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/06_setup_de.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/06_setup_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/06_setup_de.png)
 
 ### Set-Up - De-Installation
 
 For de-installation, go to Windows `Settings -> Apps -> installed Apps` and choose within the hamburger menu "deinstallation"
 
-![App Screenshot](https://github.com/Zheng-Bote/qt_file_encryption_decryption/blob/main/docs/img/deinstall_en.png)
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/img/deinstall_en.png)
 
 ### without set-up
 
@@ -294,6 +295,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -411,6 +413,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 15 directories, 98 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -447,7 +450,7 @@ SOFTWARE.
 
 ### Code Contributors
 
-![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/qt_file_encryption_decryption?color=dark-green)
+![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/qt-desktop_file_encryption-decryption?color=dark-green)
 
 [![Zheng Robert](https://img.shields.io/badge/Github-Zheng_Robert-black?logo=github)](https://www.github.com/Zheng-Bote)
 
