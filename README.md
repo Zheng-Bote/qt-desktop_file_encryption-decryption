@@ -21,7 +21,7 @@
 - [Description](#description)
   - [Features](#features)
   - [Status](#status)
-    - [breaking Changes](#breaking-changes)
+  - [breaking Changes](#breaking-changes)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
   - [Decryption](#decryption)
