@@ -15,10 +15,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
     - [breaking Changes](#breaking-changes)
 - [Documentation](#documentation)
@@ -65,7 +66,7 @@ Qt6 C++23 Desktop application to encrypt / decrypt the given file.
 - Password: SHA256, between 5 to 32 characters
 - initialization vector: MD5
 
-See folder `docs/img` for screenshots.
+_see also_ [Screenshots](#screenshots)
 
 ### Features
 
@@ -158,7 +159,7 @@ See folder `docs/img` for screenshots.
 | user | 5m48,691s |
 | sys | 0m2,049s |
 
-> \[!INFO]
+> \[!NOTE]
 > so compiled chunk size is 4 MB to give better feedback about the process status.
 
 ## Screenshots
@@ -294,6 +295,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -411,6 +413,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 15 directories, 98 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
