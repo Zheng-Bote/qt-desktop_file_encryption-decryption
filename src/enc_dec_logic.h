@@ -2,7 +2,6 @@
 
 #include <QFileDialog>
 #include <QString>
-
 #include <iostream>
 
 using std::cin;

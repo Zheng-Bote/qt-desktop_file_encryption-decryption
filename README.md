@@ -1,7 +1,7 @@
 <div id="top" align="center">
-<h1>qt_file_encryption_decryption</h1>
+<h1>file encryption/decryption</h1>
 
-<h4>File encryption and decryption</h4>
+<h4>File encryption and decryption (Desktop version)</h4>
 <h6>for Linux, MacOS, Windows</h6>
 
 [Report Issue](https://github.com/Zheng-Bote/qt_file_encryption_decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt_file_encryption_decryption/pulls)
@@ -15,10 +15,11 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
-    - [Features](#features)
+  - [Features](#features)
   - [Status](#status)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
@@ -57,7 +58,7 @@
 ![QT](https://img.shields.io/badge/Community-6-41CD52?logo=qt)
 ![CXX](https://img.shields.io/badge/C++-23-blue?logo=cplusplus)
 
-Qt6 C++23 Desktop application to encrypt / decrypt the given text file.
+Qt6 C++23 Desktop application to encrypt / decrypt the given file.
 
 - Encryption: AES-256 CBC
 - Password: SHA256, between 5 to 32 characters
@@ -68,6 +69,14 @@ See folder `docs/img` for screenshots.
 ### Features
 
 - [x] i18n: Desktop application supports German and English language
+- [x] encrypt/decrypt every readable file (binary-mode, chunk size 4MB)
+
+- [x] runs on DOS/Windows
+- [x] runs on MacOS
+- [x] runs on Linux
+- [ ] runs on iOS
+- [ ] runs on Android
+- [ ] runs on HarmonyOS
 
 - [x] OSS and license
 - [x] works as designed
@@ -79,28 +88,29 @@ See folder `docs/img` for screenshots.
 - [x] Installation routine (no Adminstrator rights needed)
 - [ ] portable application
 
-- [x] runs on DOS/Windows
-- [x] runs on MacOS
-- [x] runs on Linux
-- [ ] runs on iOS
-- [ ] runs on Android
-- [ ] runs on HarmonyOS
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Status
 
-> \[!CAUTION]
-> breaking changes! Release v0.1.0 is **NOT** compatible to higher versions.
-
 ![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt_file_encryption_decryption)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt_file_encryption_decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt_file_encryption-decryption/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
 ![Status](https://img.shields.io/badge/Status-stable-green)
 ![Status](https://img.shields.io/badge/Status-works_as_designed-green)
-![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt_file_encryption_decryption)
 
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt_file_encryption_decryption)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt_file_encryption_decryption)
+
+### breaking Changes
+
+> \[!CAUTION]
+> breaking changes! Release v0.1.0 is **NOT** compatible to higher versions.
+
+| Version | status                                  | Comment                                                            |
+| ------- | --------------------------------------- | ------------------------------------------------------------------ |
+| v0.1.0  | **NOT** compatible to higher versions.  | initial creation, text mode                                        |
+| v1.0.0  | **NOT** compatible with lower versions. | optimized input/output, text mode limited to some text-based files |
+| v2.0.0  | **NOT** compatible with lower versions. | binary-mode, works on every readable file. No filesize limit.      |
 
 # Documentation
 
@@ -121,6 +131,32 @@ See folder `docs/img` for screenshots.
 - choose a file to decrypt (only files with extension ".aes")
 - activate the checkbox to decrypt the source file (original file will be replaced with the decrypted one)
 - keep checkbox unchecked to decrypt the given file into a new (decrypted) file (decrypted file will be stored in your temp-folder <originalfilename>)
+
+## Test / Performance
+
+**tested on**
+
+- x86_64 Ubuntu 24.04.2 LTS
+- Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz with 6 cpu cores
+- average SSD storage
+- fallocate -l 1G test.img
+
+**read / write binary mode of 1 GB file with a chunk size of 4 MB**
+| type | val |
+| ---- | --------- |
+| real | 5m52,734s |
+| user | 5m49,905s |
+| sys | 0m2,391s |
+
+**read / write binary mode of 1 GB file with a chunk size of 16 MB**
+| type | val |
+| ---- | --------- |
+| real | 5m50,753s |
+| user | 5m48,691s |
+| sys | 0m2,049s |
+
+> \[!INFO]
+> so compiled chunk size is 4 MB to give better feedback about the process status.
 
 ## Screenshots
 
@@ -255,6 +291,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -369,6 +406,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 14 directories, 95 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>

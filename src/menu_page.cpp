@@ -11,31 +11,31 @@
 
 #include "menu_page.h"
 #include "template.h"
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
+
+#include <QCloseEvent>
 #include <QFont>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QStatusBar>
+#include <QWidget>
 #include <qdir.h>
 #include <string>
-#include <QMessageBox>
-#include <QCloseEvent>
-#include <QLineEdit>
-#include <QHBoxLayout>
 
-#include <QStatusBar>
-#include <QMenuBar>
 #include "includes/rz_config.h"
-
 
 using std::string;
 
 MenuPage::MenuPage(Template *parent) : Template(parent)
 {
-    #ifdef Q_OS_MACOS
-        QFont font("Times New Roman", 13); // Trebuchet MS Times New Roman
-    #else
-        QFont font("Noto Serif", 13);
-    #endif
+#ifdef Q_OS_MACOS
+    QFont font("Times New Roman", 13); // Trebuchet MS Times New Roman
+#else
+    QFont font("Noto Serif", 13);
+#endif
     QFontMetrics metrics(font);
 
     QString str_label = "Hello World 你好世界 Hola Mundo Привет мир Hallo Welt!\n\n"
@@ -145,9 +145,14 @@ void MenuPage::help()
 void MenuPage::about()
 {
     QString text = tr("File Encryption and Decryption") + "\n\n";
-    QString setInformativeText = "<p><ul><li>" + tr("Encryption") + ": AES-256 CBC</li><li>" + tr("Password") + ": SHA256, " + tr("5 to 32 characters") + "</li><li>initialization vector: MD5</li></ul></p>";
+    QString setInformativeText
+        = "<p><ul><li>" + tr("Encryption") + ": AES-256 CBC</li><li>" + tr("Password")
+          + ": SHA256, " + tr("5 to 32 characters")
+          + "</li><li>initialization vector: MD5</li><li>chunk size: 4 MB</li></ul></p>";
     setInformativeText.append("<p><ul><li>" + QString(PROG_EXEC_NAME) + " v " + QString(PROG_VERSION) + "</li><li>" + tr("Desktop application for Linux, MacOS and Windows") + "</li><li>Copyright (c) 2024 ZHENG Robert</li><li>OSS MIT " + tr("license") + "</li></ul></p>");
-    setInformativeText.append("<br><a href=\"https://github.com/Zheng-Bote/qt_file_encryption-decryption\" alt=\"Github repository\">");
+    setInformativeText.append(
+        "<br><a href=\"https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption\" "
+        "alt=\"Github repository\">");
     setInformativeText.append(QString(PROG_EXEC_NAME) + " v" + QString(PROG_VERSION) + " " + tr("at") + " Github</a>");
 
     QMessageBox msgBox(this);

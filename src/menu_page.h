@@ -33,6 +33,7 @@ public:
 
 protected:
     void changeEvent(QEvent *event);
+
 protected slots:
     // this slot is called by the language menu actions
     void slotLanguageChanged(QAction* action);

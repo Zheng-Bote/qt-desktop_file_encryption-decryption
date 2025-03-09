@@ -238,7 +238,8 @@ std::tuple<bool, QString> EncryptionDecryption::readBinaryFile(const string &sou
                                                                const bool &overwriteSourceFile,
                                                                const string &targetPathToFile)
 {
-    std::size_t chunkSize = 1024 * 1024; // 1 MB chunk size
+    //std::size_t chunkSize = 1024 * 1024; // 1 MB chunk size
+    std::size_t chunkSize = 2048 * 2048; // 4 MB chunk size
 
     std::ifstream file(sourcePathToFile, std::ios::binary);
 
@@ -249,6 +250,10 @@ std::tuple<bool, QString> EncryptionDecryption::readBinaryFile(const string &sou
         return std::make_tuple(false, msg);
     }
 
+    int sourceFileSize = std::filesystem::file_size(sourcePathToFile);
+    int processedSize{0};
+    int toProcessSize = sourceFileSize;
+
     file.seekg(0, std::ios::beg);
     std::vector<char> buffer(chunkSize); // Buffer to hold chunks
 
@@ -257,20 +262,26 @@ std::tuple<bool, QString> EncryptionDecryption::readBinaryFile(const string &sou
         file.read(buffer.data(), chunkSize);
         size_t bytesRead = file.gcount(); // Number of bytes read
 
-        std::cout << "Read " << bytesRead << " bytes" << std::endl;
+        //std::cout << "Read " << bytesRead << " bytes" << std::endl;
+        processedSize += bytesRead;
 
         // Create a QByteArray from the buffer
         QByteArray chunkData(buffer.data(), bytesRead);
 
+        std::println("processing {} of {} - {}",
+                     processedSize,
+                     sourceFileSize,
+                     toProcessSize - processedSize);
+
         if (do_encrypt) {
-            std::cout << "Encrypting..." << std::endl;
+            //std::cout << "Encrypting..." << std::endl;
             doEncryptData(sourcePathToFile,
                           strPassword,
                           chunkData,
                           overwriteSourceFile,
                           targetPathToFile);
         } else {
-            std::cout << "Decrypting..." << std::endl;
+            //std::cout << "Decrypting..." << std::endl;
             doDecryptData(sourcePathToFile,
                           strPassword,
                           chunkData,

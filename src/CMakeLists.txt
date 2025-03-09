@@ -4,9 +4,10 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   file_encryption-decryption
-  VERSION 1.3.0
+  VERSION 2.0.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
-  HOMEPAGE_URL "https://github.com/Zheng-Bote/qt_file_encryption-decryption"
+  HOMEPAGE_URL
+    "https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption"
   LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
@@ -19,8 +20,10 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   set(CMAKE_CXX_COMPILER clang++)
 endif()
 
-# set(CMAKE_CXX_CLANG_TIDY clang-tidy;
-# -header-filter=.;-checks=cppcoreguidelines-*)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND ${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  set(CMAKE_CXX_CLANG_TIDY clang-tidy;
+                           -header-filter=.;-checks=cppcoreguidelines-*)
+endif()
 
 # Linux OK: set(CXX_FLAGS_ALL "-m64 -Wall -Wextra -Wpedantic -Wshadow
 # -Wconversion") set(CXX_FLAGS_DEBUG "-g3 -O0") set(CXX_FLAGS_RELEASE "-O3")
@@ -72,7 +75,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     includes/qaesencryption.cpp
     includes/qaesencryption.h
     includes/rz_snipptes.hpp
-    ${app_icon_macos})
+    ${app_icon_macos}
+)
   # Define target properties for Android with Qt 6 as: set_property(TARGET
   # File_Encryption_and_Decryption APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
   # ${CMAKE_CURRENT_SOURCE_DIR}/android) For more information, see
@@ -87,8 +91,7 @@ else()
   endif()
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
-                                              Qt6::Core)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 
