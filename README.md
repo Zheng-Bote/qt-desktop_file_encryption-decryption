@@ -291,7 +291,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -348,6 +347,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ├── src
 │   ├── CMakeLists.txt
 │   ├── CMakeLists.txt_Linux
+│   ├── CMakeLists.txt_MacOS
 │   ├── CMakeLists.txt_Windows
 │   ├── configure
 │   │   ├── ClangTidy.cmake
@@ -376,7 +376,8 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   │   ├── icon-16x16.ico
 │   │   ├── icon-256x256.ico
 │   │   ├── icon-32x32.ico
-│   │   └── icon.png
+│   │   ├── icon.png
+│   │   └── icon.svg
 │   ├── includes
 │   │   ├── qaesencryption.cpp
 │   │   ├── qaesencryption.h
@@ -386,6 +387,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   ├── menu_page.cpp
 │   ├── menu_page.h
 │   ├── resources
+│   │   ├── Info.plist
 │   │   ├── file_encryption-decryption.icns
 │   │   ├── file_encryption-decryption.iconset
 │   │   │   ├── icon_128x128.png
@@ -404,9 +406,8 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │   └── template.h
 └── tree.bak
 
-14 directories, 95 files
+15 directories, 98 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
