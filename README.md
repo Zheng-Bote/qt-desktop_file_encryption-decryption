@@ -66,7 +66,7 @@ Qt6 C++23 Desktop application to encrypt / decrypt the given file.
 - Password: SHA256, between 5 to 32 characters
 - initialization vector: MD5
 
-_see also_ [Screenshots](#screenshots)
+see also the commandline version [qt-cli_file_encryption-decryption](https://github.com/Zheng-Bote/qt-cli_file_encryption-decryption)
 
 ### Features
 
@@ -207,8 +207,10 @@ _see also_ [Screenshots](#screenshots)
 
 ## Linux
 
-- make AppImage executable (eg. `chmod 755 file_encryption-decryption-x86_64.AppImage` )
-- execute / doubleclick AppImage
+Several installation packages are available, depending on your Linux system (deb, rpm, zip, AppImage).
+
+> \[!Note]
+> see (latest) Release for packages
 
 ## MacOS
 
