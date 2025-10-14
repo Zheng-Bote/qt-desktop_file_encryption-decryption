@@ -38,7 +38,7 @@ std::tuple<bool, QString> fileIsWriteable(QString &pathTofile)
 
 std::tuple<bool, QString> getFileName(QString &pathTofile)
 {
-    QFile file = pathTofile;
+    QFile file(pathTofile);
     QFileInfo fileInfo(file.fileName());
     return std::make_tuple(true, fileInfo.fileName());
 }

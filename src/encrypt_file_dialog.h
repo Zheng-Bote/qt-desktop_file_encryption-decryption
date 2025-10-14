@@ -18,8 +18,10 @@ public:
 private:
     QLabel *enter_file_name_label;
     QLabel *enter_password_label;
+    QLabel *enter_password_label_verify;
     QLineEdit *file_name_textbox;
     QLineEdit *password_textbox;
+    QLineEdit *password_textbox_verify;
     QPushButton *chooseFile_btn;
     QPushButton *encrypt_button;
     QPushButton *cancel_button;

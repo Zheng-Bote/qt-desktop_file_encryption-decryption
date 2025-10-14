@@ -251,9 +251,8 @@ void MenuPage::switchTranslator(QTranslator& translator, const QString& filename
     //path.append("/languages/");
     if(translator.load(path + filename)){ //Here Path and Filename has to be entered because the system didn't find the QM Files else
         qApp->installTranslator(&translator);
+        qDebug() << "switchTranslator loaded: " << filename;
     }
-
-    qDebug() << "switchTranslator: " << filename;
 }
 
 void MenuPage::loadLanguage(const QString& rLanguage) {
@@ -264,7 +263,8 @@ void MenuPage::loadLanguage(const QString& rLanguage) {
         QString languageName = QLocale::languageToString(locale.language());
         switchTranslator(m_translator, QString("qt_file_encryption-decryption_%1.qm").arg(rLanguage));
         switchTranslator(m_translatorQt, QString("qtbase_%1.qm").arg(rLanguage));
-        //statusBar()->showMessage(tr("Current Language changed to %1").arg(languageName));
+
+        statusBar()->showMessage(tr("Current Language changed to %1").arg(languageName), 2000);
     }
 }
 

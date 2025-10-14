@@ -76,7 +76,7 @@ DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
 
 QString DecryptFileDialog::getFileName(QString &pathTofile)
 {
-    QFile file = pathTofile;
+    QFile file(pathTofile);
     QFileInfo fileInfo(file.fileName());
     return fileInfo.fileName();
 }

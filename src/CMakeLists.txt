@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   file_encryption-decryption
-  VERSION 2.0.0
+  VERSION 2.1.0
   DESCRIPTION "Desktop app to encrypt and decrypt a given file"
   HOMEPAGE_URL
     "https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption"
@@ -17,7 +17,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  set(CMAKE_CXX_COMPILER clang++)
+  set(CMAKE_CXX_COMPILER clang++-20)
 endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND ${CMAKE_BUILD_TYPE} STREQUAL "Debug")
