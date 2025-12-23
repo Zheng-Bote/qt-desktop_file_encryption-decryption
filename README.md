@@ -14,7 +14,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
@@ -22,7 +21,7 @@
 - [Status](#status)
   - [breaking Changes](#breaking-changes)
 - [Getting Started](#getting-started)
-- [🚀 Installation \& Build](#-installation--build)
+- [🚀 Installation & Build](#-installation--build)
   - [Prerequisites](#prerequisites)
   - [📂 Project Structure](#-project-structure)
   - [Build Steps](#build-steps)
@@ -30,9 +29,9 @@
     - [Update Translation Files](#update-translation-files)
     - [Compile Translation Files](#compile-translation-files)
   - [Build Linux AppImage](#build-linux-appimage)
-- [Documentation \& Screenshots](#documentation--screenshots)
+- [Documentation & Screenshots](#documentation--screenshots)
 - [SBoM (CycloneDX)](#sbom-cyclonedx)
-- [🏗️ Architecture](#️-architecture)
+- [🏗️ Architecture](#-architecture)
   - [Structure Diagram](#structure-diagram)
   - [Data Flow (Streaming)](#data-flow-streaming)
 - [Authors and License](#authors-and-license)
