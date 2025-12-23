@@ -99,6 +99,11 @@ The application uses **AES-256 CBC** encryption and is optimized for high perfor
 
 # 🚀 Installation & Build
 
+Several installation packages are available, depending on your Operating System
+
+> \[!TIP]
+> see _Releases_ or [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/)
+
 ## Prerequisites
 
 - C++ Compiler with C++23 support (GCC, Clang, MSVC)
