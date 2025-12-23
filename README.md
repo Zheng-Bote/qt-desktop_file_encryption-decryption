@@ -13,41 +13,18 @@ The application uses **AES-256 CBC** encryption and is optimized for high perfor
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
-- [Description](#description)
-  - [Features](#features)
-  - [Status](#status)
-  - [breaking Changes](#breaking-changes)
-- [Documentation](#documentation)
-  - [Encryption](#encryption)
-  - [Decryption](#decryption)
-  - [Test / Performance](#test--performance)
-  - [Screenshots](#screenshots)
-    - [start page](#start-page)
-    - [encryption dialog](#encryption-dialog)
-    - [decryption dialog](#decryption-dialog)
-    - [switch language](#switch-language)
-    - [help page](#help-page)
-    - [about page](#about-page)
-- [Installation](#installation)
-  - [Linux](#linux)
-  - [MacOS](#macos)
-  - [Windows](#windows)
-    - [Set-Up](#set-up)
-    - [Set-Up - De-Installation](#set-up---de-installation)
-    - [without set-up](#without-set-up)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-    - [CMake](#cmake)
-    - [QT](#qt)
-    - [Qt-AES](#qt-aes)
-  - [folder structure](#folder-structure)
-- [Authors and License](#authors-and-license)
-  - [License](#license)
-  - [Authors](#authors)
-    - [Code Contributors](#code-contributors)
+  - [✨ Features](#-features)
+  - [🏗️ Architecture](#-architecture)
+    - [Structure Diagram](#structure-diagram)
+    - [Data Flow (Streaming)](#data-flow-streaming)
+- [📂 Project Structure](#-project-structure)
+- [🚀 Installation & Build](#-installation--build)
+  - [Prerequisites](#prerequisites)
+  - [Build Steps](#build-steps)
+- [📝 License](#-license)
+- [🤝 Author](#-author)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
