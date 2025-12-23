@@ -14,6 +14,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -21,7 +22,7 @@
 - [Status](#status)
   - [breaking Changes](#breaking-changes)
 - [Getting Started](#getting-started)
-- [🚀 Installation & Build](#-installation--build)
+- [🚀 Installation \& Build](#-installation--build)
   - [Prerequisites](#prerequisites)
   - [📂 Project Structure](#-project-structure)
   - [Build Steps](#build-steps)
@@ -29,8 +30,9 @@
     - [Update Translation Files](#update-translation-files)
     - [Compile Translation Files](#compile-translation-files)
   - [Build Linux AppImage](#build-linux-appimage)
-- [Documentation & Screenshots](#documentation--screenshots)
-- [🏗️ Architecture](#-architecture)
+- [Documentation \& Screenshots](#documentation--screenshots)
+- [SBoM (CycloneDX)](#sbom-cyclonedx)
+- [🏗️ Architecture](#️-architecture)
   - [Structure Diagram](#structure-diagram)
   - [Data Flow (Streaming)](#data-flow-streaming)
 - [Authors and License](#authors-and-license)
@@ -195,6 +197,20 @@ or
 > please visit [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for more.
 
 ![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/linux.png)
+
+# SBoM (CycloneDX)
+
+```Bash
+nvm use --lts
+```
+
+```Bash
+atom -J-Xmx16g usages -o ./docs/app.atom --slice-outfile ./docs/atom_v2.1.0.json -l cpp ./src
+```
+
+```Bash
+cdxgen -o ./docs/sbom_v2.1.0.json -t cpp --usages-slices-file ./docs/atom_v2.1.0.json --author "ZHENG Robert" --deep -r ./src
+```
 
 # 🏗️ Architecture
 
