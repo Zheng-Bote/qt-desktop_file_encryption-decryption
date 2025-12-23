@@ -1,5 +1,14 @@
 #pragma once
 
+/**
+ * @file encryption_manager.h
+ * @brief Logic class for handling file encryption and decryption.
+ *
+ * This file contains the EncryptionManager class which manages the
+ * AES-256 encryption and decryption processes using streaming to support
+ * large files.
+ */
+
 #include <QObject>
 #include <QString>
 #include <tuple>

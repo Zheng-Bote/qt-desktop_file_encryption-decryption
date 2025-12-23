@@ -8,9 +8,6 @@
 #include "encrypt_file_dialog.h"
 #include "template.h"
 
-// Entfernt: #include "enc_dec_logic.h" (wird nicht mehr direkt benötigt, Logic
-// ist in Dialogen)
-
 #include <QCloseEvent>
 #include <QDesktopServices>
 #include <QDir>
@@ -28,9 +25,6 @@
 
 #include <string>
 
-// Stellen Sie sicher, dass diese Datei generiert wird oder im include Pfad
-// liegt Falls CMake configure_file nutzt, liegt sie oft im build-dir oder
-// include/
 #include "rz_config.h"
 
 using std::string;
@@ -103,7 +97,6 @@ void MenuPage::encrypt_dialog() {
   if (!encrypt_file_dialog) {
     encrypt_file_dialog = new EncryptFileDialog(this);
   }
-  // Funktioniert jetzt wieder, da "friend class MenuPage" im Header steht
   encrypt_file_dialog->file_name_textbox->setFocus();
   encrypt_file_dialog->show();
 }
@@ -112,7 +105,6 @@ void MenuPage::decrypt_dialog() {
   if (!decrypt_file_dialog) {
     decrypt_file_dialog = new DecryptFileDialog(this);
   }
-  // Funktioniert jetzt wieder, da "friend class MenuPage" im Header steht
   decrypt_file_dialog->file_name_textbox->setFocus();
   decrypt_file_dialog->show();
 }
@@ -255,7 +247,7 @@ void MenuPage::loadLanguage(const QString &rLanguage) {
     QLocale::setDefault(locale);
     QString languageName = QLocale::languageToString(locale.language());
 
-    // Übersetzer laden
+    // Load translator
     switchTranslator(
         m_translator,
         QString("qt_file_encryption-decryption_%1.qm").arg(rLanguage));
@@ -264,18 +256,17 @@ void MenuPage::loadLanguage(const QString &rLanguage) {
     statusBar()->showMessage(
         tr("Current Language changed to %1").arg(languageName), 2000);
 
-    // NEU: Speichern der Auswahl für den nächsten Start
+    // Save selection for next start
     QSettings settings;
     settings.setValue("language", m_currLang);
 
-    // Optional: Aktualisiere das Menü, damit der Haken sofort umspringt
-    // (Das ist etwas komplexer, da createLanguageMenu das Menü neu baut.
-    // Einfacher ist es, createLanguageMenu so anzupassen, dass es m_currLang
-    // prüft)
+    // Optional: Update menu so checkmark updates immediately
+    // (This is complex because createLanguageMenu rebuilds menu.
+    // Easier needed: adjust createLanguageMenu to check m_currLang)
 
-    // Da createLanguageMenu im Konstruktor gerufen wurde, müssen wir
-    // sicherstellen, dass die Haken stimmen. Ein einfacher Weg ist, durch die
-    // Actions zu loopen und den Haken zu setzen.
+    // Since createLanguageMenu was called in constructor, we need to
+    // ensure checkmarks are correct. Simple way: Loop through actions
+    // and set checked.
     if (languageMenu) {
       QList<QAction *> actions = languageMenu->actions();
       for (QAction *action : actions) {
@@ -310,7 +301,7 @@ void MenuPage::createLanguageMenu() {
     languageMenu = menuBar()->addMenu("A / 六");
   }
 
-  // Loop durch gefundene Sprachdateien
+  // Loop through found language files
   for (int i = 0; i < fileNames.size(); ++i) {
     QString locale;
     locale = fileNames[i];
@@ -336,10 +327,10 @@ void MenuPage::createLanguageMenu() {
     languageMenu->addAction(action);
     langGroup->addAction(action);
 
-    // ÄNDERUNG: Haken setzen basierend auf m_currLang (die von main.cpp gesetzt
-    // wurde) anstatt auf QLocale::system(). Hinweis: Beim allerersten Aufruf im
-    // Konstruktor ist m_currLang evtl. noch leer, aber loadLanguage wird in
-    // main.cpp direkt danach aufgerufen und korrigiert den Haken.
+    // Set checked based on m_currLang (set by main.cpp)
+    // instead of QLocale::system(). Note: On very first call in constructor
+    // m_currLang might be empty, but loadLanguage is called in main.cpp
+    // directly after and corrects the checkmark.
     if (m_currLang == locale) {
       action->setChecked(true);
     }

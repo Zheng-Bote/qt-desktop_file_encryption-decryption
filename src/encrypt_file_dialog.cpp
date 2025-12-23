@@ -1,5 +1,10 @@
+/**
+ * @file encrypt_file_dialog.cpp
+ * @brief Implementation of the EncryptFileDialog class.
+ */
+
 #include "encrypt_file_dialog.h"
-#include "encryption_manager.h" // Voller Include hier
+#include "encryption_manager.h"
 
 #include <QApplication>
 #include <QCheckBox>
@@ -19,7 +24,7 @@ EncryptFileDialog::EncryptFileDialog(QWidget *parent) : QDialog(parent) {
 }
 
 EncryptFileDialog::~EncryptFileDialog() {
-  // m_logic wird automatisch gelöscht, da es Child von QDialog ist
+  // m_logic is automatically deleted as it is a child of QDialog
 }
 
 void EncryptFileDialog::setupUI() {
@@ -27,7 +32,7 @@ void EncryptFileDialog::setupUI() {
   setWindowIcon(QIcon(":/res/images/icon.png"));
   resize(400, 250);
 
-  // Layouts und Widgets erstellen
+  // Create layouts and widgets
   QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
   // File Selection
@@ -40,7 +45,7 @@ void EncryptFileDialog::setupUI() {
 
   file_name_textbox = new QLineEdit(this);
   file_name_textbox->setPlaceholderText(tr("Path to file..."));
-  // Readonly machen, damit User den Pfad über Button wählt (vermeidet Fehler)
+  // Make readonly so user chooses via button (avoids errors)
   // file_name_textbox->setReadOnly(true);
 
   // Password
@@ -85,7 +90,7 @@ void EncryptFileDialog::setupUI() {
 }
 
 void EncryptFileDialog::chooseFile() {
-  // ANFORDERUNG 3: Startverzeichnis immer Home
+  // Start directory is always Home
   QString startDir = QDir::homePath();
 
   QString file = QFileDialog::getOpenFileName(
@@ -100,7 +105,7 @@ void EncryptFileDialog::chooseFile() {
 }
 
 void EncryptFileDialog::encrypt_file_slot() {
-  // Validierung
+  // Validation
   QString sourceFile = file_name_textbox->text();
   if (sourceFile.isEmpty() || !QFile::exists(sourceFile)) {
     QMessageBox::warning(this, tr("Warning"),
@@ -115,9 +120,9 @@ void EncryptFileDialog::encrypt_file_slot() {
 
   bool overwrite = overwriteFile_checkbox->isChecked();
 
-  // ANFORDERUNG 3b: Zielverzeichnis gleich Quelldatei (implizit)
-  // Wenn NICHT überschrieben wird, fragen wir nach Speicherort,
-  // aber starten im Verzeichnis der Quelldatei.
+  // Target directory same as source file (implicit)
+  // If NOT overwriting, we ask for save location,
+  // but start in source file directory.
   if (!overwrite) {
     QFileInfo sourceInfo(sourceFile);
     QString suggestedName = sourceInfo.fileName() + ".aes";
@@ -130,11 +135,11 @@ void EncryptFileDialog::encrypt_file_slot() {
     if (targetFile.isEmpty())
       return; // Abbruch
 
-    // Da unsere Logic Klasse aktuell (um Code zu sparen) intern Pfade baut,
-    // nutzen wir einen Trick: Wir lassen die Logik verschlüsseln (in .aes neben
-    // Quelle) und verschieben es dann zum gewünschten 'targetFile'. Alternativ:
-    // Logic erweitern um 'targetPath' Parameter. Hier: Logic Erweiterung
-    // simuliert durch Verschieben.
+    // Since our logic class currenty builds paths internally (to save code),
+    // we use a trick: We let logic encrypt (to .aes next to source)
+    // and then move it to the desired 'targetFile'. Alternative:
+    // Extend Logic with 'targetPath' parameter. Here: Logic extension
+    // simulated by move.
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     auto [code, msg] =
@@ -142,10 +147,10 @@ void EncryptFileDialog::encrypt_file_slot() {
     QApplication::restoreOverrideCursor();
 
     if (code == 1) {
-      // Die Logik hat [Source].aes erstellt. Wir wollen aber [targetFile].
+      // The logic created [Source].aes. But we want [targetFile].
       QString defaultOut = sourceFile + ".aes";
       if (targetFile != defaultOut) {
-        QFile::remove(targetFile); // Falls existiert
+        QFile::remove(targetFile); // If exists
         QFile::rename(defaultOut, targetFile);
       }
       QMessageBox::information(this, tr("Success"),

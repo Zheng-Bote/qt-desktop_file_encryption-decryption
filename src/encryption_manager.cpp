@@ -1,14 +1,19 @@
-#include "encryption_manager.h"
-#include "qaesencryption.h" // Liegt jetzt in include/ via CMake include_directories
+/**
+ * @file encryption_manager.cpp
+ * @brief Implementation of the EncryptionManager class.
+ */
 
-#include <QApplication> // Für processEvents
+#include "encryption_manager.h"
+#include "qaesencryption.h"
+
+#include <QApplication>
 #include <QCryptographicHash>
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 
-// Statischer IV (Hinweis: Aus Security-Sicht ist random IV pro Datei besser,
-// aber wir behalten dies für Kompatibilität mit Ihrer bestehenden Logik bei)
+// Static IV (Note: From a security perspective, a random IV per file is better,
+// but we keep this for compatibility with existing logic)
 static const QString STATIC_IV = "0x0c2ad4a4acb9f023";
 static const int CHUNK_SIZE = 4 * 1024 * 1024; // 4 MB Chunks
 static const int MIN_PASS_LEN = 5;
@@ -22,30 +27,30 @@ EncryptionManager::encryptFile(const QString &sourcePath,
     return {2, tr("Password should have more than 5 characters")};
   }
 
-  // Temporäres Ziel definieren
+  // Define temporary destination
   QString destPath = sourcePath + ".tmp_enc";
 
-  // Prozess ausführen
+  // Execute process
   auto result = processFile(sourcePath, destPath, password, true);
 
-  // Bei Erfolg und Overwrite-Wunsch: Original ersetzen
+  // On success and overwrite request: Replace original
   if (std::get<0>(result) == 1) {
     if (overwriteSource) {
       QFile::remove(sourcePath);
       QFile::rename(destPath, sourcePath + ".aes");
       return {1, tr("Encrypted file:\n") + sourcePath + ".aes"};
     } else {
-      // Wenn nicht overwrite, benennen wir das temp file final um
-      // Standardfall: User hat Pfad nicht gewählt -> .aes
-      // Hinweis: Der Dialog (UI) sollte idealerweise den Zielpfad übergeben.
-      // Hier generieren wir den Standardpfad, falls der Dialog Logik 1b nutzt.
+      // If not overwrite, we rename the temp file to final name
+      // Standard case: User did not choose path -> .aes
+      // Note: The dialog (UI) should ideally pass the target path.
+      // Here we generate the standard path if the dialog uses logic 1b.
       QString finalPath = sourcePath + ".aes";
-      QFile::remove(finalPath); // Falls existiert
+      QFile::remove(finalPath); // If exists
       QFile::rename(destPath, finalPath);
       return {1, tr("Encrypted file:\n") + finalPath};
     }
   } else {
-    // Aufräumen bei Fehler
+    // Cleanup on error
     QFile::remove(destPath);
   }
 
@@ -104,7 +109,7 @@ EncryptionManager::processFile(const QString &sourcePath,
     return {3, tr("Error creating target file:\n") + destPath};
   }
 
-  // Crypto Initialisierung
+  // Crypto Initialization
   QAESEncryption encryption(QAESEncryption::AES_256, QAESEncryption::CBC);
   QByteArray hashKey = QCryptographicHash::hash(password.toLocal8Bit(),
                                                 QCryptographicHash::Sha256);
@@ -123,7 +128,7 @@ EncryptionManager::processFile(const QString &sourcePath,
       processedChunk = encryption.encode(chunk, hashKey, hashIV);
     } else {
       processedChunk = encryption.decode(chunk, hashKey, hashIV);
-      // Padding-Entfernung am Dateiende
+      // Remove padding at end of file
       if (inFile.atEnd()) {
         while (processedChunk.endsWith('\0')) {
           processedChunk.chop(1);
@@ -139,7 +144,7 @@ EncryptionManager::processFile(const QString &sourcePath,
 
     processedBytes += chunk.size();
 
-    // UI Responsiveness erhalten (einfache Methode)
+    // Maintain UI Responsiveness (simple method)
     if (processedBytes % (CHUNK_SIZE * 2) == 0) {
       QApplication::processEvents();
     }

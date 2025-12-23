@@ -1,3 +1,8 @@
+/**
+ * @file decrypt_file_dialog.cpp
+ * @brief Implementation of the DecryptFileDialog class.
+ */
+
 #include "decrypt_file_dialog.h"
 #include "encryption_manager.h"
 
@@ -65,7 +70,7 @@ void DecryptFileDialog::setupUI() {
 }
 
 void DecryptFileDialog::chooseFile() {
-  // ANFORDERUNG 3: Startverzeichnis immer Home
+  // Start directory is always Home
   QString startDir = QDir::homePath();
 
   QString file = QFileDialog::getOpenFileName(
@@ -95,7 +100,7 @@ void DecryptFileDialog::decrypt_file_slot() {
     else
       suggestedName += ".dec";
 
-    // ANFORDERUNG: Save Dialog startet im Verzeichnis der Quelle
+    // Save Dialog starts in source directory
     QString targetFile = QFileDialog::getSaveFileName(
         this, tr("Save Decrypted File"),
         sourceInfo.absolutePath() + "/" + suggestedName);
@@ -108,8 +113,8 @@ void DecryptFileDialog::decrypt_file_slot() {
     QApplication::restoreOverrideCursor();
 
     if (code == 1) {
-      // Umbenennen zum gewünschten Ziel
-      // Logic erstellt [Source ohne .aes]
+      // Rename to desired target
+      // Logic creates [Source without .aes]
       QString defaultOut = sourceFile;
       if (defaultOut.endsWith(".aes"))
         defaultOut.chop(4);

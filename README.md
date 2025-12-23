@@ -1,13 +1,14 @@
-# Qt Desktop File Encryption & Decryption
+<div id="top" align="center">
+<h1>File Encryption & Decryption (Desktop)</h1>
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Qt](https://img.shields.io/badge/Qt-6.0%2B-green.svg)
-![Language](https://img.shields.io/badge/Language-C%2B%2B23-orange.svg)
-![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)
+<p>Desktop application for securely encrypting and decrypting files on Linux, Windows, and MacOS</p>
 
-A modern desktop application for securely encrypting and decrypting files on Linux, Windows, and macOS. Developed with **C++23** and **Qt 6**.
+[Report Issue](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/issues) · [Request Feature](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/pulls)
 
-The application uses **AES-256 CBC** encryption and is optimized for high performance with low memory usage (streaming processing).
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-desktop_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/releases)
+
+</div>
 
 <hr>
 
@@ -17,41 +18,40 @@ The application uses **AES-256 CBC** encryption and is optimized for high perfor
 **Table of Contents**
 
 - [Description](#description)
-  - [Features](#features)
-  - [Status](#status)
+  - [✨ Features](#-features)
+- [Status](#status)
   - [breaking Changes](#breaking-changes)
-- [Documentation](#documentation)
-  - [Encryption](#encryption)
-  - [Decryption](#decryption)
-  - [Test / Performance](#test--performance)
-  - [Screenshots](#screenshots)
-    - [start page](#start-page)
-    - [encryption dialog](#encryption-dialog)
-    - [decryption dialog](#decryption-dialog)
-    - [switch language](#switch-language)
-    - [help page](#help-page)
-    - [about page](#about-page)
-- [Installation](#installation)
-  - [Linux](#linux)
-  - [MacOS](#macos)
-  - [Windows](#windows)
-    - [Set-Up](#set-up)
-    - [Set-Up - De-Installation](#set-up---de-installation)
-    - [without set-up](#without-set-up)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-    - [CMake](#cmake)
-    - [QT](#qt)
-    - [Qt-AES](#qt-aes)
-  - [folder structure](#folder-structure)
+- [Getting Started](#getting-started)
+- [🚀 Installation \& Build](#-installation--build)
+  - [Prerequisites](#prerequisites)
+  - [📂 Project Structure](#-project-structure)
+  - [Build Steps](#build-steps)
+  - [i18n](#i18n)
+    - [Update Translation Files](#update-translation-files)
+    - [Compile Translation Files](#compile-translation-files)
+  - [Build Linux AppImage](#build-linux-appimage)
+- [Documentation \& Screenshots](#documentation--screenshots)
+- [🏗️ Architecture](#️-architecture)
+  - [Structure Diagram](#structure-diagram)
+  - [Data Flow (Streaming)](#data-flow-streaming)
 - [Authors and License](#authors-and-license)
-  - [License](#license)
-  - [Authors](#authors)
+  - [📝 License](#-license)
+  - [🤝 Authors](#-authors)
     - [Code Contributors](#code-contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 <hr>
+
+# Description
+
+![Qt](https://img.shields.io/badge/Qt-6.0%2B-green.svg)
+![Language](https://img.shields.io/badge/Language-C%2B%2B23-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)
+
+A modern desktop application for securely encrypting and decrypting files on Linux, Windows, and macOS. Developed with **C++23** and **Qt 6**.
+
+The application uses **AES-256 CBC** encryption and is optimized for high performance with low memory usage (streaming processing).
 
 ## ✨ Features
 
@@ -66,13 +66,137 @@ The application uses **AES-256 CBC** encryption and is optimized for high perfor
   - Language switchable via menu (settings are persisted).
 - **Cross-Platform:** Runs natively on all systems supporting Qt.
 
+# Status
+
+![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt-desktop_file_encryption-decryption)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-desktop_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/Zheng-Bote/qt-desktop_file_encryption-decryption)
+![Status](https://img.shields.io/badge/Status-stable-green)
+
+![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt-desktop_file_encryption-decryption)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/repo-template)
+
+## breaking Changes
+
+> \[!CAUTION]
+> Please be aware of breaking changes
+
+| Version | status                                  | Comment                                                            |
+| ------- | --------------------------------------- | ------------------------------------------------------------------ |
+| v0.1.0  | **NOT** compatible to higher versions.  | initial creation, text mode                                        |
+| v1.0.0  | **NOT** compatible with lower versions. | optimized input/output, text mode limited to some text-based files |
+| v2.0.0  | **NOT** compatible with lower versions. | binary-mode, works on every readable file. No filesize limit.      |
+
+([back to top](#top))
+
+# Getting Started
+
+> \[!TIP]
+> _see_ [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for Usage & Screenshots
+
+> \[!WARNING]
+> don't loose your password. Decryption/Recovery without valid password is impossible!
+
+# 🚀 Installation & Build
+
+## Prerequisites
+
+- C++ Compiler with C++23 support (GCC, Clang, MSVC)
+- CMake (>= 3.23)
+- Qt 6 (Core, Widgets, Gui)
+
+## 📂 Project Structure
+
+```Bash
+.
+├── CMakeLists.txt           # Build configuration
+├── resources.qrc            # Qt Resources (Icons, i18n)
+├── include/                 # Header files (.h)
+│   ├── encryption_manager.h
+│   ├── encrypt_file_dialog.h
+│   ├── decrypt_file_dialog.h
+│   ├── menu_page.h
+│   └── ...
+└── src/                     # Source files (.cpp)
+    ├── main.cpp
+    ├── encryption_manager.cpp
+    ├── encrypt_file_dialog.cpp
+    ├── decrypt_file_dialog.cpp
+    └── ...
+```
+
+## Build Steps
+
+1. Clone Repository:
+
+```Bash
+git clone https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption.git
+cd qt-desktop_file_encryption-decryption
+```
+
+2. Create Build Directory:
+
+```Bash
+mkdir build && cd build
+```
+
+3. Compile with CMake:
+
+```Bash
+cmake ..
+make -j$(nproc)
+```
+
+4. Run:
+
+```Bash
+./file_encryption-decryption
+```
+
+## i18n
+
+### Update Translation Files
+
+```Bash
+/opt/Qt/6.10.0/gcc_64/bin/lupdate -no-obsolete src/ -ts i18n/qt_file_encryption-decryption_en.ts
+```
+
+### Compile Translation Files
+
+```Bash
+/opt/Qt/6.10.0/gcc_64/bin/lrelease i18n/qt_file_encryption-decryption_en.ts -qm i18n/qt_file_encryption-decryption_en.qm
+```
+
+## Build Linux AppImage
+
+Depending on your Linux distribution you might need to install additional packages to build the AppImage.
+
+```Bash
+./create_appimage.sh
+```
+
+or
+
+```Bash
+./create_appimage_modern.sh
+```
+
+([back to top](#top))
+
 ---
 
-## 🏗️ Architecture
+# Documentation & Screenshots
+
+> \[!NOTE]
+> please visit [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for more.
+
+![App Screenshot](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/blob/main/docs/linux.png)
+
+# 🏗️ Architecture
 
 The project follows the **"Composition over Inheritance"** principle and strictly separates UI logic from encryption logic.
 
-### Structure Diagram
+## Structure Diagram
 
 ```mermaid
 classDiagram
@@ -108,7 +232,7 @@ classDiagram
     DecryptFileDialog *-- EncryptionManager : owns (Composition)
 ```
 
-### Data Flow (Streaming)
+## Data Flow (Streaming)
 
 To keep memory usage minimal, files are never loaded completely into RAM. Instead, a QFile stream is used:
 
@@ -122,71 +246,28 @@ To keep memory usage minimal, files are never loaded completely into RAM. Instea
 
 3. Close: Streams are closed, temporary files are renamed/moved.
 
-# 📂 Project Structure
+([back to top](#top))
 
-```Bash
-.
-├── CMakeLists.txt           # Build configuration
-├── resources.qrc            # Qt Resources (Icons, i18n)
-├── include/                 # Header files (.h)
-│   ├── encryption_manager.h
-│   ├── encrypt_file_dialog.h
-│   ├── decrypt_file_dialog.h
-│   ├── menu_page.h
-│   └── ...
-└── src/                     # Source files (.cpp)
-    ├── main.cpp
-    ├── encryption_manager.cpp
-    ├── encrypt_file_dialog.cpp
-    ├── decrypt_file_dialog.cpp
-    └── ...
-```
+# Authors and License
 
-# 🚀 Installation & Build
-
-## Prerequisites
-
-- C++ Compiler with C++23 support (GCC, Clang, MSVC)
-- CMake (>= 3.20)
-- Qt 6 (Core, Widgets, Gui)
-
-## Build Steps
-
-1. Clone Repository:
-
-```Bash
-git clone https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption.git
-cd qt-desktop_file_encryption-decryption
-```
-
-2. Create Build Directory:
-
-```Bash
-mkdir build && cd build
-```
-
-3. Compile with CMake:
-
-```Bash
-cmake ..
-make -j$(nproc)
-```
-
-4. Run:
-
-```Bash
-./file_encryption-decryption
-```
-
-# 📝 License
+## 📝 License
 
 This project is released under the MIT License. See LICENSE for details.
 
-# 🤝 Author
-
-Robert ZHENG
-
-- Web: www.robert.hase-zheng.net
-- GitHub: Zheng-Bote
-
 Copyright (c) 2024 ZHENG Robert
+
+## 🤝 Authors
+
+- [![Zheng Robert - Core Development](https://img.shields.io/badge/Github-Zheng_Robert-black?logo=github)](https://www.github.com/Zheng-Bote)
+
+### Code Contributors
+
+![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/qt-desktop_file_encryption-decryption?color=dark-green)
+
+[![Zheng Robert](https://img.shields.io/badge/Github-Zheng_Robert-black?logo=github)](https://www.github.com/Zheng-Bote)
+
+([back to top](#top))
+
+<hr>
+
+:vulcan_salute:
