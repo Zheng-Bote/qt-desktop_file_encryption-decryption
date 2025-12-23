@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [File Encryption and Decryption](#file-encryption-and-decryption)
+- [Description](#description)
+- [Struktur-Übersicht:](#struktur-%C3%9Cbersicht)
+- [changes](#changes)
+- [i18n](#i18n)
+  - [Sprachauswahl](#sprachauswahl)
+- [AppImage](#appimage)
+  - [Mögliche Fehlerursache: Fehlendes FUSE](#m%C3%B6gliche-fehlerursache-fehlendes-fuse)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # File Encryption and Decryption
 
 # Description
