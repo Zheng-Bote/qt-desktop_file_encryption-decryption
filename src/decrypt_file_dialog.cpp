@@ -1,15 +1,9 @@
-/**
- * @file decrypt_file_dialog.cpp
- * @author ZHENG Bote (www.robert.hase-zheng.net)
- * @brief ui for decryption dialog
- * @version 1.1.0
- * @date 2024-11-17
- * 
- * @copyright Copyright (c) 2024
- * 
- */
-
 #include "decrypt_file_dialog.h"
+#include "encryption_manager.h"
+
+#include <QApplication>
+#include <QCheckBox>
+#include <QDir>
 #include <QFileDialog>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -17,116 +11,133 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <qcheckbox.h>
 
-DecryptFileDialog::DecryptFileDialog(QDialog *parent) : QDialog(parent)
-{
-    chooseFile_btn = new QPushButton(tr("Choose a &file "));
-    connect(chooseFile_btn, SIGNAL(clicked(bool)), this, SLOT(chooseFile()));
-
-    enter_file_name_label = new QLabel;
-    enter_file_name_label->setText(tr("Choose a file: "));
-    enter_file_name_label->setVisible(false);
-
-    file_name_textbox = new QLineEdit;
-    file_name_textbox->clear();
-    //connect(file_name_textbox, SIGNAL(clicked(bool)), this, SLOT(chooseFile()));
-
-    enter_password_label = new QLabel;
-    enter_password_label->setText(tr("Enter the password: "));
-
-    password_textbox = new QLineEdit;
-    password_textbox->setEchoMode(QLineEdit::Password);
-    password_textbox->setToolTip(tr("fill in the same password which was used for encryption"));
-
-    QVBoxLayout *vertical_layout = new QVBoxLayout;
-    // adding widgets to the vertical layout
-    vertical_layout->addWidget(chooseFile_btn);
-    vertical_layout->addWidget(enter_file_name_label);
-    vertical_layout->addWidget(enter_password_label);
-    vertical_layout->addWidget(password_textbox);
-
-    overwriteFile_checkbox = new QCheckBox(tr("decrypt &Sourcefile"), this);
-    overwriteFile_checkbox->setToolTip(
-        tr("checked: decrypt the original file.\nunchecked: decrypt to a new file."));
-    vertical_layout->addWidget(overwriteFile_checkbox);
-
-    encrypt_button = new QPushButton(tr("&Decrypt"));
-    connect(encrypt_button, SIGNAL(clicked(bool)), this, SLOT(decrypt_file_slot()));
-
-    cancel_button = new QPushButton(tr("&Cancel"));
-    connect(cancel_button, SIGNAL(clicked(bool)), this, SLOT(close()));
-
-    QHBoxLayout *horizontal_layout = new QHBoxLayout;
-    // adding the widgets to horizontal layout
-    horizontal_layout->addWidget(encrypt_button);
-    horizontal_layout->addWidget(cancel_button);
-
-    QVBoxLayout *main_layout = new QVBoxLayout;
-    main_layout->addLayout(vertical_layout);
-    main_layout->addLayout(horizontal_layout);
-
-    resize(300, 200);
-    setFixedHeight(200);
-    setMaximumWidth(600);
-    setLayout(main_layout);
-    setWindowTitle(tr("Decrypt File"));
-    setWindowIcon(QIcon(":/res/images/icon.png"));
+DecryptFileDialog::DecryptFileDialog(QWidget *parent) : QDialog(parent) {
+  m_logic = new EncryptionManager(this);
+  setupUI();
 }
 
-QString DecryptFileDialog::getFileName(QString &pathTofile)
-{
-    QFile file(pathTofile);
-    QFileInfo fileInfo(file.fileName());
-    return fileInfo.fileName();
+DecryptFileDialog::~DecryptFileDialog() {}
+
+void DecryptFileDialog::setupUI() {
+  setWindowTitle(tr("Decrypt File"));
+  setWindowIcon(QIcon(":/res/images/icon.png"));
+  resize(400, 200);
+
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
+
+  chooseFile_btn = new QPushButton(tr("Choose encrypted file (*.aes)"), this);
+  connect(chooseFile_btn, &QPushButton::clicked, this,
+          &DecryptFileDialog::chooseFile);
+
+  enter_file_name_label = new QLabel(tr("No file selected"), this);
+  enter_file_name_label->setAlignment(Qt::AlignCenter);
+
+  file_name_textbox = new QLineEdit(this);
+  file_name_textbox->setPlaceholderText(tr("Path to file..."));
+
+  enter_password_label = new QLabel(tr("Enter Password:"), this);
+  password_textbox = new QLineEdit(this);
+  password_textbox->setEchoMode(QLineEdit::Password);
+
+  overwriteFile_checkbox =
+      new QCheckBox(tr("Decrypt Sourcefile (overwrite)"), this);
+
+  QHBoxLayout *btnLayout = new QHBoxLayout();
+  decrypt_button = new QPushButton(tr("&Decrypt"), this);
+  cancel_button = new QPushButton(tr("&Cancel"), this);
+  btnLayout->addWidget(decrypt_button);
+  btnLayout->addWidget(cancel_button);
+
+  connect(decrypt_button, &QPushButton::clicked, this,
+          &DecryptFileDialog::decrypt_file_slot);
+  connect(cancel_button, &QPushButton::clicked, this, &QDialog::close);
+
+  mainLayout->addWidget(chooseFile_btn);
+  mainLayout->addWidget(enter_file_name_label);
+  mainLayout->addWidget(file_name_textbox);
+  mainLayout->addSpacing(10);
+  mainLayout->addWidget(enter_password_label);
+  mainLayout->addWidget(password_textbox);
+  mainLayout->addWidget(overwriteFile_checkbox);
+  mainLayout->addStretch();
+  mainLayout->addLayout(btnLayout);
 }
 
-void DecryptFileDialog::decrypt_file_slot()
-{
-    QString msg{""};
-    int oknok{0};
+void DecryptFileDialog::chooseFile() {
+  // ANFORDERUNG 3: Startverzeichnis immer Home
+  QString startDir = QDir::homePath();
 
-    std::tie(oknok, msg) = decrypt_data(file_name_textbox->text().toStdString(),
-                                        password_textbox->text().toStdString(),
-                                        overwriteFile_checkbox->isChecked());
-
-    switch (oknok) {
-    case 1: {
-        QMessageBox::information(this, tr("Success"), msg);
-        file_name_textbox->clear();
-        password_textbox->clear();
-        enter_file_name_label->clear();
-        chooseFile_btn->setText(tr("Choose a &file "));
-        this->close();
-        break;
-    }
-    case 2: {
-        QMessageBox::warning(this, tr("Warning"), msg);
-        break;
-    }
-    case 3: {
-        QMessageBox::critical(this, tr("Error"), msg);
-        break;
-    }
-    }
+  QString file = QFileDialog::getOpenFileName(
+      this, tr("Open Encrypted File"), startDir, tr("Encrypted files (*.aes)"));
+  if (!file.isEmpty()) {
+    file_name_textbox->setText(file);
+    QFileInfo fi(file);
+    enter_file_name_label->setText(fi.fileName());
+  }
 }
 
-void DecryptFileDialog::chooseFile()
-{
-    QString file;
-    chooseFile_btn->setText("choose file");
-    file_name_textbox->clear();
-    file = QFileDialog::getOpenFileName(this,
-                                        tr("Open File"),
-                                        QDir::homePath(),
-                                        tr("encoded files (*.aes)"));
+void DecryptFileDialog::decrypt_file_slot() {
+  QString sourceFile = file_name_textbox->text();
+  if (sourceFile.isEmpty() || !QFile::exists(sourceFile)) {
+    QMessageBox::warning(this, tr("Warning"),
+                         tr("Please select a valid file."));
+    return;
+  }
 
-    if (file.isEmpty() == false)
-    {
-        file_name_textbox->setText(file);
-        chooseFile_btn->setText(tr("choosed &file:"));
-        enter_file_name_label->setText(getFileName(file));
-        enter_file_name_label->setAlignment(Qt::AlignCenter);
-        enter_file_name_label->setVisible(true);
+  bool overwrite = overwriteFile_checkbox->isChecked();
+
+  if (!overwrite) {
+    QFileInfo sourceInfo(sourceFile);
+    QString suggestedName = sourceInfo.fileName();
+    if (suggestedName.endsWith(".aes"))
+      suggestedName.chop(4);
+    else
+      suggestedName += ".dec";
+
+    // ANFORDERUNG: Save Dialog startet im Verzeichnis der Quelle
+    QString targetFile = QFileDialog::getSaveFileName(
+        this, tr("Save Decrypted File"),
+        sourceInfo.absolutePath() + "/" + suggestedName);
+    if (targetFile.isEmpty())
+      return;
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    auto [code, msg] =
+        m_logic->decryptFile(sourceFile, password_textbox->text(), false);
+    QApplication::restoreOverrideCursor();
+
+    if (code == 1) {
+      // Umbenennen zum gewünschten Ziel
+      // Logic erstellt [Source ohne .aes]
+      QString defaultOut = sourceFile;
+      if (defaultOut.endsWith(".aes"))
+        defaultOut.chop(4);
+      else
+        defaultOut += ".dec";
+
+      if (targetFile != defaultOut) {
+        QFile::remove(targetFile);
+        QFile::rename(defaultOut, targetFile);
+      }
+      QMessageBox::information(this, tr("Success"),
+                               tr("File saved to:\n") + targetFile);
+      close();
+    } else {
+      QMessageBox::critical(this, tr("Error"), msg);
     }
+
+  } else {
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    auto [code, msg] =
+        m_logic->decryptFile(sourceFile, password_textbox->text(), true);
+    QApplication::restoreOverrideCursor();
+
+    if (code == 1) {
+      QMessageBox::information(this, tr("Success"), msg);
+      close();
+    } else {
+      QMessageBox::critical(this, tr("Error"), msg);
+    }
+  }
 }

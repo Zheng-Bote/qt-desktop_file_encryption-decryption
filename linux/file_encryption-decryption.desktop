@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=File Encryption & Decryption
+Comment=Encrypt and decrypt files securely with AES-256
+Exec=file_encryption-decryption
+Icon=file_encryption-decryption
+Categories=Utility;Security;Qt;
+Terminal=false

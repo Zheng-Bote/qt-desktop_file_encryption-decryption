@@ -1,147 +1,171 @@
-/**
- * @file encrypt_file_dialog.cpp
- * @author ZHENG Bote (www.robert.hase-zheng.net)
- * @brief ui for encryption dialog
- * @version 1.1.0
- * @date 2024-11-17
- * 
- * @copyright Copyright (c) 2024 ZHENMG Robert
- * 
- */
-
 #include "encrypt_file_dialog.h"
+#include "encryption_manager.h" // Voller Include hier
+
+#include <QApplication>
 #include <QCheckBox>
+#include <QDir>
 #include <QFileDialog>
-#include <QFileInfo>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QStandardPaths>
 #include <QVBoxLayout>
 
-EncryptFileDialog::EncryptFileDialog(QDialog *parent) : QDialog(parent)
-{
-    chooseFile_btn = new QPushButton(tr("Choose &file "));
-    connect(chooseFile_btn, SIGNAL(clicked(bool)), this, SLOT(chooseFile()));
-
-    enter_file_name_label = new QLabel;
-    enter_file_name_label->setText(tr("Choose a &file: "));
-    enter_file_name_label->setVisible(false);
-
-    file_name_textbox = new QLineEdit;
-    file_name_textbox->clear();
-
-    enter_password_label = new QLabel;
-    enter_password_label->setText(tr("Enter the password: "));
-    enter_password_label_verify = new QLabel;
-    enter_password_label_verify->setText(tr("Verify password: "));
-
-    password_textbox = new QLineEdit;
-    password_textbox->setEchoMode(QLineEdit::Password);
-    password_textbox->setToolTip(tr("don't lose your password, recovery is impossible!"));
-    password_textbox_verify = new QLineEdit;
-    password_textbox_verify->setEchoMode(QLineEdit::Password);
-
-    QVBoxLayout *vertical_layout = new QVBoxLayout;
-    vertical_layout->addWidget(chooseFile_btn);
-    vertical_layout->addWidget(enter_file_name_label);
-
-    vertical_layout->addWidget(enter_password_label);
-    vertical_layout->addWidget(password_textbox);
-    vertical_layout->addWidget(enter_password_label_verify);
-    vertical_layout->addWidget(password_textbox_verify);
-
-    overwriteFile_checkbox = new QCheckBox(tr("encrypt &Sourcefile"), this);
-    overwriteFile_checkbox->setToolTip(
-        tr("checked: encrypt the original file.\nunchecked: encrypt a file copy."));
-    vertical_layout->addWidget(overwriteFile_checkbox);
-
-    encrypt_button = new QPushButton(tr("&Encrypt"));
-    connect(encrypt_button, SIGNAL(clicked(bool)), this, SLOT(encrypt_file_slot()));
-
-    cancel_button = new QPushButton(tr("&Cancel"));
-    connect(cancel_button, SIGNAL(clicked(bool)), this, SLOT(close()));
-
-    QHBoxLayout *horizontal_layout = new QHBoxLayout;
-    horizontal_layout->addWidget(encrypt_button);
-    horizontal_layout->addWidget(cancel_button);
-
-    QVBoxLayout *main_layout = new QVBoxLayout;
-    main_layout->addLayout(vertical_layout);
-    main_layout->addLayout(horizontal_layout);
-
-    resize(300, 200);
-    setFixedHeight(200);
-    setMaximumWidth(600);
-    setLayout(main_layout);
-    setWindowTitle(tr("Encrypt File"));
-    setWindowIcon(QIcon(":/res/images/icon.png"));
+EncryptFileDialog::EncryptFileDialog(QWidget *parent) : QDialog(parent) {
+  m_logic = new EncryptionManager(this);
+  setupUI();
 }
 
-QString EncryptFileDialog::getFileName(QString &pathTofile)
-{
-    QFile file(pathTofile);
-    QFileInfo fileInfo(file.fileName());
-    return fileInfo.fileName();
+EncryptFileDialog::~EncryptFileDialog() {
+  // m_logic wird automatisch gelöscht, da es Child von QDialog ist
 }
 
-void EncryptFileDialog::encrypt_file_slot()
-{
-    QString msg{""};
-    int oknok{0};
+void EncryptFileDialog::setupUI() {
+  setWindowTitle(tr("Encrypt File"));
+  setWindowIcon(QIcon(":/res/images/icon.png"));
+  resize(400, 250);
 
-    if (QString::compare(password_textbox->text(),
-                         password_textbox_verify->text(),
-                         Qt::CaseSensitive)) {
-        msg = tr("password doesn't match");
-        QMessageBox::critical(this, tr("Error"), msg);
-        return;
-    }
+  // Layouts und Widgets erstellen
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    std::tie(oknok, msg) = encrypt_data(file_name_textbox->text().toStdString(),
-                                        password_textbox->text().toStdString(),
-                                        overwriteFile_checkbox->isChecked());
+  // File Selection
+  chooseFile_btn = new QPushButton(tr("Choose &file "), this);
+  connect(chooseFile_btn, &QPushButton::clicked, this,
+          &EncryptFileDialog::chooseFile);
 
-    switch (oknok) {
-    case 1: {
-        QMessageBox::information(this, tr("Success"), msg);
-        //this->close();
-        file_name_textbox->clear();
-        password_textbox->clear();
-        password_textbox_verify->clear();
-        enter_file_name_label->clear();
-        chooseFile_btn->setText(tr("Choose &file "));
-        this->close();
-        break;
-    }
-    case 2: {
-        QMessageBox::warning(this, tr("Warning"), msg);
-        break;
-    }
-    case 3: {
-        QMessageBox::critical(this, tr("Error"), msg);
-        break;
-    }
-    }
+  enter_file_name_label = new QLabel(tr("No file selected"), this);
+  enter_file_name_label->setAlignment(Qt::AlignCenter);
+
+  file_name_textbox = new QLineEdit(this);
+  file_name_textbox->setPlaceholderText(tr("Path to file..."));
+  // Readonly machen, damit User den Pfad über Button wählt (vermeidet Fehler)
+  // file_name_textbox->setReadOnly(true);
+
+  // Password
+  enter_password_label = new QLabel(tr("Enter Password:"), this);
+  password_textbox = new QLineEdit(this);
+  password_textbox->setEchoMode(QLineEdit::Password);
+
+  enter_password_label_verify = new QLabel(tr("Verify Password:"), this);
+  password_textbox_verify = new QLineEdit(this);
+  password_textbox_verify->setEchoMode(QLineEdit::Password);
+
+  // Checkbox
+  overwriteFile_checkbox =
+      new QCheckBox(tr("Encrypt Sourcefile (overwrite)"), this);
+  overwriteFile_checkbox->setToolTip(
+      tr("Checked: Replaces original file.\nUnchecked: Creates a new file."));
+
+  // Action Buttons
+  QHBoxLayout *btnLayout = new QHBoxLayout();
+  encrypt_button = new QPushButton(tr("&Encrypt"), this);
+  cancel_button = new QPushButton(tr("&Cancel"), this);
+
+  btnLayout->addWidget(encrypt_button);
+  btnLayout->addWidget(cancel_button);
+
+  connect(encrypt_button, &QPushButton::clicked, this,
+          &EncryptFileDialog::encrypt_file_slot);
+  connect(cancel_button, &QPushButton::clicked, this, &QDialog::close);
+
+  // Add to Main Layout
+  mainLayout->addWidget(chooseFile_btn);
+  mainLayout->addWidget(enter_file_name_label);
+  mainLayout->addWidget(file_name_textbox);
+  mainLayout->addSpacing(10);
+  mainLayout->addWidget(enter_password_label);
+  mainLayout->addWidget(password_textbox);
+  mainLayout->addWidget(enter_password_label_verify);
+  mainLayout->addWidget(password_textbox_verify);
+  mainLayout->addWidget(overwriteFile_checkbox);
+  mainLayout->addStretch();
+  mainLayout->addLayout(btnLayout);
 }
 
-void EncryptFileDialog::chooseFile()
-{
-    QString file;
-    chooseFile_btn->setText("choose file");
-    file_name_textbox->clear();
-    //file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath(),tr("files (*.txt *.md *.html *.sql)"));
-    file = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::homePath());
+void EncryptFileDialog::chooseFile() {
+  // ANFORDERUNG 3: Startverzeichnis immer Home
+  QString startDir = QDir::homePath();
 
-    if (file.endsWith(".aes")) {
-        chooseFile();
+  QString file = QFileDialog::getOpenFileName(
+      this, tr("Select File to Encrypt"), startDir);
+
+  if (!file.isEmpty()) {
+    file_name_textbox->setText(file);
+    QFileInfo fi(file);
+    enter_file_name_label->setText(fi.fileName());
+    chooseFile_btn->setText(tr("Change File"));
+  }
+}
+
+void EncryptFileDialog::encrypt_file_slot() {
+  // Validierung
+  QString sourceFile = file_name_textbox->text();
+  if (sourceFile.isEmpty() || !QFile::exists(sourceFile)) {
+    QMessageBox::warning(this, tr("Warning"),
+                         tr("Please select a valid file first."));
+    return;
+  }
+
+  if (password_textbox->text() != password_textbox_verify->text()) {
+    QMessageBox::critical(this, tr("Error"), tr("Passwords do not match!"));
+    return;
+  }
+
+  bool overwrite = overwriteFile_checkbox->isChecked();
+
+  // ANFORDERUNG 3b: Zielverzeichnis gleich Quelldatei (implizit)
+  // Wenn NICHT überschrieben wird, fragen wir nach Speicherort,
+  // aber starten im Verzeichnis der Quelldatei.
+  if (!overwrite) {
+    QFileInfo sourceInfo(sourceFile);
+    QString suggestedName = sourceInfo.fileName() + ".aes";
+
+    QString targetFile = QFileDialog::getSaveFileName(
+        this, tr("Save Encrypted File"),
+        sourceInfo.absolutePath() + "/" + suggestedName,
+        tr("AES Encrypted (*.aes)"));
+
+    if (targetFile.isEmpty())
+      return; // Abbruch
+
+    // Da unsere Logic Klasse aktuell (um Code zu sparen) intern Pfade baut,
+    // nutzen wir einen Trick: Wir lassen die Logik verschlüsseln (in .aes neben
+    // Quelle) und verschieben es dann zum gewünschten 'targetFile'. Alternativ:
+    // Logic erweitern um 'targetPath' Parameter. Hier: Logic Erweiterung
+    // simuliert durch Verschieben.
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    auto [code, msg] =
+        m_logic->encryptFile(sourceFile, password_textbox->text(), false);
+    QApplication::restoreOverrideCursor();
+
+    if (code == 1) {
+      // Die Logik hat [Source].aes erstellt. Wir wollen aber [targetFile].
+      QString defaultOut = sourceFile + ".aes";
+      if (targetFile != defaultOut) {
+        QFile::remove(targetFile); // Falls existiert
+        QFile::rename(defaultOut, targetFile);
+      }
+      QMessageBox::information(this, tr("Success"),
+                               tr("File saved to:\n") + targetFile);
+      close();
+    } else {
+      QMessageBox::critical(this, tr("Error"), msg);
     }
-    if (file.isEmpty() == false) {
-        file_name_textbox->setText(file);
-        chooseFile_btn->setText(tr("choosed &file:"));
-        enter_file_name_label->setText(getFileName(file));
-        enter_file_name_label->setAlignment(Qt::AlignCenter);
-        enter_file_name_label->setVisible(true);
+  } else {
+    // Overwrite Case
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    auto [code, msg] =
+        m_logic->encryptFile(sourceFile, password_textbox->text(), true);
+    QApplication::restoreOverrideCursor();
+
+    if (code == 1) {
+      QMessageBox::information(this, tr("Success"), msg);
+      close();
+    } else {
+      QMessageBox::critical(this, tr("Error"), msg);
     }
+  }
 }
