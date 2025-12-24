@@ -67,6 +67,21 @@
     <link rel="preload" href="./assets/img/logo.png" as="image" />
 
     <script src="./assets/js/all.js" defer></script>
+
+    <style>
+      .tip {
+        border: 1px solid green;
+        border-radius: var(--border-radius);
+        padding: 5px;
+        width: fit-content;
+        & .title {
+          color: green;
+        }
+      }
+      ol {
+        padding: 20px;
+      }
+    </style>
   </head>
 
   <body id="body" class="page-structure">
@@ -95,9 +110,51 @@
     <main>
       <h2>Installation</h2>
       <br />
+      <article>
+        <h2>Windows Setup</h2>
+        <p>There are two options to use the application:</p>
+        <section>
+          <h3>Zip-File</h3>
+          <p class="brief">No Administrator rights needed.</p>
+            <ol>
+              <li>Download and copy &laquo;file_encryption-decryption_x86_amd64.zip&raquo; to your preferred folder and extract.</li>
+              <li>Doubleclick &laquo;file_encryption-decryption_x86_amd64.exe&raquo; to start the application</li>
+            </ol>
+
+          <br>
+          <p class="tip">
+            <span class="title">Tip:</span>
+            <br>
+          &rArr; Create a Shortcut on your Desktop 
+          </p>
+        </section>
+
+        <section>
+          <h3>Setup</h3>
+          <p class="brief">No Administrator rights needed.</p>
+          <ol>
+            <li>Download &laquo;file_encryption-decryption_x86_amd64_vX.X.X_setup.exe&raquo;</li>
+            <li>Doubleclick the executable to start the setup routine</li>
+          </ol>
+
+          <p>
+            <span class="title">De-Installation:</span> Go to &laquo;Settings &blacktriangleright; Apps &blacktriangleright; Installed Apps &blacktriangleright; File Encryption & Decryption version X.X.X&raquo; and choose "Uninstall".
+          </p>
+
+          <br>
+          <p class="tip">
+            <span class="title">Tip:</span>
+            <br>
+          &rArr; see &raquo;Screenshots&laquo; for details. 
+          </p>
+
+        </section>
+
+      </article>
 
       <article>
-        <h2>Getting Started</h2>
+        <h2>Build</h2>
+        <p class="brief">for Linux, MacOS, and Windows.</p>
         <section>
           <h3>Prerequisites</h3>
           <br />
