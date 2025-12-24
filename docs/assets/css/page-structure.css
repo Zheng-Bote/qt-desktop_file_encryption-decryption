@@ -334,4 +334,11 @@ aside button:hover {
     max-width: 1600px;
     margin: auto;
   }
+  nav {
+    width: fit-content;
+
+    & button {
+      width: 150px;
+    }
+  }
 }
