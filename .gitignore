@@ -1,6 +1,10 @@
 build/**
 build_appimage/**
+.vscode
 
-i18n/*.qm
+# i18n/*.qm
 linuxdeployqt-continuous-x86_64.AppImage
+
+CMakeLists.txt.user
+src/CMakeLists.txt.user
 
