@@ -1,0 +1,103 @@
+/* --- 1. VARIABLES & THEME CONFIGURATION --- */
+:root {
+  /* Aktiviert System-Darkmode Support für light-dark() */
+  color-scheme: light dark;
+
+  /* --- Fonts --- */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, Roboto, Ubuntu,
+    "Segeo UI", "Helvetica Neue", Arial, sans-serif;
+  --font-size: 1rem;
+  --font-size-small: 0.8rem;
+  --border-radius: 12px; /* Etwas runder passt besser zu Glass */
+
+  /* --- Glassmorphism Settings (NEU) --- */
+  --glass-blur: 16px;
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Heller, halbtransparenter Rahmen für den "Eis"-Effekt */
+  --glass-border-color: light-dark(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+
+  /* --- Color Palette --- */
+  --primary-color: #578fca;
+  --secondary-color: #a1e3f9;
+  --font-color: light-dark(oklch(0% 0 0), oklch(95.84% 0.004 214.33));
+  --font-color-white: oklch(1 0 0);
+
+  /* Für Glass-Effekt: Text auf Glas sollte guten Kontrast haben */
+  --font-color-header: light-dark(#000, #fff);
+  --font-color-footer: light-dark(#000, #fff);
+
+  /* --- Backgrounds (Jetzt mit Transparenz!) --- */
+  /* Body Background: Bleibt solide als Basis */
+  --background-color: light-dark(#a1e3f9, #578fca);
+
+  /* Glass Oberflächen: Nutzen RGBA für Transparenz. 
+     Light: Ein Hauch von Weiß. Dark: Ein Hauch von Dunkelblau. */
+  --glass-bg-surface: light-dark(
+    rgba(255, 255, 255, 0.25),
+    rgba(30, 60, 90, 0.4)
+  );
+
+  /* Main Content: Etwas undurchsichtiger für bessere Lesbarkeit */
+  --glass-bg-main: light-dark(rgba(255, 255, 255, 0.7), rgba(20, 40, 60, 0.6));
+
+  /* --- Borders --- */
+  --border-width: 1px;
+  --border-style: solid;
+}
+
+/* --- 2. RESET & GLOBAL --- */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--font-color);
+  /* WICHTIG: Der Body-Hintergrund muss auf HTML oder Body liegen, damit der Blur wirkt */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Optional: Ein Hintergrundbild verstärkt den Glass-Effekt enorm */
+  /* background-image: url('dein-hintergrundbild.jpg'); background-size: cover; */
+}
+
+/* --- 3. GLASSMORPHISM UTILITY CLASS (NEU) --- */
+/* Diese Klasse bündelt den Effekt */
+.glass-panel {
+  background-color: var(--glass-bg-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur)); /* Safari Support */
+  border: var(--border-width) solid var(--glass-border-color);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--border-radius);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+.brand {
+  opacity: 0.5;
+  img {
+    vertical-align: middle;
+    width: 25px;
+    height: auto;
+  }
+}
