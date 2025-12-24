@@ -244,6 +244,7 @@ aside button:hover {
   border-color: var(--primary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(87, 143, 202, 0.4); /* Leuchtfarbe im Schatten */
+  opacity: 0.8;
 }
 
 .branding {
