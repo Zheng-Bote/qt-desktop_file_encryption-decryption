@@ -55,7 +55,7 @@ if(APPLE)
     set_source_files_properties(${app_icon_macos} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
     qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES} ${app_icon_macos})
 else()
-    qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION ${PROJECT_SOURCES})
+    qt_add_executable(${PROJECT_NAME} MANUAL_FINALIZATION WIN32 ${PROJECT_SOURCES})
 endif()
 
 if(UNIX AND NOT APPLE)
