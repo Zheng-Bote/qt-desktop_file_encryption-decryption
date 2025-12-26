@@ -1,0 +1,106 @@
+name: Build & Release
+run-name: Build & Release AppImage (Linux) and Windows ZIP by ${{ github.actor }}
+
+# created 2025-12-26 by ZHENG Robert
+# Usage:
+# To trigger a release build, create a git tag and push it to the repository:
+# git add * && git commit -m "release" && git push
+# git tag v1.0.0
+# git push origin v1.0.0
+
+on:
+  push:
+    tags: [ "v*" ]
+  workflow_dispatch:
+
+jobs:
+  # =========================================================
+  # LINUX BUILD (AppImage)
+  # =========================================================
+  build-linux:
+    name: Linux AppImage
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfuse2 file patchelf build-essential libgl1-mesa-dev
+
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.10.1'
+          host: 'linux'
+          target: 'desktop'
+          arch: 'gcc_64'
+
+      - name: Build AppImage
+        shell: bash
+        run: |
+          # Skript ausführbar machen
+          chmod +x create_appimage_modern.sh
+          # Skript ausführen
+          ./create_appimage_modern.sh
+
+      - name: Upload AppImage Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Linux-AppImage
+          path: build_appimage/*.AppImage
+
+# =========================================================
+  # WINDOWS BUILD (MSVC + windeployqt + ZIP)
+  # =========================================================
+  build-windows:
+    name: Windows Installer/Zip
+    runs-on: windows-2022
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.10.1'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_msvc2019_64'
+
+      - name: Configure CMake
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: |
+          cmake --build build --config Release
+
+      - name: Deploy (Bundle DLLs)
+        shell: cmd
+        run: |
+          cd build
+          mkdir deploy
+          copy Release\file_encryption-decryption.exe deploy\
+          
+          :: windeployqt kopiert alle Qt DLLs
+          windeployqt --release --compiler-runtime deploy\file_encryption-decryption.exe
+          
+          :: Falls Sie das Icon auch im Ordner haben wollen:
+          copy ..\resources\app_icon.png deploy\
+
+      - name: Create Zip Archive
+        # PowerShell ist Standard auf Windows-Runnern, daher kein 'shell: cmd' nötig
+        run: |
+          Compress-Archive -Path build/deploy/* -DestinationPath FileEncryption-Windows.zip
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows-Release-Zip
+          path: FileEncryption-Windows.zip
