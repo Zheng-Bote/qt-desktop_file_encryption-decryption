@@ -21,7 +21,10 @@
 - [Status](#status)
   - [breaking Changes](#breaking-changes)
 - [Getting Started](#getting-started)
-- [🚀 Installation & Build](#-installation--build)
+  - [Windows](#windows)
+    - [Setup](#setup)
+  - [Linux](#linux)
+- [🚀 Installation \& Build](#-installation--build)
   - [Prerequisites](#prerequisites)
   - [📂 Project Structure](#-project-structure)
   - [Build Steps](#build-steps)
@@ -29,9 +32,9 @@
     - [Update Translation Files](#update-translation-files)
     - [Compile Translation Files](#compile-translation-files)
   - [Build Linux AppImage](#build-linux-appimage)
-- [Documentation & Screenshots](#documentation--screenshots)
+- [Documentation \& Screenshots](#documentation--screenshots)
 - [SBoM (CycloneDX)](#sbom-cyclonedx)
-- [🏗️ Architecture](#-architecture)
+- [🏗️ Architecture](#️-architecture)
   - [Structure Diagram](#structure-diagram)
   - [Data Flow (Streaming)](#data-flow-streaming)
 - [Authors and License](#authors-and-license)
@@ -91,11 +94,34 @@ The application uses **AES-256 CBC** encryption and is optimized for high perfor
 
 # Getting Started
 
-> \[!TIP]
-> _see_ [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for Usage & Screenshots
+## Windows
+
+### Setup 
+
+There are two options:
+
+1. Unzip
+
+   -> no Administrator rights needed
+- unzip `file_encryption-decryption_x86_amd64.zip` and execute `file_encryption-decryption.exe`
+
+2. Setup
+
+   -> no Administrator rights needed (optional)
+- execute `file_encryption-decryption_x86_amd64_v2.1.0.exe` and follow the instructions (see [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for details.)
+- doubleclick `file_encryption-decryption.exe` or your Desktop-Shortcut
+  
+## Linux
+- doubleclick `File_Encryption_&_Decryption-x86_64.AppImage` or your Dekstop-Shortcut
+
+
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
+
+> \[!TIP]
+> _see_ [Github Pages](https://zheng-bote.github.io/qt-desktop_file_encryption-decryption/) for Usage & Screenshots
+
 
 # 🚀 Installation & Build
 
