@@ -8,4 +8,4 @@ This directory contains the architectural documentation and models for the QT De
 - [Use Case & Process Views](processes.md)
 - [Deployment & Physical Views](deployment.md)
 
-All diagrams are generated using Mermaid.js according to the project's [GEMINI.md](../GEMINI.md) guidelines.
+All diagrams are generated using Mermaid.js according to the project's guidelines.
