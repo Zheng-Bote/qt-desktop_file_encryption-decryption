@@ -242,6 +242,13 @@ cdxgen -o ./docs/sbom_v2.1.0.json -t cpp --usages-slices-file ./docs/atom_v2.1.0
 
 The project follows the **"Composition over Inheritance"** principle and strictly separates UI logic from encryption logic.
 
+> \[!TIP]
+> 📚 **Detailed Architecture Models:**
+> For comprehensive UML and architectural diagrams (Context, Class, Component, Deployment, Use Case, etc.), please see our new documentation:
+> - [Architecture & Design Views](docs/architecture.md)
+> - [Use Cases & Process Views](docs/processes.md)
+> - [Deployment & Physical Views](docs/deployment.md)
+
 ## Structure Diagram
 
 ```mermaid
