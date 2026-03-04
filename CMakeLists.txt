@@ -13,6 +13,7 @@ set(PROG_VERSION "${PROJECT_VERSION}")
 set(PROG_HOMEPAGE "${PROJECT_HOMEPAGE_URL}")
 set(PROG_DESCRIPTION "${PROJECT_DESCRIPTION}")
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -72,3 +73,14 @@ install(TARGETS ${PROJECT_NAME}
 )
 
 qt_finalize_executable(${PROJECT_NAME})
+
+# --- 5. Custom Generators (Original Code) ---
+
+# CMake File API Query (Datei erzeugen)
+set(QUERY_DIR "${CMAKE_BINARY_DIR}/.cmake/api/v1/query/client-project")
+file(MAKE_DIRECTORY "${QUERY_DIR}")
+file(WRITE "${QUERY_DIR}/codemodel-v2" "") 
+
+# libs.txt Generierung (Timing-sicher via GENERATE)
+file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/libs.txt" 
+     CONTENT "$<TARGET_PROPERTY:${PROJECT_NAME},LINK_LIBRARIES>")

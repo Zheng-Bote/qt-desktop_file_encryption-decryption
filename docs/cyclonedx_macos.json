@@ -1,0 +1,232 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "pkg:generic/Qt6::Core@System/Qt",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "Qt6::Core",
+      "purl": "pkg:generic/Qt6::Core@System/Qt",
+      "type": "library",
+      "version": "System/Qt"
+    },
+    {
+      "bom-ref": "pkg:generic/Qt6::Widgets@System/Qt",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "Qt6::Widgets",
+      "purl": "pkg:generic/Qt6::Widgets@System/Qt",
+      "type": "library",
+      "version": "System/Qt"
+    },
+    {
+      "bom-ref": "pkg:generic/Qt6::Gui@System/Qt",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "Qt6::Gui",
+      "purl": "pkg:generic/Qt6::Gui@System/Qt",
+      "type": "library",
+      "version": "System/Qt"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinBluetoothPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinBluetoothPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinBluetoothPermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCalendarPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCalendarPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCalendarPermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinCameraPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinCameraPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinCameraPermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinContactsPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinContactsPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinContactsPermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinLocationPermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinLocationPermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinLocationPermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    },
+    {
+      "bom-ref": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin_init>@unknown",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNKNOWN"
+          }
+        }
+      ],
+      "name": "$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin_init>",
+      "purl": "pkg:generic/$<$<BOOL:$<AND:$<BOOL:QT_IS_PLUGIN_GENEX>,$<NOT:$<STREQUAL:$<TARGET_PROPERTY:TYPE>,STATIC_LIBRARY>>,$<OR:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS>>>,$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>,$<AND:$<NOT:$<STREQUAL:$<GENEX_EVAL:$<TARGET_PROPERTY:QT_DEFAULT_PLUGINS>>,0>>,$<TARGET_PROPERTY:Qt6::QDarwinMicrophonePermissionPlugin,QT_DEFAULT_PLUGIN>,$<AND:$<NOT:$<IN_LIST:Qt6::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<NOT:$<IN_LIST:Qt::QDarwinMicrophonePermissionPlugin,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_NO_PLUGINS>>>>,$<STREQUAL:,$<GENEX_EVAL:$<TARGET_PROPERTY:QT_PLUGINS_permissions>>>>>>>>:Qt6::QDarwinMicrophonePermissionPlugin_init>@unknown",
+      "type": "library",
+      "version": "unknown"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "File Encryption & Decryption (Desktop)",
+      "type": "application"
+    },
+    "timestamp": "2026-03-04T17:46:26Z",
+    "tools": [
+      {
+        "name": "depdiscover",
+        "vendor": "ZHENG Bote",
+        "version": "1.2.0"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:2422c4c2-cdb7-45d9-ad53-91fcd13912f1",
+  "specVersion": "1.4",
+  "version": 1
+}
