@@ -104,3 +104,37 @@ jobs:
         with:
           name: Windows-Release-Zip
           path: FileEncryption-Windows.zip
+
+  # =========================================================
+  # MACOS BUILD (DMG)
+  # =========================================================
+  build-macos:
+    name: macOS DMG
+    runs-on: macos-14
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies (create-dmg)
+        run: |
+          brew install create-dmg
+
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.10.1'
+          host: 'mac'
+          target: 'desktop'
+
+      - name: Build and Package DMG
+        shell: bash
+        run: |
+          chmod +x create_dmg.sh
+          ./create_dmg.sh
+
+      - name: Upload macOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-DMG
+          path: build_macos/*.dmg
