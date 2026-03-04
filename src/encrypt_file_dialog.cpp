@@ -1,6 +1,19 @@
 /**
+ * SPDX-FileComment: Implementation of the EncryptFileDialog class.
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file encrypt_file_dialog.cpp
  * @brief Implementation of the EncryptFileDialog class.
+ * @version <2.1.0>
+ * @date <2026-03-04>
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
 
 #include "encrypt_file_dialog.h"

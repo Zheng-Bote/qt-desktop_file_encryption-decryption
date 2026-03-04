@@ -6,6 +6,7 @@
 [Report Issue](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/issues) · [Request Feature](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/pulls)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey.svg)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-desktop_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption/releases)
 
 </div>
@@ -24,6 +25,7 @@
   - [Windows](#windows)
     - [Setup](#setup)
   - [Linux](#linux)
+  - [macOS](#macos)
 - [🚀 Installation & Build](#-installation--build)
   - [Prerequisites](#prerequisites)
   - [📂 Project Structure](#-project-structure)
@@ -32,6 +34,7 @@
     - [Update Translation Files](#update-translation-files)
     - [Compile Translation Files](#compile-translation-files)
   - [Build Linux AppImage](#build-linux-appimage)
+  - [Build macOS DMG](#build-macos-dmg)
 - [Documentation & Screenshots](#documentation--screenshots)
 - [SBoM (CycloneDX)](#sbom-cyclonedx)
 - [🏗️ Architecture](#-architecture)
@@ -116,6 +119,11 @@ There are two options:
 ## Linux
 
 - doubleclick `File_Encryption_&_Decryption-x86_64.AppImage` or your Dekstop-Shortcut
+
+## macOS
+
+- doubleclick the downloaded `.dmg` package to open it.
+- doubleclick the `file_encryption-decryption` application inside to start it directly. There is no installation required.
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
@@ -210,6 +218,14 @@ or
 
 ```Bash
 ./create_appimage_modern.sh
+```
+
+## Build macOS DMG
+
+To build the macOS DMG package, you need to have `create-dmg` installed (e.g., via Homebrew: `brew install create-dmg`).
+
+```Bash
+./create_dmg.sh
 ```
 
 ([back to top](#top))

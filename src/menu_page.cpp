@@ -1,6 +1,19 @@
 /**
+ * SPDX-FileComment: UI start page implementation
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file menu_page.cpp
  * @brief UI start page implementation
+ * @version <2.1.0>
+ * @date <2026-03-04>
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
 
 #include "menu_page.h"

@@ -1,12 +1,22 @@
-#pragma once
-
 /**
+ * SPDX-FileComment: Dialog window for file encryption.
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file encrypt_file_dialog.h
  * @brief Dialog window for file encryption.
+ * @version <2.1.0>
+ * @date <2026-03-04>
  *
- * This class provides a graphical interface for the user to select a file
- * and a password for encryption. It includes password verification.
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
+
+#pragma once
 
 #include <QDialog>
 class QLabel;

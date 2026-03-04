@@ -1,13 +1,22 @@
-#pragma once
-
 /**
+ * SPDX-FileComment: Logic class for handling file encryption and decryption.
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file encryption_manager.h
  * @brief Logic class for handling file encryption and decryption.
+ * @version <2.1.0>
+ * @date <2026-03-04>
  *
- * This file contains the EncryptionManager class which manages the
- * AES-256 encryption and decryption processes using streaming to support
- * large files.
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
+
+#pragma once
 
 #include <QObject>
 #include <QString>

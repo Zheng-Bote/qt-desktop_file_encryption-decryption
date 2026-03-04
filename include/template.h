@@ -1,12 +1,22 @@
-#pragma once
-
 /**
+ * SPDX-FileComment: Base template window class.
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file template.h
  * @brief Base template window class.
+ * @version <2.1.0>
+ * @date <2026-03-04>
  *
- * A base QMainWindow class that serves as a template for other windows
- * in the application, mostly setting up a common background.
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
+
+#pragma once
 
 #include <QMainWindow>
 

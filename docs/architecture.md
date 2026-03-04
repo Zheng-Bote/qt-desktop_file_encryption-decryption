@@ -65,28 +65,28 @@ classDiagram
 
 ## Component Diagram
 ```mermaid
-componentDiagram
-  package "User Interface" {
-    [Main Window]
-    [Encrypt Dialog]
-    [Decrypt Dialog]
-  }
+graph TD
+  subgraph UserInterface[User Interface]
+    MainWindow[Main Window]
+    EncryptDialog[Encrypt Dialog]
+    DecryptDialog[Decrypt Dialog]
+  end
   
-  package "Business Logic" {
-    [Encryption Manager]
-    [Config Loader]
-  }
+  subgraph BusinessLogic[Business Logic]
+    EncryptionManager[Encryption Manager]
+    ConfigLoader[Config Loader]
+  end
   
-  package "Core Cryptography" {
-    [QAESEncryption]
-    [OpenSSL/QtCrypto]
-  }
+  subgraph CoreCryptography[Core Cryptography]
+    QAESEncryption[QAESEncryption]
+    OpenSSLCrypto[OpenSSL/QtCrypto]
+  end
   
-  [Main Window] --> [Encrypt Dialog]
-  [Main Window] --> [Decrypt Dialog]
-  [Encrypt Dialog] --> [Encryption Manager]
-  [Decrypt Dialog] --> [Encryption Manager]
-  [Encryption Manager] --> [QAESEncryption]
+  MainWindow --> EncryptDialog
+  MainWindow --> DecryptDialog
+  EncryptDialog --> EncryptionManager
+  DecryptDialog --> EncryptionManager
+  EncryptionManager --> QAESEncryption
 ```
 
 ## Entity Relationship Diagram

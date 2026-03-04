@@ -1,3 +1,21 @@
+/**
+ * SPDX-FileComment: AES Encryption logic (based on Qt-AES by bricke)
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
+ * @file qaesencryption.h
+ * @brief AES Encryption logic.
+ * @version <2.1.0>
+ * @date <2026-03-04>
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
+ */
+
 // https://github.com/bricke/Qt-AES
 
 #pragma once

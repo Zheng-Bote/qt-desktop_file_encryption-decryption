@@ -2,24 +2,24 @@
 
 ## Deployment Diagram
 ```mermaid
-deploymentDiagram
-  node "User's Computer (OS)" as PC {
-    node "Operating System" as OS {
-      node "File Encryption App" as App {
-        component "Qt Core Libraries"
-        component "Qt GUI/Widgets"
-        component "Application Binary (.exe/.AppImage/.dmg)"
-      }
-    }
+graph TD
+  subgraph PC[User's Computer OS]
+    subgraph OS[Operating System]
+      subgraph App[File Encryption App]
+        QtCore[Qt Core Libraries]
+        QtGui[Qt GUI/Widgets]
+        AppBinary[Application Binary .exe/.AppImage/.dmg]
+      end
+    end
     
-    node "Local Storage" as HDD {
-      artifact "Plain Text Files"
-      artifact "Encrypted Files (.enc)"
-      artifact "App Config/Settings (.ini)"
-    }
-  }
+    subgraph HDD[Local Storage]
+      PlainText[Plain Text Files]
+      EncryptedFiles[Encrypted Files .enc]
+      AppConfig[App Config/Settings .ini]
+    end
+  end
   
-  App --> HDD : Reads/Writes
+  App -->|Reads/Writes| HDD
 ```
 
 ## Physical Decomposition Diagram

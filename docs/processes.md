@@ -2,30 +2,30 @@
 
 ## Use Case Diagram
 ```mermaid
-usecaseDiagram
-  actor User
+graph TD
+  User((User))
   
-  rectangle "File Encryption App" {
-    usecase "Encrypt a File" as UC1
-    usecase "Decrypt a File" as UC2
-    usecase "Configure App" as UC3
+  subgraph App[File Encryption App]
+    UC1(Encrypt a File)
+    UC2(Decrypt a File)
+    UC3(Configure App)
     
-    usecase "Select Source File" as UC1a
-    usecase "Enter Password" as UC1b
-    usecase "Save Destination File" as UC1c
-  }
+    UC1a(Select Source File)
+    UC1b(Enter Password)
+    UC1c(Save Destination File)
+  end
   
   User --> UC1
   User --> UC2
   User --> UC3
   
-  UC1 ..> UC1a : include
-  UC1 ..> UC1b : include
-  UC1 ..> UC1c : include
+  UC1 -.->|include| UC1a
+  UC1 -.->|include| UC1b
+  UC1 -.->|include| UC1c
   
-  UC2 ..> UC1a : include
-  UC2 ..> UC1b : include
-  UC2 ..> UC1c : include
+  UC2 -.->|include| UC1a
+  UC2 -.->|include| UC1b
+  UC2 -.->|include| UC1c
 ```
 
 ## Sequence Diagram (Encryption Flow)
@@ -61,29 +61,44 @@ sequenceDiagram
 
 ## Activity Diagram (Decryption)
 ```mermaid
-activityDiagram
-  start
-  :User selects encrypted file;
-  :User enters password;
-  :User starts Decryption;
+stateDiagram-v2
+  [*] --> SelectFile
+  SelectFile: User selects encrypted file
+  SelectFile --> EnterPassword
+  EnterPassword: User enters password
+  EnterPassword --> StartDecryption
+  StartDecryption: User starts Decryption
   
-  if (File Valid?) then (yes)
-    :Read File Header;
-    :Extract Salt & IV;
-    :Derive Key (Password + Salt);
-    :Read Payload Chunk;
-    :Decrypt Chunk (AES-256-CBC);
-    
-    if (MAC/Padding Valid?) then (yes)
-      :Write to Output File;
-      :Show Success;
-    else (no)
-      :Show "Invalid Password or corrupted file";
-    endif
-  else (no)
-    :Show "File Not Found";
-  endif
-  stop
+  state if_valid <<choice>>
+  StartDecryption --> if_valid: File Valid?
+  
+  if_valid --> ReadHeader: yes
+  ReadHeader: Read File Header
+  ReadHeader --> ExtractSaltIV
+  ExtractSaltIV: Extract Salt & IV
+  ExtractSaltIV --> DeriveKey
+  DeriveKey: Derive Key (Password + Salt)
+  DeriveKey --> ReadChunk
+  ReadChunk: Read Payload Chunk
+  ReadChunk --> DecryptChunk
+  DecryptChunk: Decrypt Chunk (AES-256-CBC)
+  
+  state if_mac_valid <<choice>>
+  DecryptChunk --> if_mac_valid: MAC/Padding Valid?
+  
+  if_mac_valid --> WriteOutput: yes
+  WriteOutput: Write to Output File
+  WriteOutput --> ShowSuccess
+  ShowSuccess: Show Success
+  ShowSuccess --> [*]
+  
+  if_mac_valid --> ShowErrorMac: no
+  ShowErrorMac: Show "Invalid Password or corrupted file"
+  ShowErrorMac --> [*]
+  
+  if_valid --> ShowErrorFile: no
+  ShowErrorFile: Show "File Not Found"
+  ShowErrorFile --> [*]
 ```
 
 ## Flowchart
@@ -94,13 +109,13 @@ flowchart TD
     B -->|Click Decrypt| D[Open Decrypt Dialog]
     
     C --> E[Select File & Enter Password]
-    E --> F[Generate Salt/IV & Key]
+    E --> F["Generate Salt/IV & Key"]
     F --> G[AES Encrypt Data]
     G --> H[Save .enc File]
     H --> I[Success]
     
     D --> J[Select .enc File & Enter Password]
-    J --> K[Read Header (Salt/IV)]
+    J --> K["Read Header (Salt/IV)"]
     K --> L[Derive Key]
     L --> M[AES Decrypt Data]
     M --> N[Save original File]
@@ -110,15 +125,15 @@ flowchart TD
 ## Information Flow Diagram
 ```mermaid
 flowchart LR
-    SourceFile[(Raw File)] --> |Bytes| Reader[File Reader]
+    SourceFile[Raw File] --> |Bytes| Reader[File Reader]
     Reader --> |Plain Text Blocks| CryptoEngine((QAES Crypto))
     
-    Password[User Input: Password] --> |String| KDF[Key Derivation (PBKDF2)]
+    Password["User Input: Password"] --> |String| KDF["Key Derivation (PBKDF2)"]
     Salt[Random Salt] --> KDF
     KDF --> |256-bit Key| CryptoEngine
     
     IV[Random IV] --> CryptoEngine
     
     CryptoEngine --> |Cipher Text Blocks| Writer[File Writer]
-    Writer --> OutputFile[(.enc File)]
+    Writer --> OutputFile[.enc File]
 ```

@@ -1,12 +1,22 @@
-#pragma once
-
 /**
+ * SPDX-FileComment: Main menu window of the application.
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
  * @file menu_page.h
  * @brief Main menu window of the application.
+ * @version <2.1.0>
+ * @date <2026-03-04>
  *
- * This class handles the main menu UI, language selection, and navigation
- * to encryption and decryption dialogs.
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
  */
+
+#pragma once
 
 #include "decrypt_file_dialog.h"
 #include "encrypt_file_dialog.h"
