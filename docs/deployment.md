@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Deployment & Physical Views](#deployment--physical-views)
+  - [Deployment Diagram](#deployment-diagram)
+  - [Physical Decomposition Diagram](#physical-decomposition-diagram)
+  - [Development View](#development-view)
+  - [State Diagram](#state-diagram)
+  - [Functional Decomposition Diagram](#functional-decomposition-diagram)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Deployment & Physical Views
 
 ## Deployment Diagram
