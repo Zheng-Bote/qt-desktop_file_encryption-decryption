@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Architecture & Design Views](#architecture--design-views)
+  - [Bounded Contexts](#bounded-contexts)
+  - [Class Diagram](#class-diagram)
+  - [Component Diagram](#component-diagram)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
+  - [Logical Decomposition Diagram](#logical-decomposition-diagram)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Architecture & Design Views
 
 ## Bounded Contexts
