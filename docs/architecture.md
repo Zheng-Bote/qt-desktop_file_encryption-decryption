@@ -6,12 +6,11 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Deployment & Physical Views](#deployment--physical-views)
-  - [Deployment Diagram](#deployment-diagram)
-  - [Physical Decomposition Diagram](#physical-decomposition-diagram)
-  - [Development View](#development-view)
-  - [State Diagram](#state-diagram)
-  - [Functional Decomposition Diagram](#functional-decomposition-diagram)
+- [Bounded Contexts](#bounded-contexts)
+- [Class Diagram](#class-diagram)
+- [Component Diagram](#component-diagram)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Logical Decomposition Diagram](#logical-decomposition-diagram)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
